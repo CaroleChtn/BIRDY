@@ -33,17 +33,17 @@ doc.search(".nbjours").each do |ele|
   days_missions_trek << ele.text.strip
 end
 
-price_trek =[]
+price_trek = []
 doc.search(".price").each do |ele|
   price_trek << ele.text.strip
-
+end
 
 img = []
 city = []
 title = []
 departure_date = [] #sur certaines missions y'a pas de date départ prévu, du coup sur la vue -> faire une conidition "if "nil" indiquer "pas de départ prévu"
 price = []
-duration= []
+duration = []
 
 html = URI.open("https://www.doublesens.fr/26-action-solidaire").read
 doc = Nokogiri::HTML(html, nil, "utf-8")
