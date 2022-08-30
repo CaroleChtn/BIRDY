@@ -1,5 +1,7 @@
 <h1>MISSION'S INDEX </h1>
 
 <% @missions.each do |mission|  %>
-<%= mission.title %>
+<%= link_to mission.title, mission_path(mission) %>
+<p><%= mission.description %></p>
+<p><%= mission.price %> € </p>
 <% end %>

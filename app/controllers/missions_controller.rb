@@ -5,6 +5,8 @@ class MissionsController < ApplicationController
 
   def show
     @mission = Mission.find(params[:id])
+    @booking = Booking.new
+    @user = current_user
   end
 
   # private
