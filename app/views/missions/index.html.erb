@@ -4,4 +4,10 @@
 <%= link_to mission.title, mission_path(mission) %>
 <p><%= mission.description %></p>
 <p><%= mission.price %> € </p>
+  <% mission.tags.each do |tag| %>
+  <div class="badge bg-secondary"><%= tag.name %></div>
+  <% end %>
+  <% mission.categories.each do |category| %>
+  <div class="badge bg-primary"><%= category.name %></div>
+  <% end %>
 <% end %>

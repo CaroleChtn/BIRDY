@@ -9,9 +9,10 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       flash.alert = "Your booking is ok!"
-      # redirect_to dashboards_path
+      redirect_to dashboards_path
     else
-      render :new, status: :unprocessable_entity
+      flash.alert = "Your booking is not ok!"
+      redirect_to mission_path(@booking.mission)
     end
   end
 
