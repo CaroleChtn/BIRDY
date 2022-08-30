@@ -1,40 +1,47 @@
 
-<div class="container">
-  <h2 class="text-center"><%= @mission.title %> </h2>
-  <p> <strong>Description</strong>
-  <br>
-  <%= @mission.description %></p>
-</div>
 
-<div class="form col-sm-4 mt-2 sticky">
-  <div data-controller="flatpickr">
-    <%= simple_form_for [@mission, @booking],
-                                html: {
-                                  data: {
-                                    controller: 'flatpickr'
-                                  }
-                                } do |f| %>
-                                <div class="d-flex flex-column">
-              <%= f.input :start_date,
-                          label: 'From:',
-                          as: :string,
-                          # label: 'Start - End',
-                          input_html: {
-                            data: {
-                              flatpickr_target: 'startDateInput',
-                            }
-                          } %>
-              <%= f.input :end_date,
-                          label: 'To:',
-                          as: :string,
-                          # wrapper_html: { class: 'd-none' },
-                          input_html: {
-                            data: {
-                              flatpickr_target: 'endDateInput',
-                            }
-                          } %>
-              <%= f.submit 'Book now!', class: 'btn btn-primary align-self-center' %>
-                              </div>
-            <% end %>
+  <h2 class="text-center mt-2"><%= @mission.title %> </h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <p> <strong>Description</strong>
+      <br>
+      <%= @mission.description %></p>
+    </div>
+
+    <div class="form col-sm-4 mt-2 sticky">
+      <h2>Le simple form à voir ce qu'on met dedans yeah</h2>
+      <div data-controller="flatpickr">
+        <%= simple_form_for [@mission, @booking],
+                                    html: {
+                                      data: {
+                                        controller: 'flatpickr'
+                                      }
+                                    } do |f| %>
+                                    <div class="d-flex flex-column">
+                  <%= f.input :start_date,
+                              label: 'From:',
+                              as: :string,
+                              # label: 'Start - End',
+                              input_html: {
+                                data: {
+                                  flatpickr_target: 'startDateInput',
+                                }
+                              } %>
+                  <%= f.input :end_date,
+                              label: 'To:',
+                              as: :string,
+                              # wrapper_html: { class: 'd-none' },
+                              input_html: {
+                                data: {
+                                  flatpickr_target: 'endDateInput',
+                                }
+                              } %>
+                  <%= f.submit 'Book now!', class: 'btn btn-primary align-self-center' %>
+                                  </div>
+                <% end %>
+      </div>
+    </div>
   </div>
 </div>
