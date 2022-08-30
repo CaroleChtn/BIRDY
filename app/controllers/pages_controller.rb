@@ -5,4 +5,11 @@ class PagesController < ApplicationController
     @missions = Mission.all
     @user = current_user
   end
+
+  def dashboard
+  end
+
+  def myprofile
+    @user = current_user
+  end
 end
