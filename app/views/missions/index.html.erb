@@ -1,13 +1,24 @@
-<h1>MISSION'S INDEX </h1>
+<div class="container">
+  <div class="text-center mt-2">
+    <h1>INDEX DES MISSIONS </h1>
+  </div>
 
-<% @missions.each do |mission|  %>
-<%= link_to mission.title, mission_path(mission) %>
-<p><%= mission.description %></p>
-<p><%= mission.price %> € </p>
-  <% mission.tags.each do |tag| %>
-  <div class="badge bg-secondary"><%= tag.name %></div>
-  <% end %>
-  <% mission.categories.each do |category| %>
-  <div class="badge bg-primary"><%= category.name %></div>
-  <% end %>
-<% end %>
+  <div>
+    <% @missions.each do |mission|  %>
+    <%= link_to mission.title, mission_path(mission) %>
+    <p><%= mission.description %></p>
+    <p><%= mission.price %> € </p>
+      <% mission.tags.each do |tag| %>
+      <div class="badge bg-secondary"><%= tag.name %></div>
+      <% end %>
+      <% mission.categories.each do |category| %>
+      <div class="badge bg-primary"><%= category.name %></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="mt-2">
+    <script id="mon-impact-transport" src="https://api.monimpacttransport.fr/iframe.js" data-search="?theme=night"></script>
+  </div>
+
+</div>
