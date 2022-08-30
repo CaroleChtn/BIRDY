@@ -32,6 +32,7 @@ days_missions_trek = []
 doc.search(".nbjours").each do |ele|
   days_missions_trek << ele.text.strip
 end
+days_missions_trek
 
 price_trek = []
 doc.search(".price").each do |ele|
@@ -72,3 +73,35 @@ end
 doc.search(".nbjours").each do |element|
   duration << element.text.strip
 end
+
+
+html = URI.open("https://www.doublesens.fr/34-treks-randonnees").read
+doc = Nokogiri::HTML(html, nil, "utf-8")
+
+description_trek = []
+exeprience_title1_trek = []
+details_1_experience_trek = []
+exeprience_title2_trek = []
+details_2_experience_trek = []
+exeprience_title3_trek = []
+details_3_experience_trek = []
+# faut mettre products_full sur les searchs pour enlever les doublons
+doc.search("#products_full .backgroundimage3 a").uniq.each do |ele|
+  mission_trek_url = ele.attr("href")
+  mission_trek_html = URI.open(mission_trek_url).read
+  mission_trek_doc = Nokogiri::HTML(mission_trek_html, nil, "utf-8")
+  mission_trek_doc.search(".description_long").each do |ele|
+    description_trek << ele.text.strip
+  end
+  exeprience_title1_trek << mission_trek_doc.search(".text-experience-product h3").first.text
+  details_1_experience_trek << mission_trek_doc.search(".text-experience-product ul").first.text
+  exeprience_title2_trek << mission_trek_doc.search(".text-experience-product h3").at(1).text
+  details_2_experience_trek << mission_trek_doc.search(".text-experience-product p").at(1)
+  exeprience_title3_trek << mission_trek_doc.search(".text-experience-product h3").at(2).text
+  details_3_experience_trek << mission_trek_doc.search(".text-experience-product").at(2).to_s.gsub(/<h3.*?>[\s\S]*<\/h3>/, "")
+
+
+  # gsub(/<h3.*?>[\s\S]*<\/h3>/, "")
+end
+
+puts details_3_experience_trek
