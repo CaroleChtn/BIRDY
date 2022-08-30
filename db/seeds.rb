@@ -1,11 +1,4 @@
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 require "nokogiri"
 img_trek = []
@@ -41,7 +34,7 @@ end
 img = []
 city = []
 title = []
-departure_date = [] #sur certaines missions y'a pas de date départ prévu, du coup sur la vue -> faire une conidition "if "nil" indiquer "pas de départ prévu"
+departure_date = [] #sur certaines missions y'a pas de date départ prévu, du coup sur la vue -> faire une conidition if "nil" indiquer "pas de départ prévu"
 price = []
 duration = []
 
@@ -72,3 +65,49 @@ end
 doc.search(".nbjours").each do |element|
   duration << element.text.strip
 end
+
+
+doc.search(".product-miniature-text a").each_with_index do |link, index|
+  # if index.even?
+    mission_html = URI.open(link).read
+    mission_doc = Nokogiri::HTML(mission_html, nil, "utf-8")
+
+    # mission_doc.search(".description_long span").each do |element2|
+    #   mission_description << element2.text
+    # end
+
+    # mission_doc.search(".text-experience-product h3").each do |element3|
+    #   exp_title << element3.text
+    # end
+
+    # mission_doc.search(".text-experience-product li").each do |element4|
+    #   exp_description1 << element4.text
+    # end
+
+    # onglets
+
+    experiences = mission_doc.at('#experience').text.strip.squish
+    p experiences
+    # mission_doc.search(".img-experience-product img").each do |element5|
+    #   img_exp << element5.text
+    #   end
+  # end
+end
+
+
+
+
+
+
+# html = URI.open("https://www.joeyrent.com/classic-cars.php").read
+# # 1. Parse HTML
+# doc = Nokogiri::HTML(html, nil, "utf-8")
+
+# doc.search(".product-image a").each_with_index do |ele, index|
+#   title << ele.attr("href") if index.even?
+#   car_url = "https://www.joeyrent.com/" + ele.attr("href") if index.even?
+#   car_html = URI.open(car_url).read
+#   car_doc = Nokogiri::HTML(car_html, nil, "utf-8")
+#   seats << car_doc.search(".table > tbody > tr > td").at(1).text if index.even?
+#   overview << car_doc.search(".col-md-12 p").at(3).text if index.even?
+# end
