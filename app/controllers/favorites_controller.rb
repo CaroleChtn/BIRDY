@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
     redirect_to root_path
   end
 
-  private
+
 
   # def mission_params
   #   params.require(:favorite).permit(:start_date, :end_date, :address, :price)
