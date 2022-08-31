@@ -384,3 +384,8 @@ end
 # puts infos_voyage_text4_trek.size
 
 # End scrapping trek ------------------------------------------------
+
+
+# if Mission.where(title: title[i] ).empty?
+# Mission.new()
+# end
