@@ -4,7 +4,9 @@ class MissionsController < ApplicationController
     @markers = @missions.geocoded.map do |mission|
       {
         lat: mission.latitude,
-        lng: mission.longitude
+        lng: mission.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {mission: mission}),
+        image_url: helpers.asset_url("logo.png")
       }
     end
   end

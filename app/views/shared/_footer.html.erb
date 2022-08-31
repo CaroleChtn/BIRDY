@@ -1,0 +1,45 @@
+<div class="footer">
+  <div class="container">
+    <div class="row">
+
+      <div class="col">
+        <div class="footer-copyright">
+          <%= image_tag "logo.png", width: "100px", class: 'logo' %>
+          <%= image_tag "name.png", width: "80px", class: 'logo' %>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="footer-list">
+        <ul class="list-group">
+          <li class="list-item"><%= link_to "Expériences", root_path %></li>
+          <li class="list-item"><%= link_to "Qui sommes-nous?", root_path %></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="footer-list">
+        <ul>
+          <li><%= link_to "Nous contacter", root_path %></li>
+          <li><%= link_to "Recrutement", root_path %></li>
+          <li><%= link_to "FAQ", root_path %></li>
+        </ul>
+        </div>
+      </div>
+
+      <div class="col">
+        <p><strong>Rejoins la communauté !</strong></p>
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label">Inscris-toi</label>
+          </div>
+          <div class="col-auto">
+            <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

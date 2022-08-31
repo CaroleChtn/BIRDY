@@ -1,0 +1,53 @@
+.container-index{
+  background-color: white;
+  // display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  grid-column-gap: 3rem;
+}
+
+.card-index {
+  width: 400px;
+  height: 650px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+.card-index-image img{
+  object-fit: fill;
+  object-position: center;
+  // object-position: 50% 4000%;
+  height: 399px;
+  margin: 0px 0px 0px -600px
+}
+
+.card-index-text{
+
+}
+
+.card-index-price{
+  text-align: end;
+}
+
+.text-ellipsis--2{
+  text-overflow:ellipsis;
+  overflow:hidden;
+  // Addition lines for 2 line or multiline ellipsis
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.main-container-emprunte-carbone{
+  background-color: lightyellow;
+  width: 100%;
+  height: 600px;
+}
+
+.card-emprunte-carbon h2{
+  color: darkgreen;
+}

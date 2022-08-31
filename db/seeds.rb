@@ -21,8 +21,8 @@ exception_departure_date = (6..11).to_a # exception pour price et duration aussi
 html = URI.open("https://www.doublesens.fr/26-action-solidaire").read
 doc = Nokogiri::HTML(html, nil, "utf-8")
 doc.search(".product-min-container img").each_with_index do |element, index|
-  img << element.attr("src") if index.even? && index < 27 && exception.include?(index) == false
-  img << element.attr("src") if index.odd? && index >= 27 && exception.include?(index) == false
+  img << element.attr("src") if index.even? && index <= 28 && exception.include?(index) == false
+  img << element.attr("src") if index.odd? && index >= 28 && exception.include?(index) == false
 end
 
 doc.search(".product-link").each_with_index do |element, index|
@@ -128,8 +128,8 @@ end
 
 # Variable TEST --------------------
 
-# puts img
-# puts img.size
+puts img
+puts img.size
 # puts city
 # puts city.size
 # puts title
