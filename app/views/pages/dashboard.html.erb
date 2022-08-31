@@ -1,3 +1,27 @@
+<h1> hello c'est mon dashboard</h1>
+
+<div>
+      <div>
+          <h2>Your bookings</h2>
+
+            <h6 class="title" >En attente de validation</h6>
+            <% @current_bookings.each do |booking| %>
+              <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+            <% end %>
+
+
+            <h6 class="title1">Expériences à venir</h6>
+            <% @future_bookings.each do |booking| %>
+              <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+            <% end %>
+
+
+             <h6 class="title2">Expériences passées</h6>
+             <% @past_bookings.each do |booking| %>
+                    <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+             <% end %>
+        </div>
+    </div>
 
 <div class="container">
 
