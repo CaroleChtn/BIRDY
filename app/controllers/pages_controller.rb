@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     @mission = Mission.new
     @past_bookings = @user.bookings.select {|booking| booking.end_date < Date.today}
     @current_bookings = @user.bookings.select {|booking| booking.start_date == Date.today}
-    @future_bookings = @user.bookings.select {|booking| booking.start_rent > Date.today}
+    @future_bookings = @user.bookings.select {|booking| booking.start_date > Date.today}
   end
 
   def myprofile
