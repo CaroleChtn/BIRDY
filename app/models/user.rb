@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :bookings
+  has_many :missions, through: :bookings
   # validates :name, :phone_number, presence: true
 end
