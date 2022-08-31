@@ -1,5 +1,10 @@
 require "open-uri"
 require "nokogiri"
+require "faker"
+
+Booking.destroy_all
+Mission.destroy_all
+User.destroy_all
 
 img = []
 city = []
@@ -198,7 +203,50 @@ end
 
 # End scrapping Action solidaire-------------------------------
 
+# Creation des mission action solidaire ----------------------------------
 
+i = 0
+missions = []
+24.times do
+  if Mission.where(title: title[i] ).empty?
+    mission = Mission.new(
+      title: title[i],
+      description: description[i],
+      address: city[i],
+      price: price[i],
+      img: img[i],
+      departure_date: departure_date[i],
+      duration: duration[i],
+      experience_title1: experience_title1[i],
+      experience_title2: experience_title2[i],
+      experience_title3: experience_title3[i],
+      experience_detail1: experience_detail1[i],
+      experience_detail2: experience_detail2[i],
+      experience_detail3: experience_detail3[i],
+      experience_img1: experience_img1[i],
+      experience_img2: experience_img2[i],
+      experience_img3: experience_img3[i],
+      jour_par_jour_img: jour_par_jour_img[i],
+      jour_par_jour_text: jour_par_jour_text[i],
+      impact_local_img: impact_local_img[i],
+      impact_local_text: impact_local_text[i],
+      infos_voyage_title1: infos_voyage_title1[i],
+      infos_voyage_title2: infos_voyage_title2[i],
+      infos_voyage_title3: infos_voyage_title3[i],
+      infos_voyage_title4: infos_voyage_title4[i],
+      infos_voyage_text1: infos_voyage_text1[i],
+      infos_voyage_text2: infos_voyage_text2[i],
+      infos_voyage_text3: infos_voyage_text3[i],
+      infos_voyage_text4: infos_voyage_text4[i]
+    )
+    mission.save!
+    missions << mission
+    puts "one more mission"
+  end
+  i += 1
+end
+
+# End Action solidaire ---------------------------------------------------
 
 # Start scrapping Trek ----------------------------------------
 
@@ -311,6 +359,50 @@ doc.search("#products_full .backgroundimage3 a").uniq.each_with_index do |ele, i
 
 end
 
+# Creation mission trek
+
+i = 0
+12.times do
+  if Mission.where(title: title_trek[i] ).empty?
+    mission = Mission.new(
+      title: title_trek[i],
+      description: description_trek[i],
+      address: city_trek[i],
+      price: price_trek[i],
+      img: img_trek[i],
+      departure_date: departure_date_trek[i],
+      duration: duration_trek[i],
+      experience_title1: experience_title1_trek[i],
+      experience_title2: experience_title2_trek[i],
+      experience_title3: experience_title3_trek[i],
+      experience_detail1: experience_detail1_trek[i],
+      experience_detail2: experience_detail2_trek[i],
+      experience_detail3: experience_detail3_trek[i],
+      experience_img1: experience_img1_trek[i],
+      experience_img2: experience_img2_trek[i],
+      experience_img3: experience_img3_trek[i],
+      jour_par_jour_img: jour_par_jour_img_trek[i],
+      jour_par_jour_text: jour_par_jour_text_trek[i],
+      impact_local_img: impact_local_img_trek[i],
+      impact_local_text: impact_local_text_trek[i],
+      infos_voyage_title1: infos_voyage_title1_trek[i],
+      infos_voyage_title2: infos_voyage_title2_trek[i],
+      infos_voyage_title3: infos_voyage_title3_trek[i],
+      infos_voyage_title4: infos_voyage_title4_trek[i],
+      infos_voyage_text1: infos_voyage_text1_trek[i],
+      infos_voyage_text2: infos_voyage_text2_trek[i],
+      infos_voyage_text3: infos_voyage_text3_trek[i],
+      infos_voyage_text4: infos_voyage_text4_trek[i]
+    )
+    mission.save!
+    missions << mission
+    puts "one more mission"
+  end
+  i += 1
+end
+
+
+puts missions.size
 # Variable TEST
 
 # puts img_trek
@@ -384,3 +476,18 @@ end
 # puts infos_voyage_text4_trek.size
 
 # End scrapping trek ------------------------------------------------
+
+
+# Creating users
+
+10.times do
+  name = Faker::Name.first_name
+  email = Faker::Internet.email
+  password = "123456"
+  phone_number = "0607080919"
+  user = User.create!(name: name, email: email, password: password, phone_number: phone_number)
+end
+
+birdy = User.create!(email: "birdy@mail.com", password: "123456", name: "Birdy", phone_number: "0123456789")
+
+puts "finished !!"
