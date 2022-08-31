@@ -11,3 +11,10 @@
 @import "components/index";
 @import "pages/index";
 @import "flatpickr/dist/themes/airbnb";
+
+
+
+.wrapper {
+  // 40px = hauteur navbar, 100 =hauteur footer
+  min-height: calc(100vh - 80px - 380px);
+}
