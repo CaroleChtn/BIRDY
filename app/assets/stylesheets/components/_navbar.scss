@@ -1,6 +1,15 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+  position: fixed;
+  width: 100%;
+  color: white;
+}
+
+.navbar-lewagon-white {
+  background-color: white;
+  color: black;
 }
 
 .navbar-lewagon .navbar-collapse {
