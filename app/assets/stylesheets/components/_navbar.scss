@@ -5,10 +5,16 @@
   position: fixed;
   width: 100%;
   color: white;
+  border-bottom: solid 0.5px white;
+}
+.navbar-lewagon a {
+  color: white;
 }
 
 .navbar-lewagon-white {
   background-color: white;
+}
+.navbar-lewagon-white a {
   color: black;
 }
 
