@@ -2,29 +2,32 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  // text-align: end;
   margin-bottom: 20px;
+  height: 470px;
+
+  h2 {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  p {
+   font-size: 24px;
+   color: #e7e6d2;
+   opacity: .7;
+   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+
+  .btn {
+   background-color: $light-yellow;
+   border: $light-yellow;
+  }
+
 }
 
-.banner h2 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 36px;
-  margin-bottom: 10px;
-}
 
-.banner p {
-  font-size: 24px;
-  color: #e7e6d2;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.banner .btn {
-  background-color: $light-yellow;
-  border: $light-yellow;
-}
 
 .btn-search {
   width: 160px;
