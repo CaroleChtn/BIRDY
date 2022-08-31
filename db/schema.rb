@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_125914) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_31_102940) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,6 +32,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_125914) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "mission_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mission_id"], name: "index_favorites_on_mission_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "mission_tags", force: :cascade do |t|
     t.bigint "mission_id", null: false
     t.bigint "tag_id", null: false
@@ -48,6 +57,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_125914) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "img"
+    t.string "departure_date"
+    t.string "duration"
+    t.string "experience_title1"
+    t.string "experience_title2"
+    t.string "experience_title3"
+    t.text "experience_detail1"
+    t.text "experience_detail2"
+    t.text "experience_detail3"
+    t.string "experience_img1"
+    t.string "experience_img2"
+    t.string "experience_img3"
+    t.string "jour_par_jour_img"
+    t.text "jour_par_jour_text"
+    t.string "impact_local_img"
+    t.text "impact_local_text"
+    t.string "infos_voyage_title1"
+    t.string "infos_voyage_title2"
+    t.string "infos_voyage_title3"
+    t.string "infos_voyage_title4"
+    t.text "infos_voyage_text1"
+    t.text "infos_voyage_text2"
+    t.text "infos_voyage_text3"
+    t.text "infos_voyage_text4"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -87,6 +120,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_125914) do
 
   add_foreign_key "bookings", "missions"
   add_foreign_key "bookings", "users"
+  add_foreign_key "favorites", "missions"
+  add_foreign_key "favorites", "users"
   add_foreign_key "mission_tags", "missions"
   add_foreign_key "mission_tags", "tags"
   add_foreign_key "reviews", "bookings"

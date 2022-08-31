@@ -1,1 +1,22 @@
 <h1> hello c'est mon dashboard</h1>
+
+<% @missions.each do |mission|%>
+  <div class="card-trip">
+    <%= cl_image_tag mission.photo.key, class:"card-img-top", alt:"car" %>
+    <%# <%= image_tag car.picture %>
+    <div class="card-trip-infos" id="card-index">
+      <div class="card-trip-infos-top">
+        <h2><%=mission.title%></h2>
+
+        <div>
+          <ul>
+            <li><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="card-text text-ellipsis--2"> <%=title.description%></p>
+      <a href="<%= mission_path(mission.id) %>" class="btn btn-primary w-100 mt-3"> <strong><%=mission.price%>€</strong></a>
+    </div>
+  </div>
+<% end%>
