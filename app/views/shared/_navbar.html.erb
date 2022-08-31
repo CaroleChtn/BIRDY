@@ -15,7 +15,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Expériences", "#", class: "nav-link" %>
+            <%= link_to "Expériences", missions_path , class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Communauté", "#", class: "nav-link" %>
@@ -27,7 +27,7 @@
           <li class="nav-item dropdown"> %>
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Mon profil", myprofile_path, class: "dropdown-item" %>
+              <%#= link_to "Mon profil", myprofile_path, class: "dropdown-item" %>
               <%= link_to "Tableau de bord", dashboards_path, class: "dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

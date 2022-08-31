@@ -1,22 +1,47 @@
+
 <h1> hello c'est mon dashboard</h1>
 
-<% @missions.each do |mission|%>
-  <div class="card-trip">
-    <%= cl_image_tag mission.photo.key, class:"card-img-top", alt:"car" %>
-    <%# <%= image_tag car.picture %>
-    <div class="card-trip-infos" id="card-index">
-      <div class="card-trip-infos-top">
-        <h2><%=mission.title%></h2>
+<div class="container">
 
-        <div>
-          <ul>
-            <li><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i></li>
-          </ul>
-        </div>
-      </div>
+  <div class="text-center mt-2">
+    <h2> Bonjour USER_NAME !</h1>
+    <h3> Ville, PAYS</h2>
+    <ul>
+      <li>x Publications</li>
+      <li>x Abonnés</li>
+      <li>x Abonnement</li>
+    </ul>
+  </div>
 
-      <p class="card-text text-ellipsis--2"> <%=title.description%></p>
-      <a href="<%= mission_path(mission.id) %>" class="btn btn-primary w-100 mt-3"> <strong><%=mission.price%>€</strong></a>
+  <div class="cards">
+    <div class="card">
+      <%= link_to "Mon profil", myprofile_path %>
     </div>
   </div>
-<% end%>
+</div>
+
+
+<p> Mes réservations => redict where? </p>
+<p> Communauté </p>
+
+<h1> Favorites</h1>
+  <% @missions.each do |mission|%>
+    <div class="card-trip">
+      <%= cl_image_tag mission.photo.key, class:"card-img-top", alt:"car" %>
+      <%# <%= image_tag car.picture %>
+      <div class="card-trip-infos" id="card-index">
+        <div class="card-trip-infos-top">
+          <h2><%=mission.title%></h2>
+
+          <div>
+            <ul>
+              <li><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="card-text text-ellipsis--2"> <%=title.description%></p>
+        <a href="<%= mission_path(mission.id) %>" class="btn btn-primary w-100 mt-3"> <strong><%=mission.price%>€</strong></a>
+      </div>
+    </div>
+  <% end%>

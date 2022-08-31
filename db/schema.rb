@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_08_31_102940) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_08_31_104905) do
+
+>>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +62,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_102940) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+=======
+    t.float "latitude"
+    t.float "longitude"
+>>>>>>> master
     t.string "img"
     t.string "departure_date"
     t.string "duration"
