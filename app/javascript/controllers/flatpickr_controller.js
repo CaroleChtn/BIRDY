@@ -5,8 +5,8 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 export default class extends Controller {
   static targets = ['startDateInput', 'endDateInput']
+
   connect() {
-    console.log('prout')
     flatpickr(this.startDateInputTarget, {
       mode: 'range',
       "plugins": [new rangePlugin({ input: this.endDateInputTarget})]

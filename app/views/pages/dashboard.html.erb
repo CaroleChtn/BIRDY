@@ -1,32 +1,5 @@
 <h1> hello c'est mon dashboard</h1>
 
-<div>
-      <div>
-          <h2>Your bookings</h2>
-
-            <h6 class="title" >En attente de validation</h6>
-            <% @current_bookings.each do |booking| %>
-              <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
-            <% end %>
-
-
-            <h6 class="title1">Expériences à venir</h6>
-            <% @future_bookings.each do |booking| %>
-              <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
-            <% end %>
-
-
-             <h6 class="title2">Expériences passées</h6>
-             <% @past_bookings.each do |booking| %>
-                    <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
-             <% end %>
-        </div>
-    </div>
-
-<h1> hello c'est mon dashboard</h1>
-
-<div class="container">
-
   <div class="text-center mt-2">
     <h2> Bonjour USER_NAME !</h1>
     <h3> Ville, PAYS</h2>
@@ -37,6 +10,7 @@
     </ul>
   </div>
 
+<div class="container">
   <div class="cards">
     <div class="card">
       <%= link_to "Mon profil", myprofile_path %>
@@ -44,28 +18,50 @@
   </div>
 </div>
 
+<div>
+  <h2>Your bookings</h2>
 
-<p> Mes réservations => redict where? </p>
-<p> Communauté </p>
+    <h6 class="title" >En attente de validation</h6>
+    <% @current_bookings.each do |booking| %>
+      <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+    <% end %>
+
+
+    <h6 class="title1">Expériences à venir</h6>
+    <% @future_bookings.each do |booking| %>
+      <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+    <% end %>
+
+
+      <h6 class="title2">Expériences passées</h6>
+      <% @past_bookings.each do |booking| %>
+            <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+      <% end %>
+</div>
+
+
+
 
 <h1> Favorites</h1>
-  <% @missions.each do |mission|%>
-    <div class="card-trip">
-      <%= cl_image_tag mission.photo.key, class:"card-img-top", alt:"car" %>
-      <%# <%= image_tag car.picture %>
-      <div class="card-trip-infos" id="card-index">
-        <div class="card-trip-infos-top">
-          <h2><%=mission.title%></h2>
-
-          <div>
-            <ul>
-              <li><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i></li>
-            </ul>
+<div class = "card-trip">
+  <div data-controller="favorites">
+    <% @missions.each do |mission|%>
+      <i class="fa-solid fa-heart" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+      <div class="card-trip">
+        <%= image_tag mission.img, class:"card-img-top", alt:"car" %>
+        <%# <%= image_tag car.picture %>
+        <div class="card-trip-infos" id="card-index">
+          <div class="card-trip-infos-top">
+            <h2><%=mission.title%></h2>
+            <div>
+              <ul>
+                <li><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i></li>
+              </ul>
+            </div>
           </div>
+          <a href="<%= mission_path(mission.id) %>" class="btn btn-primary w-100 mt-3"> <strong><%=mission.price%>€</strong></a>
         </div>
-
-        <p class="card-text text-ellipsis--2"> <%=title.description%></p>
-        <a href="<%= mission_path(mission.id) %>" class="btn btn-primary w-100 mt-3"> <strong><%=mission.price%>€</strong></a>
       </div>
-    </div>
-  <% end%>
+    <% end%>
+  </div>
+</div>

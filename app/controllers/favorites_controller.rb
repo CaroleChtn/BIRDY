@@ -1,15 +1,12 @@
 class FavoritesController < ApplicationController
   def create
-   @favorite = Favortie.new(mission_params)
-   @favorite = Favorite.find(params[:mission_id])
-   if @favortie.save
-     flash.alert = "Your booking is ok!"
-     redirect_to dashboards_path
-   else
-     render :new, status: :unprocessable_entity
-   end
- end
-
+    if Favorite.find_by(user: current_user, mission: Mission.find(params[:mission_id]))
+      Favorite.find_by(user: current_user, mission: Mission.find(params[:mission_id])).destroy
+      render json: { mission_id: params[:mission_id], unfav: true }
+    else
+      Favorite.create(user: current_user, mission: Mission.find(params[:mission_id]))
+      render json: { mission_id: params[:mission_id], unfav: false }
+    end
   end
 
   def destroy
@@ -20,7 +17,7 @@ class FavoritesController < ApplicationController
 
   private
 
-
-  def mission_params
-    params.require(:favorite).permit(:start_date, :end_date, :mission_id)
-  end
+  # def mission_params
+  #   params.require(:favorite).permit(:start_date, :end_date, :address, :price)
+  # end
+end
