@@ -488,6 +488,10 @@ puts missions.size
   user = User.create!(name: name, email: email, password: password, phone_number: phone_number)
 end
 
-birdy = User.create!(email: "birdy@mail.com", password: "123456", name: "Birdy", phone_number: "0123456789")
+carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789")
+nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789")
+clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789")
+ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789")
+kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789")
 
 puts "finished !!"
