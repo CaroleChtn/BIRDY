@@ -4,7 +4,7 @@ p {
 }
 
 button {
-  border-radius: 20px;
+  border-radius: 45px;
   background-color: $light-yellow;
   border: none;
   color: black;
@@ -13,4 +13,18 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+button a {
+  text-decoration: none;
+  color: black;
+}
+
+.text-justify {
+  display: flex;
+  justify-content: center;
+}
+.text-justify p {
+  width: 50%;
+  text-align: justify;
+  margin-top: 20px;
 }
