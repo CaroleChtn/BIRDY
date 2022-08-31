@@ -19,9 +19,4 @@ export default class extends Controller {
         }
       })
     }
-
-  // this._handleResponse(data)
-  // _handleFav(data) {
-  //   <i class="fa-regular fa-heart"></i>
-  // }
 }

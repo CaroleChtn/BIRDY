@@ -1,7 +1,7 @@
-<div class="container">
   <div class="text-center mt-2">
-    <h1>INDEX DES MISSIONS </h1>
+    <h1 class="pt-2">INDEX DES MISSIONS </h1>
   </div>
+
 
   <div data-controller="favorites">
     <% @missions.each do |mission|  %>
@@ -16,20 +16,52 @@
       <% mission.categories.each do |category| %>
         <div class="badge bg-primary"><%= category.name %></div>
       <% end %>
-      <i class="fa-solid fa-heart" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
-
-
-      <hr>
+   <i class="fa-solid fa-heart" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+    <hr>
     <% end %>
+
+
+
+<div class="container-index">
+<% @missions.each do |mission|  %>
+  <div class="card-index my-2 mx-2">
+    <div class= "card-index-image">
+      <img src="<%= mission.img%>" alt="mission_img">
+    </div>
+
+    <div class="card-index-bot mx-2">
+      <div class="card-index-text">
+        <h3 class="text-center"><%= mission.title%></h3>
+        <p class= "text-align-justify text-ellipsis--2 pt-2"><%=mission.description%></p>
+      </div>
+
+      <div class="card-index-price">
+        <p><%= mission.duration%></p>
+        <h3><%= mission.price%>€ hors aérien</h3>
+      </div>
+
+    <% mission.tags.each do |tag| %>
+      <div class="badge bg-secondary"><%= tag.name %></div>
+
+    <% end %>
+    <% mission.categories.each do |category| %>
+      <div class="badge bg-primary"><%= category.name %></div>
+    <% end %>
+
+    </div>
+  </div>
+<%end%>
+</div>
+
+<div class='main-container-emprunte-carbone'>
+  <div class="card-emprunte-carbon text-center">
+    <h4>Je voyage responsable!</h4>
+    <h2>👣Calculer mon emprunte carbone</h2>
+    <h5>Découvez la quantité de CO2 que vous émettez par personne pour ce trajet</h5>
   </div>
 
   <div class="mt-2">
-    <%# <script id="mon-impact-transport" src="https://api.monimpacttransport.fr/iframe.js" data-search="?theme=default"></script> %>
-  </div>
-</div>
+    <script id="mon-impact-transport" src="https://monimpacttransport.fr/iframe.js" data-search="?theme=default"></script>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>

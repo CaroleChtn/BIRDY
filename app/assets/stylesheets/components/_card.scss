@@ -1,68 +1,54 @@
-.card-trip {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 5px;
-}
+.container-index{
+  background-color: white;
+  // display: flex;
 
-.card-trip > img {
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-trip h2 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-.card-trip .card-trip-infos {
-  padding: 16px;
-}
-
-.card-trip-infos a:hover {
-  color: #224751;
-}
-
-.card-trip-infos a {
-  color: black;
-  margin-bottom: 5px;
-}
-
-.card-trip .card-trip-infos .btn{
-  background-color: #E67E23;
-  border: none;
-}
-
-.card-trip-infos-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-trip-infos-top ul {
-  margin-right: 1px;
-  padding: 0px;
-  list-style: none;
-  font-size: 12px;
-}
-.card-trip-infos-top > li {
-  display: inline;
-}
-
-.card-trip-infos-top h2{
-  width: 230px;
-}
-
-.cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   grid-column-gap: 3rem;
+}
+
+.card-index {
+  width: 400px;
+  height: 650px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+.card-index-image img{
+  object-fit: fill;
+  object-position: center;
+  // object-position: 50% 4000%;
+  height: 399px;
+  margin: 0px 0px 0px -600px
+}
+
+.card-index-text{
+
+}
+
+.card-index-price{
+  text-align: end;
+}
+
+.text-ellipsis--2{
+  text-overflow:ellipsis;
+  overflow:hidden;
+  // Addition lines for 2 line or multiline ellipsis
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.main-container-emprunte-carbone{
+  background-color: lightyellow;
+  width: 100%;
+  height: 600px;
+}
+
+.card-emprunte-carbon h2{
+  color: darkgreen;
 }

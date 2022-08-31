@@ -43,13 +43,12 @@
 
 
 <h1> Favorites</h1>
-<div class = "card-trip">
+<div class = "container-index">
   <div data-controller="favorites">
     <% @missions.each do |mission|%>
       <i class="fa-solid fa-heart" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
-      <div class="card-trip">
-        <%= image_tag mission.img, class:"card-img-top", alt:"car" %>
-        <%# <%= image_tag car.picture %>
+      <div class="card-index">
+        <%= image_tag mission.img, class:"card-img-top", alt:"mission" %>
         <div class="card-trip-infos" id="card-index">
           <div class="card-trip-infos-top">
             <h2><%=mission.title%></h2>
