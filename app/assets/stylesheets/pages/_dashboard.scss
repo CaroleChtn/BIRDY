@@ -1,9 +1,36 @@
 .image_poussin {
-  margin-top: 100px;
-  border-color: $gray;
+  margin-top: 40px;
+  border: 15px solid white;
+  border-radius: bold;
   background-color: white;
   background-size: 60px;
   border-radius: 50%;
-  border-radius: bold;
-  margin: 80px;
+  margin-bottom: 3rem;
+}
+.background_dash {
+  height: 200px;
+  background-color: $pale-yellow;
+  margin-bottom: 100px;
+}
+
+.presentation {
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 36%;
+  }
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+.birdy-tag {
+  width: 20%;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
 }

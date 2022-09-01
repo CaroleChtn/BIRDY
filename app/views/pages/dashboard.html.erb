@@ -1,26 +1,77 @@
 <div class="row">
-  <div class="d-flex justify-content-center mt-5">
-    <%= image_tag("poussin.jpg", :size => "100x100", class:"image_poussin")  %>
-  </div>
-  <div class="class mt-5"></div>
-    <div class="text-center mt-5">
-      <h2> Bonjour USER_NAME !</h1>
-      <h3> Ville, PAYS</h2>
-      <ul>
-        <li>x Publications</li>
-        <li>x Abonnés</li>
-        <li>x Abonnement</li>
-      </ul>
+  <div class="background_dash">
+    <div class="d-flex justify-content-center mt-5" >
+      <%= image_tag("poussin.jpg", :size => "200x200", class:"image_poussin")  %>
     </div>
   </div>
+  <div class=" presentation text-center">
+    <h2> Bonjour <%= current_user.name %> !</h1>
+    <h6>Ville, Pays</h6>
+    <ul>
+      <li>18 Publications</li>
+      <li>3 Abonnés</li>
+      <li>6 Abonnement</li>
+    </ul>
+  </div>
+</div>
 
-  <div class="container">
-    <div class="cards">
-      <div class="card">
-        <%= link_to "Mon profil", myprofile_path %>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Mon profil</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking-tab-pane" type="button" role="tab" aria-controls="booking-tab-pane" aria-selected="true">Mes réservations</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="commu-tab" data-bs-toggle="tab" data-bs-target="#commu-tab-pane" type="button" role="tab" aria-controls="commu-tab-pane" aria-selected="false">Communauté</button>
+  </li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    <div class="container">
+      <h2 class="text-center mt-4"><strong>Mon statut:</strong> Toucan nomade</h2>
+    </div>
+
+    <div>
+      <h2 class="text-center mt-4">Mes voyages</h2>
+    </div>
+
+    <div>
+      <h2 class="text-center mt-4">Mes plumes</h2>
+    </div>
+
+    <div>
+      <p class="text-center mt-4"><em>Plus que 7 plumes</em> pour devenir Aigle et profiter de réductions sur votre prochain voyage !</p>
+    </div>
+
+    <div class="container text-center">
+      <button id="bouton-profil">
+        <%= link_to "Compléter mon profil", missions_path %>
+      </button>
+    </div>
+
+    <div class="container mb-5">
+      <div class="row align-items-center justify-content-around">
+        <button class="birdy-tag" id="bouton-un">
+          Lève-tôt
+        </button>
+        <button class="birdy-tag" id="bouton-deux">
+          Rando
+        </button>
+        <button class="birdy-tag" id="bouton-trois">
+          Fin gourmet
+        </button>
+        <button class="birdy-tag" id="bouton-quatre">
+          Protecteur des animaux
+        </button>
       </div>
     </div>
   </div>
+  <div class="tab-pane fade" id="booking-tab-pane" role="tabpanel" aria-labelledby="booking-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">...</div>
+</div>
+
 
   <div class="container">
     <h2>Vos réservations</h2>
@@ -37,10 +88,10 @@
       <% @past_bookings.each do |booking| %>
         <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
       <% end %>
-    </div>
-  </div>
+     </div>
+   </div>
 
-  <h1> Vos favoris</h1>
+  <div><h1>Vos favoris</h1></div>
   <div class="container-index" data-controller="favorites">
     <% current_user.favorite_missions.each do |mission|%>
       <div class="card-index my-2 mx-2">
@@ -66,4 +117,3 @@
       </div>
     <% end %>
   </div>
-</div>
