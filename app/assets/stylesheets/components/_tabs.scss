@@ -20,5 +20,21 @@
 
 .jour_par_jour > p{
   color:black ;
-  margin-left: 100px;
+  margin-left: 50px;
+}
+
+.jour_par_jour_text h3 {
+  color: $light-yellow;
+  font-size: 25px;
+
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+
+.experience > p {
+  color: black
 }

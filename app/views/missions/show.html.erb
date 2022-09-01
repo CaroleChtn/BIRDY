@@ -3,19 +3,12 @@
 </div>
 
 <%# balise <u> pour souligner %>
-<h1 class="text-center mt-2"><%= @mission.title%> <u><%= @mission.duration %></u> </h1>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
-      <p> <strong>Description</strong>
-      <br>
+      <h1 class=" tabs text-left mt-2"><%= @mission.title%> <u><%= @mission.duration %></u> </h1>
       <%= @mission.description %></p>
-    </div>
-
-    <%# div pour l'image map %>
-    <div class="height 100px">
-    <%= image_tag @mission.jour_par_jour_img %>
     </div>
 
     <div class="form col-sm-4 mt-2 sticky">
@@ -44,64 +37,54 @@
   <li class="nav-item tabs-underlined" role="impact">
     <button class="nav-link tab-underlined" id="impact-tab" data-bs-toggle="tab" data-bs-target="#impact" type="button" role="tab" aria-controls="impact" aria-selected="false">Impact Local</button>
   </li>
-    <li class="nav-item tabs-underlined" role="presentation">
-    <button class="nav-link tab-underlined" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Infos Voyage</button>
+    <li class="nav-item tabs-underlined" role="infos-voyage">
+    <button class="nav-link tab-underlined" id="infos-voyage-tab" data-bs-toggle="tab" data-bs-target="#infos-voyage" type="button" role="tab" aria-controls="infos-voyage" aria-selected="false">Infos Voyage</button>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade" id="itineraire" role="tabpanel" aria-labelledby="itineraire-tab">
+  <div class="tab-pane fade show active jour_par_jour_text" id="itineraire" role="tabpanel" aria-labelledby="itineraire-tab">
     <p><%= @mission.jour_par_jour_text.html_safe %></p>
   </div>
-  <div class="tab-pane fade show active" id="experience" role="tabpanel" aria-labelledby="experience-tab">
+
+  <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
     <div class="d-flex flex-column py-3 px-5">
       <div class="d-flex py-3">
         <%= image_tag @mission.experience_img1, width: "300px" %>
-        <div class="d-flex flex-column ps-4 jour-par-jour">
+        <div class="d-flex flex-column ps-4 experience">
           <h3><%= @mission.experience_title1 %></h3>
           <p><%= @mission.experience_detail1 %></p>
         </div>
       </div>
       <div class="d-flex py-3">
         <%= image_tag @mission.experience_img2, width: "300px" %>
-        <div class="d-flex flex-column ps-4 jour-par-jour">
+        <div class="d-flex flex-column ps-4 experience">
           <h3><%= @mission.experience_title2 %></h3>
           <p><%= @mission.experience_detail2 %></p>
         </div>
       </div>
       <div class="d-flex py-3">
         <%= image_tag @mission.experience_img3, width: "300px" %>
-        <div class="d-flex flex-column ps-4 jour-par-jour">
+        <div class="d-flex flex-column ps-4 experience">
           <h3><%= @mission.experience_title3 %></h3>
           <p><%= @mission.experience_detail3 %></p>
         </div>
       </div>
     </div>
   </div>
+
   <div class="tab-pane fade" id="impact" role="tabpanel" aria-labelledby="impact-tab">
-
-truc
+    <p><%= @mission.impact_local_text.html_safe %></p>
   </div>
-</div>
 
-<div class="mt-5">
-  <ul class="list-inline tabs-underlined">
-    <li>
-      <a href="#" class="tab-underlined active">Itinéraire par Jour</a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-8"></div>
-        </div>
-      </div>
-    </li>
-    <li>
-      <a href="#" class="tab-underlined">Expérience</a>
-    </li>
-    <li>
-      <a href="#" class="tab-underlined">Impact Local</a>
-    </li>
-      <li>
-      <a href="#" class="tab-underlined">Infos Voyage</a>
-    </li>
-  </ul>
+    <div class="tab-pane fade" id="infos-voyage" role="tabpanel" aria-labelledby="infos-voyage-tab">
+    <h3><%= @mission.infos_voyage_title1 %></h3>
+    <p><%= @mission.infos_voyage_text1 %></p>
+    <h3><%= @mission.infos_voyage_title2 %></h3>
+    <p><%= @mission.infos_voyage_text2 %></p>
+    <h3><%= @mission.infos_voyage_title3 %></h3>
+    <p><%= @mission.infos_voyage_text3 %></p>
+    <h3><%= @mission.infos_voyage_title4 %></h3>
+    <p><%= @mission.infos_voyage_text4 %></p>
+
+  </div>
 </div>

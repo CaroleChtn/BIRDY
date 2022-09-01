@@ -108,7 +108,7 @@ doc.search(".product-miniature-text a").each_with_index do |ele, index|
 
     # Impact local
     impact_local_img << mission_doc.search(".impact_local img").attr("src")
-    impact_local_text << mission_doc.search(".impact_local").text
+    impact_local_text << mission_doc.search(".impact_local")
 
     # Infos voyages
   infos_voyage_title1 << mission_doc.search(".info_voyage h3").first.text
@@ -345,7 +345,7 @@ doc.search("#products_full .backgroundimage3 a").uniq.each_with_index do |ele, i
 
   # Impact local
   impact_local_img_trek << mission_trek_doc.search(".impact_local img").attr("src")
-  impact_local_text_trek << mission_trek_doc.search(".impact_local").text
+  impact_local_text_trek << mission_trek_doc.search(".impact_local")
 
   # Infos voyages
   infos_voyage_title1_trek << mission_trek_doc.search(".info_voyage h3").first.text
