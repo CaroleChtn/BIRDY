@@ -1,0 +1,33 @@
+
+#bouton-profil {
+  border-radius: 45px;
+  background-color: $light-yellow;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 150px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+#bouton-un {
+  background-color: green;
+}
+
+#bouton-deux {
+  background-color: rgba(93, 54, 54, 0.898);
+}
+
+#bouton-trois {
+  background-color: rgb(4, 213, 232);
+}
+
+#bouton-quatre {
+  background-color: rgb(213, 15, 160);
+}
