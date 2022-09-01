@@ -68,28 +68,29 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane fade" id="booking-tab-pane" role="tabpanel" aria-labelledby="booking-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="booking-tab-pane" role="tabpanel" aria-labelledby="booking-tab" tabindex="0">
+    <div class="container">
+      <h2>Vos réservations</h2>
+      <div style= "width:400px">
+        <h6 class="title" >En attente de validation</h6>
+        <% @current_bookings.each do |booking| %>
+          <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+        <% end %>
+        <h6 class="title1">Expériences à venir</h6>
+        <% @future_bookings.each do |booking| %>
+          <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+        <% end %>
+        <h6 class="title2">Expériences passées</h6>
+        <% @past_bookings.each do |booking| %>
+          <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">...</div>
 </div>
 
 
-  <div class="container">
-    <h2>Vos réservations</h2>
-    <div style= "width:400px">
-      <h6 class="title" >En attente de validation</h6>
-      <% @current_bookings.each do |booking| %>
-        <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
-      <% end %>
-      <h6 class="title1">Expériences à venir</h6>
-      <% @future_bookings.each do |booking| %>
-        <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
-      <% end %>
-      <h6 class="title2">Expériences passées</h6>
-      <% @past_bookings.each do |booking| %>
-        <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
-      <% end %>
-     </div>
-   </div>
 
   <div><h1>Vos favoris</h1></div>
   <div class="container-index" data-controller="favorites">
