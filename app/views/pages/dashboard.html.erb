@@ -41,27 +41,25 @@
 
 
 
-
 <h1> Favorites</h1>
-<%# <div class = "container-index"> %>
-  <div data-controller="favorites">
-    <div class="card-index">
-      <% @missions.each do |mission|%>
-        <i class="fa-solid fa-heart" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
-          <%= image_tag mission.img, class:"card-index-image", alt:"mission"%>
-            <%# <div class="card-trip-infos" id="card-index">
-              <div class="card-trip-infos-top"> %>
-                 <h3 class="text-center"><%= mission.title%></h3>
-                <div>
-                  <ul>
-                    <li><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i></li>
-                  </ul>
-                </div>
-              <%# </div> %>
-              <a href="<%= mission_path(mission.id) %>" class="btn btn-primary w-100 mt-3"> <strong><%=mission.price%>€</strong></a>
-            <%# </div> %>
-          <%# </div> %>
-      <%end%>
+  <div class = "container-index">
+    <div data-controller="favorites">
+      <div class="card-index">
+        <% @missions.each do |mission|%>
+          <i class="fa-solid fa-heart" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+            <%= image_tag mission.img, class:"card-index-image", alt:"mission"%>
+              <div class="card-trip-infos" id="card-index">
+                <div class="card-trip-infos-top">
+                  <h3 class="text-center"><%= mission.title%></h3>
+                    <div>
+                      <ul>
+                        <li><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i></li>
+                      </ul>
+                    </div>
+                 </div>
+              </div>
+        <%end%
+        >
+      </div>
     </div>
   </div>
-<%# </div> %>
