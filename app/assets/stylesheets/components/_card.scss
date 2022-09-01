@@ -1,6 +1,7 @@
 .container-index{
   background-color: white;
   // display: flex;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
@@ -58,4 +59,13 @@
 
 .card-emprunte-carbon h2{
   color: $dark-green;
+}
+
+
+.fav-red {
+  color: red;
+}
+
+.fav-black {
+  color: black;
 }

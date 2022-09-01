@@ -3,6 +3,7 @@ require "nokogiri"
 require "faker"
 
 Booking.destroy_all
+Favorite.destroy_all
 Mission.destroy_all
 User.destroy_all
 

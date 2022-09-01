@@ -32,6 +32,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_104905) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "mission_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mission_id"], name: "index_favorites_on_mission_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "mission_tags", force: :cascade do |t|
     t.bigint "mission_id", null: false
     t.bigint "tag_id", null: false
@@ -48,8 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_104905) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
     t.string "img"
     t.string "departure_date"
     t.string "duration"
@@ -74,6 +81,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_104905) do
     t.text "infos_voyage_text2"
     t.text "infos_voyage_text3"
     t.text "infos_voyage_text4"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -113,6 +122,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_104905) do
 
   add_foreign_key "bookings", "missions"
   add_foreign_key "bookings", "users"
+  add_foreign_key "favorites", "missions"
+  add_foreign_key "favorites", "users"
   add_foreign_key "mission_tags", "missions"
   add_foreign_key "mission_tags", "tags"
   add_foreign_key "reviews", "bookings"
