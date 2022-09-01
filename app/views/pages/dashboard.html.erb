@@ -1,4 +1,43 @@
 <div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-center mt-5">
+      <%= image_tag("poussin.jpg", :size => "100x100", class:"image_poussin")  %>
+    </div>
+    <div class="class mt-5"></div>
+      <div class="text-center mt-5">
+        <h2> Bonjour USER_NAME !</h1>
+        <h3> Ville, PAYS</h2>
+        <ul>
+          <li>x Publications</li>
+          <li>x Abonnés</li>
+          <li>x Abonnement</li>
+        </ul>
+      </div>
+    </div>
+  <div>
+        <h1> hello c'est mon dashboard</h1>
+          <h2>Your bookings</h2>
+
+            <h6 class="title" >En attente de validation</h6>
+            <% @current_bookings.each do |booking| %>
+              <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+            <% end %>
+
+
+            <h6 class="title1">Expériences à venir</h6>
+            <% @future_bookings.each do |booking| %>
+              <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+            <% end %>
+
+
+             <h6 class="title2">Expériences passées</h6>
+             <% @past_bookings.each do |booking| %>
+                    <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+             <% end %>
+        </div>
+    </div>
+
+
   <div class="text-center mt-2">
     <h2> Bonjour USER_NAME !</h1>
     <h3> Ville, PAYS</h2>
