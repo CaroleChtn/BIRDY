@@ -1,20 +1,23 @@
-<h2>Log in</h2>
+<div class="container w-50 wrapper">
+  <h2 class="fw-light text-center py-4">Se connecter</h2>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
+      <div class="form-inputs py-2">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+      <div class="form-actions">
+        <%= f.button :submit, "Connexion", class: "btn btn-dark w-100 rounded" %>
+      </div>
+    <% end %>
+      <div class="d-flex text-center justify-content-center py-5">
+        <%= link_to "Créer un compte", new_registration_path(resource_name), class: "me-3 pe-3 border-end border-dark border-2" %><br />
+        <%= link_to "Mot de passe oublié ?", new_password_path(resource_name)%><br />
+      </div>
+</div>
