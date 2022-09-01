@@ -8,5 +8,9 @@ export default class extends Controller {
     } else {
       this.element.classList.remove("navbar-lewagon-white")
     }
+    console.log(this)
+    const urlParams = new URLSearchParams(window.location.search)
+    console.log(urlParams)
   }
+
 }

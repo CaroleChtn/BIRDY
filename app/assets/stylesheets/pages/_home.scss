@@ -35,13 +35,18 @@ button {
 .arguements {
   h1 {
     font-family: 'Inspiration', cursive;
+    margin-top: 50px;
+    margin-bottom: 20px;
   }
 
   h2 {
     color: $light-yellow;
+    margin-bottom: 25px;
   }
 
   ul {
+    width: 100%;
+    display: flex;
     justify-content: space-between;
   }
 
@@ -62,4 +67,32 @@ button {
   p {
     color: black;
   }
+}
+
+.carousel {
+  height: 250px;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-item.active {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-item p {
+  width: 60%;
+}
+
+.card-trip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  grid-column-gap: 3rem;
+}
+
+.birdy-carousel {
+  background-color: $pale-yellow;
+  padding: 50px 20px 20px 20px;
 }
