@@ -16,16 +16,15 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def update
-  #   @booking = Booking.find(params[:id])
-  #   params[:booking][:status] = params[:booking][:status].to_i if params[:booking][:status].present?
-  #   @booking.update(booking_params)
-  #   if booking_params[:status].present?
-  #     redirect_to dashboards_path
-  #   else
-  #     redirect_to mission_path(@booking)
-  #   end
-  # end
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      flash.alert = "Your booking is updated!"
+      redirect_to dashboards_path
+    else
+      render "missions#show", status: :unprocessable_entity
+    end
+  end
 
   def edit
     @booking = Booking.find(params[:id])
@@ -34,7 +33,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    # redirect_to root_path
+    redirect_to dashboards_path, status: :see_other
   end
 
   private

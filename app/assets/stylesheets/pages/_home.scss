@@ -1,1 +1,65 @@
 // Specific CSS for your home-page
+p {
+  color: $dark-green;
+}
+
+button {
+  border-radius: 45px;
+  background-color: $light-yellow;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.text-justify {
+  display: flex;
+  justify-content: center;
+
+  p {
+    width: 50%;
+    text-align: justify;
+    margin-top: 20px;
+  }
+}
+
+
+.arguements {
+  h1 {
+    font-family: 'Inspiration', cursive;
+  }
+
+  h2 {
+    color: $light-yellow;
+  }
+
+  ul {
+    justify-content: space-between;
+  }
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+.trip_exemples {
+  h2 {
+    font-family: 'Inspiration', cursive;
+  }
+  h1 {
+    color: $dark-green;
+  }
+  p {
+    color: black;
+  }
+}

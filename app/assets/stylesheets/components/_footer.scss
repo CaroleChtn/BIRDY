@@ -1,0 +1,27 @@
+.footer {
+  background: $light-yellow;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 300px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  margin-top: 50px;
+}
+.footer-list {
+  display: flex;
+  align-items: center;
+}
+.footer-list a {
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 0px 10px;
+}
+.footer-list a:hover {
+  opacity: 1;
+}
+
+.footer ul {
+  list-style-type: none;
+}

@@ -39,8 +39,18 @@
     <h5>Découvez la quantité de CO2 que vous émettez par personne pour ce trajet</h5>
   </div>
 
+
+</div>
+<div class="d-flex">
+  <div class="left-flex-missions w-50"></div>
+  <div class="right-flex-missions w-50">
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
   <div class="mt-2">
     <script id="mon-impact-transport" src="https://monimpacttransport.fr/iframe.js" data-search="?theme=default"></script>
   </div>
-
 </div>
