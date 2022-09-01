@@ -8,12 +8,20 @@ export default class extends Controller {
   fav(evt) {
     fetch(`/missions/${evt.params.missionId}/favorites`, {
       method: "POST",
-      headers: { "Accept": "application/json", "X-CSRF-TOKEN": this.token }
+      headers: {
+        "content-Type": "application/json",
+        "Accept": "application/json",
+        "X-CSRF-TOKEN": this.token },
+      body: JSON.stringify({ page: window.location.pathname })
     })
       .then(response => response.json())
       .then((data) => {
         if (data.unfav) {
-          evt.target.style.color = "black";
+          if (data.page === "/dashboards") {
+            evt.target.closest('.card-index').remove();
+          } else {
+            evt.target.style.color = "black";
+          }
         } else {
           evt.target.style.color = "red";
         }

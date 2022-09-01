@@ -2,10 +2,10 @@ class FavoritesController < ApplicationController
   def create
     if Favorite.find_by(user: current_user, mission: Mission.find(params[:mission_id]))
       Favorite.find_by(user: current_user, mission: Mission.find(params[:mission_id])).destroy
-      render json: { mission_id: params[:mission_id], unfav: true }
+      render json: { mission_id: params[:mission_id], unfav: true, page: params["page"] }
     else
       Favorite.create(user: current_user, mission: Mission.find(params[:mission_id]))
-      render json: { mission_id: params[:mission_id], unfav: false }
+      render json: { mission_id: params[:mission_id], unfav: false, page: params["page"] }
     end
   end
 

@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :bookings
   has_many :missions, through: :bookings
+  has_many :favorite_missions, through: :favorites, source: :mission
   # validates :name, :phone_number, presence: true
 end
