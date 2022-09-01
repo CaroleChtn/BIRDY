@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: url('<%= image_path "couple_jungle.jpg" %>')">
   <div class="container w-50">
-    <h2 class="text-center">Lifelong memories with a <em>positive impact</em></h2>
+    <h2 class="text-center">Des expériences mémorables, <em>des actions qui ont du sens</em></h2>
     <%# <p><em>Rent the car of your dreams</em></p> %>
     <%# <%= form_with url: missions_path, method: :get, class: "d-flex" do %>
       <%#= text_field_tag :query, params[:query], class: "form-control me-3 w-75", placeholder: "I want to go" %>
@@ -10,7 +10,7 @@
 </div>
 
 <div class="container" style="margin-top: 60px;margin-bottom: 50px;font-size: 26px;">
-  <p><strong>Top rated trips approved by Birdies</strong></p>
+  <p><strong>Les voyages approuvés par les Birdies</strong></p>
   <div class="cards">
     <% @missions.sample(3).each do |mission|%>
     <div class="card-trip">
@@ -43,7 +43,7 @@
 <div class="birdy-carousel text-center mt-5 mb-5">
   <div class="row">
     <div class="col align-self-center">
-      <h2>Our birdies loved their experience</h2>
+      <h2>Nos birdies ont adoré leur expériences</h2>
       <%= image_tag "logo.png", width: "40px", class: 'logo' %>
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
@@ -86,25 +86,25 @@
         <div class="mb-3">
           <%= image_tag "map.png", width: "50px", class: 'logo' %>
         </div>
-        <li>Bespoke authentic experiences</li>
+        <li>Expériences authentiques</li>
       </div>
       <div>
         <div class="mb-3">
           <%= image_tag "tree.png", width: "50px", class: 'logo' %>
         </div>
-        <li>Responsible travel</li>
+        <li>Une action concrète pour la planète</li>
       </div>
       <div>
         <div class="mb-3">
           <%= image_tag "community.png", width: "50px", class: 'logo' %>
         </div>
-        <li>Tried and trust by the community</li>
+        <li>95% de satisfaction</li>
       </div>
       <div>
         <div class="mb-3">
           <%= image_tag "wallet.png", width: "50px", class: 'logo' %>
         </div>
-        <li>100% financial protection</li>
+        <li>Paiements sécurisés</li>
       </div>
     </ul>
   </div>
@@ -115,10 +115,9 @@
   <div class="trip-ex-left">
     <h2>Le voyage d'une vie</h2>
     <h1>Des expériences sur-mesure</h1>
-    <p>Intimate, extraordinary and exclusive, trip that are unique. Hosted by locals,
-    live authentic and sustainable off-the-beaten-track experiences through incredible activities.
-    We help you customize a once-in-a-lifetime itinerary that reflects your interests, passions and dreams.
-    </p>
+    <p>Chaque voyage nourrit de vraies rencontres. On ne visite pas seulement un pays, on le vit !
+    Les échanges sont au cœur de l’expérience pour que chacun participe à la vie locale.
+    On quitte ses repères pour se contenter de l’essentiel, renouer avec la nature et partager le quotidien d’une communauté.</p>
     <button>
       <%= link_to "Trouver mon voyage", missions_path %>
     </button>

@@ -18,6 +18,10 @@ button {
     text-decoration: none;
     color: black;
   }
+
+  :hover {
+    color: white;
+  }
 }
 
 .text-justify {
@@ -71,6 +75,7 @@ button {
   }
   p {
     color: black;
+    font-size: 13px;
   }
 }
 
