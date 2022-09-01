@@ -6,12 +6,12 @@
 <% @missions.each do |mission|  %>
   <div class="card-index my-2 mx-2">
     <div class= "card-index-image">
-      <img src="<%= mission.img%>" alt="mission_img">
+      <img src="<%= mission.img%>" alt="mission_img" class="">
     </div>
 
     <div class="card-index-bot mx-2">
       <div class="card-index-text">
-        <h3 class="text-center"><%= mission.title%></h3>
+        <h3 class="text-center"><%= link_to mission.title, mission_path(mission) %></h3>
         <p class= "text-align-justify text-ellipsis--2 pt-2"><%=mission.description%></p>
       </div>
 
