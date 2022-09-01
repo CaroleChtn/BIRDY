@@ -1,10 +1,11 @@
 .container-index{
   background-color: white;
   // display: flex;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-  grid-column-gap: 3rem;
+  grid-column-gap: 2rem;
 }
 
 .card-index {
@@ -23,6 +24,14 @@
   height: 399px;
   margin: 0px 0px 0px -600px
 }
+
+// .img-fit-size {
+//   width: 100%;
+//   border-top-right-radius: 15px;
+//   border-top-left-radius: 15px;
+//   margin-bottom: 20px;
+//   object-fit: none;
+// }
 
 .card-index-text{
 
@@ -43,11 +52,20 @@
 }
 
 .main-container-emprunte-carbone{
-  background-color: lightyellow;
+  background-color: $light-yellow;
   width: 100%;
   height: 600px;
 }
 
 .card-emprunte-carbon h2{
   color: $dark-green;
+}
+
+
+.fav-red {
+  color: red;
+}
+
+.fav-black {
+  color: black;
 }

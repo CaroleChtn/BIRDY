@@ -25,11 +25,12 @@
     <div>
       <%# <ul>
           <li class="nav-item dropdown"> %>
-          <i class="fa-solid fa-magnifying-glass"></i>
+          <%# <i class="fa-solid fa-magnifying-glass"></i> %>
           <i class="fa-regular fa-heart"></i>
+          <%# MENE A LA WISHLIST %>
           <i class="fa-solid fa-bars"></i>
 
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "bird-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%#= link_to "Mon profil", myprofile_path, class: "dropdown-item" %>
               <%= link_to "Tableau de bord", dashboards_path, class: "dropdown-item" %>

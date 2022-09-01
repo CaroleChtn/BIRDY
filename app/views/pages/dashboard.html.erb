@@ -38,6 +38,17 @@
     </div>
 
 
+  <div class="text-center mt-2">
+    <h2> Bonjour USER_NAME !</h1>
+    <h3> Ville, PAYS</h2>
+    <ul>
+      <li>x Publications</li>
+      <li>x Abonnés</li>
+      <li>x Abonnement</li>
+    </ul>
+  </div>
+</div>
+<div class="container">
   <div class="cards">
     <div class="card">
       <%= link_to "Mon profil", myprofile_path %>
@@ -45,6 +56,46 @@
   </div>
 </div>
 
+<div class="container">
+  <h2>Vos réservations</h2>
+  <h6 class="title" >En attente de validation</h6>
+  <% @current_bookings.each do |booking| %>
+    <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+  <% end %>
+  <h6 class="title1">Expériences à venir</h6>
+  <% @future_bookings.each do |booking| %>
+    <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+  <% end %>
+  <h6 class="title2">Expériences passées</h6>
+  <% @past_bookings.each do |booking| %>
+    <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+  <% end %>
+</div>
 
-<p> Mes réservations => redict where? </p>
-<p> Communauté </p>
+<h1> Vos favoris</h1>
+<div class="container-index" data-controller="favorites">
+  <% current_user.favorite_missions.each do |mission|%>
+    <div class="card-index my-2 mx-2">
+      <i class="fa-solid fa-heart <%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+      <div class= "card-index-image">
+        <img src="<%= mission.img%>" alt="mission_img" class="">
+      </div>
+      <div class="card-index-bot mx-2">
+        <div class="card-index-text">
+          <h3 class="text-center"><%= link_to mission.title, mission_path(mission) %></h3>
+          <p class= "text-align-justify text-ellipsis--2 pt-2"><%=mission.description%></p>
+        </div>
+        <div class="card-index-price">
+          <p><%= mission.duration%></p>
+          <h3><%= mission.price%>€ hors aérien</h3>
+        </div>
+        <% mission.tags.each do |tag| %>
+          <div class="badge bg-secondary"><%= tag.name %></div>
+        <% end %>
+        <% mission.categories.each do |category| %>
+          <div class="badge bg-primary"><%= category.name %></div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

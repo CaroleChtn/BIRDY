@@ -6,8 +6,8 @@
       <p class="m-0"><%= booking.start_date %> | <%= booking.end_date %></p>
     </div>
     <div class="notification-actions d-flex">
-      <%=link_to "✏️", mission_path(mission, booking: booking), class:"me-2" %>
-      <%=link_to "🗑", booking_path(booking),
+      <%#=link_to "✏️", mission_path(mission, booking: booking), class:"me-2" %>
+      <%#=link_to "🗑", booking_path(booking),
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
     </div>
   </div>
