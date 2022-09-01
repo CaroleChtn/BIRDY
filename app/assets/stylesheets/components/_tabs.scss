@@ -35,6 +35,38 @@ h1 {
 }
 
 
-.experience > p {
+.experience p {
+  color: black;
+}
+
+.impact_local p {
+  color: black;
+}
+
+#infos-voyage  p {
+  color:black;
+}
+
+#formulaire{
+  border: solid 1px;
+}
+
+#formulaire .btn{
+  background-color: $light-yellow;
+  border: none;
+  border-radius: 10px;
   color: black
+}
+
+#formulaire .btn:hover{
+  background-color: $light-yellow;
+  border: none;
+  border-radius: 10px;
+  color: white
+}
+
+#top-description{
+  position: sticky;
+  top: 60px;
+  background-color: white;
 }
