@@ -103,7 +103,7 @@ doc.search(".product-miniature-text a").each_with_index do |ele, index|
     # JOUR PAR JOUR
     jour_par_jour_img << mission_doc.search(".jour_par_jour img").attr("src")
     # puts mission_doc.search(".jour_par_jour").text
-    jour_par_jour_text << mission_doc.search(".jour_par_jour").text
+    jour_par_jour_text << mission_doc.search(".jour_par_jour")
 
     # Impact local
     impact_local_img << mission_doc.search(".impact_local img").attr("src")
@@ -340,7 +340,7 @@ doc.search("#products_full .backgroundimage3 a").uniq.each_with_index do |ele, i
 
   # JOUR PAR JOUR
   jour_par_jour_img_trek << mission_trek_doc.search(".jour_par_jour img").attr("src")
-  jour_par_jour_text_trek << mission_trek_doc.search(".jour_par_jour").text
+  jour_par_jour_text_trek << mission_trek_doc.search(".jour_par_jour")
 
   # Impact local
   impact_local_img_trek << mission_trek_doc.search(".impact_local img").attr("src")
