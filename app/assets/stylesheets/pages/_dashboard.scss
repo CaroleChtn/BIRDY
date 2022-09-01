@@ -1,9 +1,14 @@
 .image_poussin {
   margin-top: 100px;
-  border-color: $gray;
+  border: 15px solid white;
+  border-radius: bold;
   background-color: white;
   background-size: 60px;
   border-radius: 50%;
-  border-radius: bold;
-  margin: 80px;
+  margin-bottom: 3rem;
+}
+.background_dash {
+  height: 200px;
+  background-color: $pale-yellow;
+  margin-bottom: 100px;
 }
