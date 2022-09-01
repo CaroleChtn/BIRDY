@@ -22,8 +22,8 @@ exception_departure_date = (6..11).to_a # exception pour price et duration aussi
 html = URI.open("https://www.doublesens.fr/26-action-solidaire").read
 doc = Nokogiri::HTML(html, nil, "utf-8")
 doc.search(".product-min-container img").each_with_index do |element, index|
-  img << element.attr("src") if index.even? && index <= 28 && exception.include?(index) == false
-  img << element.attr("src") if index.odd? && index >= 28 && exception.include?(index) == false
+  img << element.attr("src") if index.even? && index <= 27 && exception.include?(index) == false
+  img << element.attr("src") if index.odd? && index >= 27 && exception.include?(index) == false
 end
 
 doc.search(".product-link").each_with_index do |element, index|
@@ -66,6 +66,7 @@ infos_voyage_text1 = []
 infos_voyage_text2 = []
 infos_voyage_text3 = []
 infos_voyage_text4 = []
+banner_img = []
 
 doc.search(".product-miniature-text a").each_with_index do |ele, index|
   if index.even?  && exception.include?(index) == false
@@ -121,7 +122,7 @@ doc.search(".product-miniature-text a").each_with_index do |ele, index|
   infos_voyage_text3 << mission_doc.search(".info_voyage p").at(2).text
   infos_voyage_text4 << mission_doc.search(".info_voyage p").at(3).text
 
-
+  banner_img << mission_doc.search(".imagecover img").attr("src")
   end
 
 end
@@ -129,8 +130,8 @@ end
 
 # Variable TEST --------------------
 
-puts img
-puts img.size
+# puts img
+# puts img.size
 # puts city
 # puts city.size
 # puts title
@@ -146,6 +147,8 @@ puts img.size
 
 # Variable TEST pour la show ---------------
 
+# puts banner_img
+# puts banner_img.size
 # puts experience_img1
 # puts experience_img1.size
 # puts experience_img2
@@ -227,7 +230,7 @@ missions = []
       experience_img1: experience_img1[i],
       experience_img2: experience_img2[i],
       experience_img3: experience_img3[i],
-      jour_par_jour_img: jour_par_jour_img[i],
+      jour_par_jour_img: banner_img[i], # Remplacer par la banner car on n'utilise plus jpj_img
       jour_par_jour_text: jour_par_jour_text[i],
       impact_local_img: impact_local_img[i],
       impact_local_text: impact_local_text[i],
@@ -307,6 +310,7 @@ infos_voyage_text1_trek = []
 infos_voyage_text2_trek = []
 infos_voyage_text3_trek = []
 infos_voyage_text4_trek = []
+banner_img_trek = []
 
 # faut mettre products_full sur les searchs pour enlever les doublons ==> du coup c'est fait pour moi Nid mdr
 doc.search("#products_full .backgroundimage3 a").uniq.each_with_index do |ele, index|
@@ -358,6 +362,7 @@ doc.search("#products_full .backgroundimage3 a").uniq.each_with_index do |ele, i
   infos_voyage_text3_trek << mission_trek_doc.search(".info_voyage p").at(2).text
   infos_voyage_text4_trek << mission_trek_doc.search(".info_voyage p").at(3).text
 
+  banner_img_trek << mission_trek_doc.search(".imagecover img").attr("src")
 end
 
 # Creation mission trek
@@ -382,7 +387,7 @@ i = 0
       experience_img1: experience_img1_trek[i],
       experience_img2: experience_img2_trek[i],
       experience_img3: experience_img3_trek[i],
-      jour_par_jour_img: jour_par_jour_img_trek[i],
+      jour_par_jour_img: banner_img_trek[i], # Remplacer par la banner car on n'utilise plus jpj_img
       jour_par_jour_text: jour_par_jour_text_trek[i],
       impact_local_img: impact_local_img_trek[i],
       impact_local_text: impact_local_text_trek[i],
@@ -421,6 +426,8 @@ puts missions.size
 
 # Variable TEST pour la show
 
+# puts banner_img_trek
+# puts banner_img_trek.size
 # puts experience_img1_trek
 # puts experience_img1_trek.size
 # puts experience_img2_trek
