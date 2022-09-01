@@ -3,11 +3,12 @@
 </div>
 
 <div class="container-index" data-controller="favorites">
+  <%# <div class="row my-5"> %>
   <% @missions.each do |mission|  %>
     <div class="card-index my-2 mx-2">
-      <i class="fa-solid fa-heart <%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
       <div class= "card-index-image">
-        <img src="<%= mission.img%>" alt="mission_img" class="">
+        <i class="fa-solid fa-heart d-flex <%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+        <img src="<%= mission.img%>" alt="mission_img" class="card-img-top">
       </div>
       <div class="card-index-bot mx-2">
         <div class="card-index-text">
@@ -16,7 +17,7 @@
         </div>
         <div class="card-index-price">
           <p><%= mission.duration%></p>
-          <h3><%= mission.price%>€ hors aérien</h3>
+          <h4><%= mission.price%>€ hors aérien</h4>
         </div>
         <% mission.tags.each do |tag| %>
           <div class="badge bg-secondary"><%= tag.name %></div>
@@ -27,6 +28,7 @@
       </div>
     </div>
   <%end%>
+  <%# </div> %>
 </div>
 
 <div class='main-container-emprunte-carbone'>
