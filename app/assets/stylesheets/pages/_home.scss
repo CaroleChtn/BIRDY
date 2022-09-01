@@ -41,7 +41,7 @@ button {
 
   h2 {
     color: $light-yellow;
-    margin-bottom: 25px;
+    margin-bottom: 45px;
   }
 
   ul {
@@ -54,15 +54,17 @@ button {
     list-style-type: none;
     display: inline-block;
     text-align: center;
+    font-size: 16px;
   }
 }
 
 .trip_exemples {
   background-color: $pale-yellow;
   padding: 50px;
-
   h2 {
     font-family: 'Inspiration', cursive;
+    font-size: 50px;
+    padding-top: 25px;
   }
   h1 {
     color: $dark-green;
