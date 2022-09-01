@@ -1,28 +1,53 @@
 .container-index{
-  background-color: white;
+  background-color:transparent;
   // display: flex;
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   grid-column-gap: 2rem;
+  width: 70vw;
+  margin: 0 auto;
+
 }
 
 .card-index {
-  width: 400px;
-  height: 650px;
+  width: 300px;
+  height: 400px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  border-radius: 15px;
+}
+
+.card-index-image{
+  position: relative;
+}
+.card-index:hover{
+  border: 2px solid #FFCB10;
+}
+
+.card-index-image i {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 10px;
+  top:10px;
 }
 
 .card-index-image img{
-  object-fit: fill;
-  object-position: center;
-  // object-position: 50% 4000%;
-  height: 399px;
-  margin: 0px 0px 0px -600px
+  // object-fit: fill;
+  // object-position: center;
+  // // object-position: 50% 4000%;
+  // height: 399px;
+  // margin: 0px 0px 0px -600px
+  // width: 100%;
+  width: 100%;
+  height: 150px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  margin-bottom: 20px;
+  -o-object-fit: none;
+  object-fit: none;
 }
 
 // .img-fit-size {
@@ -33,14 +58,26 @@
 //   object-fit: none;
 // }
 
+.card-index-text a{
+  font-family: "quicksand bold";
+  color:$dark-green;
+  size: 13px;
+  text-decoration: none;
+}
 .card-index-text{
-
 }
 
 .card-index-price{
   text-align: end;
 }
 
+h4 {
+  font-size: 13px;
+}
+
+p {
+  font-size: 12px;
+}
 .text-ellipsis--2{
   text-overflow:ellipsis;
   overflow:hidden;
@@ -49,6 +86,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
+  color:black;
 }
 
 .main-container-emprunte-carbone{
@@ -59,13 +97,4 @@
 
 .card-emprunte-carbon h2{
   color: $dark-green;
-}
-
-
-.fav-red {
-  color: red;
-}
-
-.fav-black {
-  color: black;
 }
