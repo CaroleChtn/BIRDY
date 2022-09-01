@@ -1,23 +1,26 @@
+
+
 <%# banner de la show %>
 <div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))<%= @mission.img %>">
 </div>
 
 <%# balise <u> pour souligner %>
-<h1 class="text-center mt-2"><%= @mission.title%> <u><%= @mission.duration %></u> </h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <p> <strong>Description</strong>
-      <br>
+<div class="container d-flex justify-content-center align-items-between">
+  <div class="d-flex row">
+    <%# titre et description %>
+    <div>
+    <h1 class="text-align left mt-2"><%= @mission.title%> <u><%= @mission.duration %></u> </h1>
       <%= @mission.description %></p>
     </div>
 
-    <%# div pour l'image map %>
-    <div class="height 100px">
-    <%= image_tag @mission.jour_par_jour_img %>
+    <%# div pour l'image de la map %>
+    <div>
+      <%= image_tag @mission.jour_par_jour_img, width: "800px" %>
     </div>
+  </div>
 
+    <%# form %>
     <div class="form col-sm-4 mt-2 sticky">
       <h2>Réserver votre voyage</h2>
       <div data-controller="flatpickr">
@@ -32,28 +35,84 @@
         <% end %>
       </div>
     </div>
+
+</div>
+
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item tabs-underlined" role="presentation">
+    <button class="nav-link tab-underlined active" id="itineraire-tab" data-bs-toggle="tab" data-bs-target="#itineraire" type="button" role="tab" aria-controls="itineraire" aria-selected="true">Itinéraire Jour par Jour</button>
+  </li>
+  <li class="nav-item tabs-underlined" role="presentation">
+    <button class="nav-link tab-underlined" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab" aria-controls="experience" aria-selected="false">Expérience</button>
+  </li>
+  <li class="nav-item tabs-underlined" role="impact">
+    <button class="nav-link tab-underlined" id="impact-tab" data-bs-toggle="tab" data-bs-target="#impact" type="button" role="tab" aria-controls="impact" aria-selected="false">Impact Local</button>
+  </li>
+    <li class="nav-item tabs-underlined" role="presentation">
+    <button class="nav-link tab-underlined" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Infos Voyage</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade" id="itineraire" role="tabpanel" aria-labelledby="itineraire-tab">
+    <p><%= @mission.jour_par_jour_text.html_safe %></p>
+  </div>
+  <div class="tab-pane fade show active" id="experience" role="tabpanel" aria-labelledby="experience-tab">
+    <div class="d-flex flex-column py-3 px-5">
+      <div class="d-flex py-3">
+        <%= image_tag @mission.experience_img1, width: "300px" %>
+        <div class="d-flex flex-column ps-4 jour-par-jour">
+          <h3><%= @mission.experience_title1 %></h3>
+          <p><%= @mission.experience_detail1 %></p>
+        </div>
+      </div>
+      <div class="d-flex py-3">
+        <%= image_tag @mission.experience_img2, width: "300px" %>
+        <div class="d-flex flex-column ps-4 jour-par-jour">
+          <h3><%= @mission.experience_title2 %></h3>
+          <p><%= @mission.experience_detail2 %></p>
+        </div>
+      </div>
+      <div class="d-flex py-3">
+        <%= image_tag @mission.experience_img3, width: "300px" %>
+        <div class="d-flex flex-column ps-4 jour-par-jour">
+          <h3><%= @mission.experience_title3 %></h3>
+          <p><%= @mission.experience_detail3 %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="impact" role="tabpanel" aria-labelledby="impact-tab">
+
+truc
   </div>
 </div>
 
-<div class="mt-5">
-  <ul class="list-inline tabs-underlined">
-    <li>
-      <a href="#" class="tab-underlined active">Itinéraire par Jour</a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-sm-4"></div>
-          <div class="col-sm-8"></div>
-        </div>
-      </div>
-    </li>
-    <li>
-      <a href="#" class="tab-underlined">Expérience</a>
-    </li>
-    <li>
-      <a href="#" class="tab-underlined">Impact Local</a>
-    </li>
-      <li>
-      <a href="#" class="tab-underlined">Infos Voyage</a>
-    </li>
-  </ul>
-</div>
+
+
+
+
+
+<%# experience_title1 = []
+experience_title2 = []
+experience_title3 = []
+experience_detail1= []
+experience_detail2= []
+experience_detail3= []
+experience_img1 = []
+experience_img2 = []
+experience_img3 = []
+pattern_for_2nd_paragraphe = [6, 8, 32, 38, 40, 42, 48, 56]
+jour_par_jour_img = []
+jour_par_jour_text = []
+impact_local_img = []
+impact_local_text = []
+infos_voyage_title1 = []
+infos_voyage_title2 = []
+infos_voyage_title3 = []
+infos_voyage_title4 = []
+infos_voyage_text1 = []
+infos_voyage_text2 = []
+infos_voyage_text3 = []
+infos_voyage_text4 = [] %>
