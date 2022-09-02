@@ -13,7 +13,7 @@ class MissionsController < ApplicationController
         lat: mission.latitude,
         lng: mission.longitude,
         info_window: render_to_string(partial: "info_window", locals: {mission: mission}),
-        image_url: helpers.asset_url("logo.png")
+        image_url: helpers.asset_url("markermap.png")
       }
     end
   end
