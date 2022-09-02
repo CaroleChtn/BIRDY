@@ -30,8 +30,13 @@
 }
 
 h1 {
-  font-size: 25px;
+  font-size: 27px;
+  color: $dark-green;
   font-weight: bold;
+}
+
+h1 > u {
+  font-size: 17px;
 }
 
 
@@ -43,12 +48,30 @@ h1 {
   color: black;
 }
 
+.impact_local img {
+  width: 300px;
+  display: block;
+  margin: auto;
+}
+
 #infos-voyage  p {
   color:black;
 }
 
 #formulaire{
   border: solid 1px;
+  border-radius: 20px;
+  h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+  h5 {
+    font-size: 15px;
+  }
+  #show-price {
+    font-size: 25px;
+    font-weight: bold;
+  }
 }
 
 #formulaire .btn{
@@ -65,8 +88,65 @@ h1 {
   color: white
 }
 
+.form-control {
+  border: none;
+}
+
+.booking_start_date {
+  margin: 0px !important;
+}
+
+.booking_end_date {
+  margin: 0px !important;
+}
+
+
+
 #top-description{
-  position: sticky;
   top: 60px;
   background-color: white;
+}
+
+.nav-link {
+  border-radius: 0px !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+
+#show p {
+  font-size: 16px;
+}
+
+#show h3 {
+  color: $light-yellow;
+}
+
+#top-description-p {
+  color: black;
+  margin-top: 26px;
+  margin-right: 20px;
+  text-align: justify;
+}
+
+#show .date-trip-left {
+  border: 1px solid grey;
+  border-radius: 5px 0 0 5px;
+  p {
+    font-size: 15px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    color: black;
+  }
+}
+
+#show .date-trip-right {
+  border: 1px solid grey;
+  border-radius: 0 5px 5px 0;
+  p {
+    font-size: 15px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    color:black
+  }
 }

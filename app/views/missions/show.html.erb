@@ -1,32 +1,40 @@
 <%# banner de la show %>
-<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))<%= @mission.img %>">
+<div class="banner-show" style="background-image: url('<%= @mission.jour_par_jour_img %>')">
 </div>
 
 <%# balise <u> pour souligner %>
 
-<div class="container">
-  <div class="row" id="top-description">
+<div class="container" id='show'>
+  <div class="row mt-4" id="top-description">
     <div class="col-sm-8">
-      <h1 class=" tabs text-left mt-2"><%= @mission.title%> <u><%= @mission.duration %></u> </h1>
-      <%= @mission.description %></p>
+      <h1 class="tabs text-left mt-2"><%= @mission.title%> <u><%= @mission.duration %></u> </h1>
+      <p id="top-description-p"><%= @mission.description %></p>
     </div>
 
-    <div class="form col-sm-4 mt-2 sticky" id="formulaire">
-      <h2>Réserver votre voyage</h2>
+    <div class="form col-sm-4 mt-2" id="formulaire">
+      <div class="mt-3">
+        <h2>Réserver votre voyage</h2>
+      </div>
       <div data-controller="flatpickr">
         <%= simple_form_for [@mission, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
           <div class="d-flex flex-column">
             <div class="d-flex align-items-center justify-content-center">
-              <%= f.input :start_date, label: 'Date de début', placeholder: 'Début', as: :string, input_html: { data: { flatpickr_target: 'startDateInput' } } %>
-              <%= f.input :end_date, label: 'Date de fin', placeholder: 'Fin',as: :string, input_html: { data: { flatpickr_target: 'endDateInput', } } %>
+              <div class="date-trip-left">
+                <p>Date de début</p>
+                <%= f.input :start_date, label: false, placeholder: 'yyyy/mm/dd', as: :string, input_html: { data: { flatpickr_target: 'startDateInput' } } %>
+              </div>
+              <div class="date-trip-right">
+                <p>Date de fin</p>
+                <%= f.input :end_date, label: false, placeholder: 'yyyy/mm/dd',as: :string, input_html: { data: { flatpickr_target: 'endDateInput', } } %>
+              </div>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between mt-3">
               <div>
                 <h5>Prix par personne </h5>
                 <h5>(hors aérien):</h5>
               </div>
               <div>
-                <h5><%= @mission.price%>€</h5>
+                <h5 id="show-price"><%= @mission.price%>€</h5>
               </div>
             </div>
             <%= f.submit 'Book now!', class: 'btn btn-primary align-self-center my-3' %>
@@ -85,7 +93,7 @@
     <p><%= @mission.impact_local_text.html_safe %></p>
   </div>
 
-    <div class="tab-pane fade" id="infos-voyage" role="tabpanel" aria-labelledby="infos-voyage-tab">
+    <div class="tab-pane fade py-3" id="infos-voyage" role="tabpanel" aria-labelledby="infos-voyage-tab">
     <h3><%= @mission.infos_voyage_title1 %></h3>
     <p><%= @mission.infos_voyage_text1 %></p>
     <h3><%= @mission.infos_voyage_title2 %></h3>
