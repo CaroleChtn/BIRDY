@@ -79,20 +79,23 @@ button {
   }
 }
 
-.carousel {
-  height: 250px;
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-}
+.birdy-carousel {
 
-.carousel-item.active {
-  display: flex;
-  justify-content: center;
-}
+  .carousel {
+    height: 250px;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+  }
 
-.carousel-item p {
-  width: 60%;
+  .carousel-item.active {
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel-item p {
+    width: 60%;
+  }
 }
 
 .card-trip {
@@ -107,6 +110,16 @@ button {
   padding: 50px 20px 20px 20px;
 }
 
-.carousel-photo {
+.carousel-photo .carousel-inner {
+  height: 50vh;
+  
+  img {
+    object-fit: cover;
+    height: 50vh;
+    width: 100%;
+  }
 
+  .carousel-item {
+    height: 50vh;
+  }
 }
