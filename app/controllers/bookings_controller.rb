@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       flash.alert = "Your booking is ok!"
-      redirect_to dashboards_path
+      redirect_to dashboards_path(booking: true)
     else
       flash.alert = "Your booking is not ok!"
       redirect_to mission_path(@booking.mission)

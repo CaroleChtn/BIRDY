@@ -58,7 +58,7 @@
               </p>
             </div>
             <div class="carousel-item">
-              <p>WOUHOUOUOUOUOUOUUUUUUDDFVLNAERLGBAELRKGBALKBG
+              <p> Une expérience unique et mémorable, des souvenirs pleins la tête. Merci Birdy ☺️
               </p>
             </div>
           </div>
@@ -113,18 +113,47 @@
 
 <div class="trip_exemples">
   <div class="container">
-    <div class="trip-ex-left">
-      <h2>Le voyage d'une vie</h2>
-      <h1>Des expériences sur-mesure</h1>
-      <p>Chaque voyage nourrit de vraies rencontres. On ne visite pas seulement un pays, on le vit !
-      Les échanges sont au cœur de l’expérience pour que chacun participe à la vie locale.
-      On quitte ses repères pour se contenter de l’essentiel, renouer avec la nature et partager le quotidien d’une communauté.</p>
-      <button>
-        <%= link_to "Trouver mon voyage", missions_path %>
-      </button>
-    </div>
-    <div class="trip-ex-right">
-    <%# carousel images %>
+    <div class="row">
+      <div class="col-4">
+        <div class="trip-ex-left">
+          <h2>Le voyage d'une vie</h2>
+          <h1>Des expériences sur-mesure</h1>
+          <p>Chaque voyage nourrit de vraies rencontres. On ne visite pas seulement un pays, on le vit !
+          Les échanges sont au cœur de l’expérience pour que chacun participe à la vie locale.
+          On quitte ses repères pour se contenter de l’essentiel, renouer avec la nature et partager le quotidien d’une communauté.</p>
+          <button>
+            <%= link_to "Trouver mon voyage", missions_path %>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="carousel-photo">
+          <div class="row mx-auto my-auto justify-content-center">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <%= image_tag "asian_children.jpg"%>
+              </div>
+              <div class="carousel-item">
+                <%= image_tag "make_change.jpg"%>
+              </div>
+              <div class="carousel-item ">
+                <%= image_tag "smiling_boy.jpg"%>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
