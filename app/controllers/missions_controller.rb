@@ -21,9 +21,9 @@ class MissionsController < ApplicationController
   def show
     @mission = Mission.find(params[:id])
     if params[:booking]
-    @booking = Booking.find(params[:booking])
+      @booking = Booking.find(params[:booking])
     else
-    @booking = Booking.new
+      @booking = Booking.new
     end
     @user = current_user
   end
