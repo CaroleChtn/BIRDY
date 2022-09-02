@@ -72,10 +72,6 @@
     <div class="container">
       <h2>Vos réservations</h2>
       <div style= "width:400px">
-        <h6 class="title" >En attente de validation</h6>
-        <% @current_bookings.each do |booking| %>
-          <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
-        <% end %>
         <h6 class="title1">Expériences à venir</h6>
         <% @future_bookings.each do |booking| %>
           <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
