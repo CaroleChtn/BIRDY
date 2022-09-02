@@ -68,6 +68,8 @@
       </div>
     </div>
   </div>
+
+
   <div class="tab-pane fade" id="booking-tab-pane" role="tabpanel" aria-labelledby="booking-tab" tabindex="0">
     <div class="container">
       <h2>Vos réservations</h2>
@@ -86,18 +88,13 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">...</div>
-</div>
-
-
 
   <div><h1>Vos favoris</h1></div>
   <div class="container-index" data-controller="favorites">
     <% current_user.favorite_missions.each do |mission|%>
       <div class="card-index my-2 mx-2">
           <div class= "card-index-image">
-          <i class="fa-solid fa-heart <%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+          <i class="fa-solid fa-heart fav-red" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
             <img src="<%= mission.img%>" alt="mission_img" class="">
           </div>
           <div class="card-index-bot mx-2">
@@ -118,3 +115,7 @@
       </div>
     <% end %>
   </div>
+
+  </div>
+<div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">...</div>
+</div>
