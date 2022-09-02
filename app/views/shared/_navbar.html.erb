@@ -1,10 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid">
   <div>
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo_blanc.png", width: "200px", class: 'logo' %>
-    <% end %>
+    <% if action_name == "home" %>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo_blanc.png", width: "200px", class: 'logo' %>
+      <% end %>
       <%= image_tag "birdy_blanc.png", width: "100px", class: 'logo' %>
+    <% else %>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo.png", width: "200px", class: 'logo' %>
+      <% end %>
+      <%= image_tag "name.png", width: "100px", class: 'logo' %>
+    <% end %>
   </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

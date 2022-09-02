@@ -1,13 +1,37 @@
 .navbar-lewagon {
   justify-content: space-between;
   background-color: transparent;
-  transition: 0.5s background-color ease;
+  transition: 0.5s all ease;
   position: fixed;
   width: 100%;
   color: white;
   z-index: 1;
   border-bottom: solid 0.5px white;
+  a.dropdown-item {
+    color: black;
+  }
+  .dropdown-menu.dropdown-menu-end.show {
+    border-radius: 10px;
+  }
 }
+
+#not_transparent {
+  .navbar-lewagon {
+    background-color: transparent !important;
+    color: black;
+  }
+  .navbar-lewagon-white {
+    background-color: white;
+    color: black;
+  }
+  .navbar-lewagon-white a {
+    color: black;
+  }
+  .navbar-lewagon a {
+    color: black;
+  }
+}
+
 .navbar-lewagon a {
   color: white;
 }
@@ -15,6 +39,10 @@
 .navbar-lewagon-white {
   background-color: white;
   color: black;
+
+  img {
+    filter: invert(1);
+  }
 }
 .navbar-lewagon-white a {
   color: black;
