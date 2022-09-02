@@ -17,10 +17,10 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Mon profil</button>
+    <button class="nav-link <%= 'active' unless params[:booking] %>" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Mon profil</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking-tab-pane" type="button" role="tab" aria-controls="booking-tab-pane" aria-selected="true">Mes réservations</button>
+    <button class="nav-link <%= 'active' if params[:booking] %>" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking-tab-pane" type="button" role="tab" aria-controls="booking-tab-pane" aria-selected="true">Mes réservations</button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="commu-tab" data-bs-toggle="tab" data-bs-target="#commu-tab-pane" type="button" role="tab" aria-controls="commu-tab-pane" aria-selected="false">Communauté</button>
@@ -28,7 +28,7 @@
 </ul>
 
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+  <div class="tab-pane fade <%= 'show active' unless params[:booking] %>" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
     <div class="container">
       <h2 class="text-center mt-4"><strong>Mon statut:</strong> Toucan nomade</h2>
     </div>
@@ -68,7 +68,7 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane fade show active" id="booking-tab-pane" role="tabpanel" aria-labelledby="booking-tab" tabindex="0">
+  <div class="tab-pane fade <%= 'show active' if params[:booking] %>" id="booking-tab-pane" role="tabpanel" aria-labelledby="booking-tab" tabindex="0">
     <div class="container">
       <h2>Vos réservations</h2>
       <div style= "width:400px">
@@ -86,18 +86,13 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">...</div>
-</div>
-
-
 
   <div><h1>Vos favoris</h1></div>
   <div class="container-index" data-controller="favorites">
     <% current_user.favorite_missions.each do |mission|%>
       <div class="card-index my-2 mx-2">
           <div class= "card-index-image">
-          <i class="fa-solid fa-heart <%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+          <i class="fa-solid fa-heart fav-red" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
             <img src="<%= mission.img%>" alt="mission_img" class="">
           </div>
           <div class="card-index-bot mx-2">
@@ -118,3 +113,7 @@
       </div>
     <% end %>
   </div>
+
+  </div>
+<div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">...</div>
+</div>
