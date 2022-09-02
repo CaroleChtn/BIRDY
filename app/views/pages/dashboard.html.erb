@@ -94,7 +94,7 @@
     <% current_user.favorite_missions.each do |mission|%>
       <div class="card-index my-2 mx-2">
           <div class= "card-index-image">
-          <i class="fa-solid fa-heart fav-red" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+          <i class="fa-solid fa-heart fav-red coeur_favoris" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
             <img src="<%= mission.img%>" alt="mission_img" class="">
           </div>
           <div class="card-index-bot mx-2">
