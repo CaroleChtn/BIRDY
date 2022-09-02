@@ -4,7 +4,8 @@
   background-color: $light-yellow;
   border: none;
   color: black;
-  padding: 15px 32px;
+  padding: 15px 39px;
+  margin-top: 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -14,7 +15,11 @@
     text-decoration: none;
     color: black;
   }
+  :hover {
+    color: white;
+  }
 }
+
 
 #bouton-un {
   background-color: green;
@@ -30,4 +35,17 @@
 
 #bouton-quatre {
   background-color: rgb(213, 15, 160);
+}
+
+h2 {
+  font-size: 26px;
+}
+
+.localisation {
+  font-size: 8px;
+  color: grey;
+}
+
+span {
+  color: #FDC850;
 }
