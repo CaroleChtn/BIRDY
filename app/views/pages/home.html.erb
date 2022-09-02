@@ -1,11 +1,10 @@
 <div class="banner" style="background-image: url('<%= image_path "couple_jungle.jpg" %>')">
   <div class="container w-50">
     <h2 class="text-center">Des expériences mémorables, <em>des actions qui ont du sens</em></h2>
-    <%# <p><em>Rent the car of your dreams</em></p> %>
-    <%# <%= form_with url: missions_path, method: :get, class: "d-flex" do %>
-      <%#= text_field_tag :query, params[:query], class: "form-control me-3 w-75", placeholder: "I want to go" %>
-      <%#= submit_tag "Start your journey", class: "btn btn-primary btn-search" %>
-    <%# end %>
+    <%= form_with url: missions_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query, params[:query], class: "form-control me-3 w-75", placeholder: "I want to go" %>
+      <%= submit_tag "Start your journey", class: "btn btn-primary btn-search" %>
+    <% end %>
   </div>
 </div>
 
