@@ -53,6 +53,7 @@
 .tabs-underlined .tab-underlined.active {
   opacity: 1;
   border-bottom: 3px solid #555555;
+  color: black;
 }
 
 .nav-link {
@@ -60,4 +61,9 @@
   border-left: none !important;
   border-right: none !important;
   border-top: none !important;
+  color: black;
+}
+
+.nav-link:hover {
+  color: $dark-green;
 }
