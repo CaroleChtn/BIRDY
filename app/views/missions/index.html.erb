@@ -15,12 +15,12 @@
           <%#= cat.name %>
           <%# end %>
         </div>
-        <div class="card-index-price d-flex justify-content-between">
+        <div class="card-index-price d-flex justify-content-between card-index-price-index">
           <div></div>
           <div class="d-flex flex-column align-items-end">
             <div class="mt-auto">
-              <p><%= mission.duration%></p>
-              <h4><%= mission.price%>€ hors aérien</h4>
+              <p class="card-index-p"><%= mission.duration%></p>
+              <h4 class="card-index-h4"><%= mission.price%>€</h4>
             </div>
           </div>
         </div>
@@ -47,12 +47,12 @@
           <div class="card-index-text">
             <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
           </div>
-          <div class="card-index-price d-flex justify-content-between">
+          <div class="card-index-price d-flex justify-content-between card-index-price-index">
             <div></div>
             <div class="d-flex flex-column align-items-end">
               <div class="mt-auto">
-                <p><%= mission.duration%></p>
-                <h4><%= mission.price%>€ hors aérien</h4>
+                <p class="card-index-p"><%= mission.duration%></p>
+                <h4 class="card-index-h4"><%= mission.price%>€</h4>
               </div>
             </div>
           </div>
