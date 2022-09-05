@@ -80,13 +80,26 @@
 <div class='main-container-emprunte-carbone'>
   <div class="card-emprunte-carbon text-center">
     <h4>Je voyage responsable!</h4>
-    <h2>👣Calculer mon empreinte carbone</h2>
-    <h5>Découvez la quantité de CO2 que vous émettez par personne pour ce trajet</h5>
+    <div class="d-flex justify-content-center flex-row">
+      <div>
+        <%= image_tag "carbon-footprint.png", width: "50px", class: 'logo' %>
+      </div>
+      <div>
+        <h2>Calculer mon empreinte carbone</h2>
+      </div>
+    </div>
+    <h5>Découvez la quantité de CO2 que vous émettez par personne pour ce trajet.</h5>
+    <h6>Nous nous engageons à planter l’équivalent des émissions de C02 en arbres, pour une planète préservée.</h6>
   </div>
 </div>
 
-<div class="mt-2">
-  <script id="mon-impact-transport" src="https://monimpacttransport.fr/iframe.js" data-search="?theme=default"></script>
+<div class="d-flex justify-content-between align-items-center flex-row">
+  <div class="mt-5 col-6">
+    <script id="mon-impact-transport" src="https://monimpacttransport.fr/iframe.js" data-search="?theme=default"></script>
+  </div>
+  <div class="col-6">
+    <%= image_tag "arbres-plantés.png", width: "700px" %>
+  </div>
 </div>
 
 <div class="container d-flex justify-content">
