@@ -37,16 +37,19 @@ button {
 
 
 .arguements {
+  margin-bottom: 109px !important;
+  margin-top: 109px !important;
+
   h1 {
     font-family: 'Inspiration', cursive;
     font-size: 32px;
     margin-top: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 33px;
   }
 
   h2 {
     color: $light-yellow;
-    margin-bottom: 45px;
+    margin-bottom: 67px;
   }
 
   ul {
@@ -84,7 +87,7 @@ button {
 
   .carousel {
     height: 250px;
-    padding: 50px;
+    padding: 44px;
     display: flex;
     justify-content: center;
   }
@@ -123,5 +126,20 @@ button {
 
   .carousel-item {
     height: 50vh;
+  }
+}
+
+.rating-stars ul {
+  list-style: none;
+}
+
+.birdy-experiences {
+  h2 {
+    margin-bottom: 32px;
+    margin-top: 9px;
+  }
+  p {
+    color: black;
+    margin-bottom: 41px;
   }
 }
