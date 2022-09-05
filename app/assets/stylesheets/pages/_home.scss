@@ -39,6 +39,7 @@ button {
 .arguements {
   h1 {
     font-family: 'Inspiration', cursive;
+    font-size: 32px;
     margin-top: 50px;
     margin-bottom: 20px;
   }
@@ -95,6 +96,7 @@ button {
 
   .carousel-item p {
     width: 60%;
+    font-size: 16px;
   }
 }
 
@@ -112,7 +114,7 @@ button {
 
 .carousel-photo .carousel-inner {
   height: 50vh;
-  
+
   img {
     object-fit: cover;
     height: 50vh;
