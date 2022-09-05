@@ -3,12 +3,12 @@
   <div>
     <% if action_name == "home" %>
       <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "logo_blanc.png", width: "200px", class: 'logo' %>
+        <%= image_tag "logo_blanc.png", width: "200px", class: 'logo-birdy' %>
       <% end %>
       <%= image_tag "birdy_blanc.png", width: "100px", class: 'logo' %>
     <% else %>
       <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "logo.png", width: "200px", class: 'logo' %>
+        <%= image_tag "logo.png", width: "200px", class: 'logo-birdy' %>
       <% end %>
       <%= image_tag "name.png", width: "100px", class: 'logo' %>
     <% end %>
@@ -33,9 +33,11 @@
       <%# <ul>
           <li class="nav-item dropdown"> %>
           <%# <i class="fa-solid fa-magnifying-glass"></i> %>
-          <%# <i class="fa-regular fa-heart"></i> %>
+
           <%# MENE A LA WISHLIST %>
-          <%# <i class="fa-solid fa-bars"></i> %>
+          <%= link_to  dashboards_path(favori: true), class: "pe-2", style: "text-decoration: none;" do %>
+            <i class="fa-regular fa-heart"></i>
+          <% end %>
 
             <%= image_tag "bird-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
