@@ -1,5 +1,7 @@
-<div class="banner" style="background-image: url('<%= image_path "couple_jungle.jpg" %>')">
-  <div class="container w-50">
+<!--<div class="banner" style="background-image: url('<%= image_path "couple_jungle.jpg" %>')">-->
+<div class="banner video-wrapper">
+  <video src="https://www.doublesens.fr//img/video/capsule-video.mp4" id="capsule-video" muted playsinline autoplay loop width="100%"></video>
+  <div class="container w-50" id="banner-text">
     <h2 class="text-center">Des expériences mémorables, <br><em>des actions qui ont du sens</em></h2>
     <%= form_with url: missions_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query, params[:query], class: "form-control me-3 w-75", placeholder: "Je veux aller à..." %>
