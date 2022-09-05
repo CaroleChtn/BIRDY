@@ -28,6 +28,9 @@
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="commu-tab" data-bs-toggle="tab" data-bs-target="#commu-tab-pane" type="button" role="tab" aria-controls="commu-tab-pane" aria-selected="false">Communauté</button>
   </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="mes-missions-tab" data-bs-toggle="tab" data-bs-target="#mes-missions-tab-pane" type="button" role="tab" aria-controls="mes-missions-tab-pane" aria-selected="false">Mes missions</button>
+  </li>
 </ul>
 
 <div class="tab-content" id="myTabContent">
@@ -74,6 +77,7 @@
         <h6 class="title1 mt-4"><strong>Expériences à venir</strong></h6>
         <% @future_bookings.each do |booking| %>
           <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
+          <%= link_to(booking.mission.title, chatroom_path(booking.chatrooms.first)) %>
         <% end %>
         <h6 class="title2 mt-4"><strong>Expériences passées</strong></h6>
         <% @past_bookings.each do |booking| %>
@@ -115,6 +119,14 @@
   <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">
     <div class="container">
       NIDAL <br> KEVIN <br> CAROLE <br> RUZ <br> DIANE
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="mes-missions-tab-pane" role="tabpanel" aria-labelledby="mes-missions-tab" tabindex="0">
+    <div class="container">
+    <% @current_user.missions.each do |mission|%>
+      <%= link_to(mission.title, chatroom_path(mission.chatrooms.first)) %>
+    <% end%>
     </div>
   </div>
 

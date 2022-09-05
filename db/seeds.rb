@@ -2,10 +2,33 @@ require "open-uri"
 require "nokogiri"
 require "faker"
 
+Message.destroy_all
+Chatroom.destroy_all
 Booking.destroy_all
 Favorite.destroy_all
 Mission.destroy_all
+Message.destroy_all
 User.destroy_all
+
+
+# Creating users
+
+10.times do
+  name = Faker::Name.first_name
+  email = Faker::Internet.email
+  password = "123456"
+  phone_number = "0607080919"
+  user = User.create!(name: name, email: email, password: password, phone_number: phone_number)
+end
+
+carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789")
+nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789")
+clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789")
+ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789")
+kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789")
+
+
+
 
 img = []
 city = []
@@ -241,7 +264,8 @@ missions = []
       infos_voyage_text1: infos_voyage_text1[i],
       infos_voyage_text2: infos_voyage_text2[i],
       infos_voyage_text3: infos_voyage_text3[i],
-      infos_voyage_text4: infos_voyage_text4[i]
+      infos_voyage_text4: infos_voyage_text4[i],
+      user_id: nidal.id
     )
     mission.save!
     missions << mission
@@ -398,7 +422,8 @@ i = 0
       infos_voyage_text1: infos_voyage_text1_trek[i],
       infos_voyage_text2: infos_voyage_text2_trek[i],
       infos_voyage_text3: infos_voyage_text3_trek[i],
-      infos_voyage_text4: infos_voyage_text4_trek[i]
+      infos_voyage_text4: infos_voyage_text4_trek[i],
+      user_id: nidal.id
     )
     mission.save!
     missions << mission
@@ -486,20 +511,6 @@ puts missions.size
 # End scrapping trek ------------------------------------------------
 
 
-# Creating users
 
-10.times do
-  name = Faker::Name.first_name
-  email = Faker::Internet.email
-  password = "123456"
-  phone_number = "0607080919"
-  user = User.create!(name: name, email: email, password: password, phone_number: phone_number)
-end
-
-carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789")
-nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789")
-clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789")
-ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789")
-kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789")
 
 puts "finished !!"
