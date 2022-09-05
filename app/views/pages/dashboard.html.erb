@@ -37,7 +37,8 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade <%= 'show active' unless params[:booking] || params[:favori] %>" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
     <div class="container">
-      <h2 class="text-center mt-5"><strong>Mon statut :</strong> Toucan nomade</h2>
+      <h2 class="text-center mt-5"><strong>Mon statut :</strong> <%= current_user.category.name %>
+      </h2>
     </div>
     <div>
       <h2 class="text-center mt-4">Mes voyages</h2>
@@ -66,15 +67,20 @@
             <%# <button type="button" class="button" data-bs-dismiss="modal" aria-label="Close"></button> %>
           </div>
           <div class="modal-body">
-            <%= simple_form_for current_user, url: edit_user_registration_path(current_user) do |f| %>
-            <div class="form-inputs">
-              <%= f.input :continent, as: :radio_buttons %>
-              <%= f.input :traveler_style, as: :radio_buttons %>
-              <%= f.input :category, as: :radio_buttons, collection: Category.all %>
-            </div>
-            <div class="form-actions">
-              <%= f.button :submit, "Create", class: "btn btn-dark w-100 rounded"%>
-            </div>
+            <%= form_for :change, url: change_category_path, method: :patch do |f|  %>
+              <% Category.all.each do |cat| %>
+                <div class="bg-primary p-5">
+                  <div class="bg-<%= cat.name.delete(' ') %>" style="width: 100px; height: 100px; border-radius: 50%;"></div>
+                  <%= cat.name %>
+                  <%= cat.description %>
+                  <% cat.tags.each do |t| %>
+                  <p><%= t.name %></p>
+                  <% end %>
+                </div>
+                <%= f.radio_button :contactmethod, cat.name %>
+                <%= f.label :contactmethod, cat.name, value: cat.name %>
+              <% end %>
+            <%= f.submit %>
             <% end %>
           </div>
           <div class="modal-footer">
@@ -83,9 +89,6 @@
         </div>
       </div>
     </div>
-
-
-
 
 
     <div class="container mb-5">
