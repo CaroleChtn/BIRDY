@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       flash.alert = "Réservation validé!"
+      @chatroom = Chatroom.create(name: @booking.mission.title, booking: @booking)
       redirect_to dashboards_path(booking: true)
     else
       flash.alert = "Erreur!"
