@@ -408,7 +408,6 @@ i = 0
 end
 
 
-puts missions.size
 # Variable TEST
 
 # puts img_trek
@@ -485,6 +484,239 @@ puts missions.size
 
 # End scrapping trek ------------------------------------------------
 
+
+# Scrapping vie nomade start ---------------------------------------
+
+img_nomad = []
+city_nomad = []
+title_nomad = []
+departure_date_nomad = [] #sur certaines missions y'a pas de date départ prévu, du coup sur la vue -> faire une conidition "if "nil" indiquer "pas de départ prévu"
+price_nomad = []
+duration_nomad = []
+exception_nomad = [1, 3, 8, 10, 12, 17, 19]
+exception_departure_nomad = [6, 7, 8, 9, 10, 11]
+
+
+html = URI.open("https://www.doublesens.fr/35-vie-nomade").read
+doc = Nokogiri::HTML(html, nil, "utf-8")
+doc.search(".product-min-container img").uniq.each_with_index do |element, index|
+  img_nomad << element.attr("src") if exception_nomad.include?(index) == false
+end
+
+img_nomad.uniq!
+
+doc.search(".product-link").each_with_index do |element, index|
+  city_nomad << element.text if index.even? && exception_nomad.include?(index) == false
+  title_nomad << element.text if index.odd? && exception_nomad.include?(index) == false
+end
+
+city_nomad.delete_at(3)
+city_nomad.delete_at(3)
+city_nomad.delete_at(3)
+
+title_nomad.uniq!
+
+doc.search(".product-miniature-depart-container").each_with_index do |element, index|
+  departure_date_nomad << element.text.strip if exception_departure_nomad.include?(index) == false
+end
+
+
+doc.search(".price").each_with_index do |element, index|
+  price_nomad << element.text.strip if exception_departure_nomad.include?(index) == false
+end
+
+doc.search(".nbjours").each_with_index do |element, index|
+  duration_nomad << element.text.strip if exception_departure_nomad.include?(index) == false
+end
+
+
+
+description_nomad = []
+experience_title1_nomad = []
+experience_title2_nomad = []
+experience_title3_nomad = []
+experience_detail1_nomad = []
+experience_detail2_nomad = []
+experience_detail3_nomad = []
+experience_img1_nomad = []
+experience_img2_nomad = []
+experience_img3_nomad = []
+jour_par_jour_img_nomad = []
+jour_par_jour_text_nomad = []
+impact_local_img_nomad = []
+impact_local_text_nomad = []
+infos_voyage_title1_nomad = []
+infos_voyage_title2_nomad = []
+infos_voyage_title3_nomad = []
+infos_voyage_title4_nomad = []
+infos_voyage_text1_nomad = []
+infos_voyage_text2_nomad = []
+infos_voyage_text3_nomad = []
+infos_voyage_text4_nomad = []
+banner_img_nomad = []
+
+doc.search("#products_full .backgroundimage3 a").uniq.each_with_index do |ele, index|
+  mission_nomad_url = ele.attr("href")
+  mission_nomad_html = URI.open(mission_nomad_url).read
+  mission_nomad_doc = Nokogiri::HTML(mission_nomad_html, nil, "utf-8")
+  mission_nomad_doc.search(".description_long").each do |ele|
+    description_nomad << ele.text.strip
+  end
+
+  experience_img1_nomad << mission_nomad_doc.search(".experience-product img").first.attr("src")
+  first_title = mission_nomad_doc.search(".text-experience-product h3").first
+  experience_title1_nomad << first_title.text
+  first_ele = mission_nomad_doc.search(" .text-experience-product ul").first
+  experience_detail1_nomad << first_ele.text
+
+  # #la 2eme paragraphe de expérience
+  experience_img2_nomad << mission_nomad_doc.search(".experience-product img").at(1).attr("src")
+  experience_title2_nomad << mission_nomad_doc.search(".text-experience-product h3").at(1).text
+  experience_detail2_nomad << mission_nomad_doc.search(".text-experience-product p").first.text if index != 0  && index != 2 && index != 3 && index != 4
+  experience_detail2_nomad << mission_nomad_doc.search(".text-experience-product p").at(1).text if index == 0 || index == 2 || index == 4
+  experience_detail2_nomad << mission_nomad_doc.search(".text-experience-product p").at(2).text if index == 3
+
+  # # La 3eme paragraphe de expérience
+  experience_img3_nomad << mission_nomad_doc.search(".experience-product img").at(2).attr("src")
+  experience_title3_nomad << mission_nomad_doc.search(".text-experience-product h3").at(2).text
+  experience_detail3_nomad << mission_nomad_doc.search(".text-experience-product").at(2).text.gsub("DIMENSION SOLIDAIRE", "").gsub("DIMENSION SOLIDAIRE", "")
+
+  # # JOUR PAR JOUR
+  jour_par_jour_img_nomad << mission_nomad_doc.search(".jour_par_jour img").attr("src")
+  jour_par_jour_text_nomad << mission_nomad_doc.search(".jour_par_jour")
+
+  # # Impact local
+  impact_local_img_nomad << mission_nomad_doc.search(".impact_local img").attr("src")
+  impact_local_text_nomad << mission_nomad_doc.search(".impact_local")
+
+  # Infos voyages
+  infos_voyage_title1_nomad << mission_nomad_doc.search(".info_voyage h3").first.text
+  infos_voyage_title2_nomad << mission_nomad_doc.search(".info_voyage h3").at(1).text
+  infos_voyage_title3_nomad << mission_nomad_doc.search(".info_voyage h3").at(2).text
+  infos_voyage_title4_nomad << mission_nomad_doc.search(".info_voyage h3").at(3).text
+
+  infos_voyage_text1_nomad << mission_nomad_doc.search(".info_voyage p").first.text
+  infos_voyage_text2_nomad << mission_nomad_doc.search(".info_voyage p").at(1).text
+  infos_voyage_text3_nomad << mission_nomad_doc.search(".info_voyage p").at(2).text
+  infos_voyage_text4_nomad << mission_nomad_doc.search(".info_voyage p").at(3).text
+
+  banner_img_nomad << mission_nomad_doc.search(".imagecover img").attr("src")
+end
+
+
+# puts img_nomad
+# puts img_nomad.size
+# puts city_nomad
+# puts city_nomad.size
+# puts title_nomad
+# puts title_nomad.size
+# puts departure_date_nomad
+# puts departure_date_nomad.size
+# puts price_nomad
+# puts price_nomad.size
+# puts duration_nomad
+# puts duration_nomad.size
+
+# puts banner_img_nomad
+# puts banner_img_nomad.size
+# puts experience_img1_nomad
+# puts experience_img1_nomad.size
+# puts experience_img2_nomad
+# puts experience_img2_nomad.size
+# puts experience_img3_nomad
+# puts experience_img3_nomad.size
+# puts description_nomad
+# puts description_nomad.size
+# puts experience_title1_nomad
+# puts experience_title1_nomad.size
+# puts experience_detail1_nomad
+# puts experience_detail1_nomad.size
+# puts experience_title2_nomad
+# puts experience_title2_nomad.size
+# puts experience_detail2_nomad
+# puts experience_detail2_nomad.size
+# puts experience_title3_nomad
+# puts experience_title3_nomad.size
+# experience_detail3_nomad.each_with_index do |ele, index|
+#   puts ele
+#   puts index
+# end
+# puts experience_detail3_nomad.size
+
+# JOUR PAR JOUR
+# puts jour_par_jour_img_nomad
+# puts jour_par_jour_img_nomad.size
+# puts jour_par_jour_text_nomad
+# puts jour_par_jour_text_nomad.size
+
+# Impact local
+# puts impact_local_img_nomad
+# puts impact_local_img_nomad.size
+# puts impact_local_text_nomad
+# puts impact_local_text_nomad.size
+
+# Infos voyage
+# puts infos_voyage_title1_nomad
+# puts infos_voyage_title1_nomad.size
+# puts infos_voyage_title2_nomad
+# puts infos_voyage_title2_nomad.size
+# puts infos_voyage_title3_nomad
+# puts infos_voyage_title3_nomad.size
+# puts infos_voyage_title4_nomad
+# puts infos_voyage_title4_nomad.size
+
+# puts infos_voyage_text1_nomad
+# puts infos_voyage_text1_nomad.size
+# puts infos_voyage_text2_nomad
+# puts infos_voyage_text2_nomad.size
+# puts infos_voyage_text3_nomad
+# puts infos_voyage_text3_nomad.size
+# puts infos_voyage_text4_nomad
+# puts infos_voyage_text4_nomad.size
+
+
+# Creation des missions "vie nomade"
+i = 0
+8.times do
+  if Mission.where(title: title_nomad[i] ).empty?
+    mission = Mission.new(
+      title: title_nomad[i],
+      description: description_nomad[i],
+      address: city_nomad[i],
+      price: price_nomad[i],
+      img: img_nomad[i],
+      departure_date: departure_date_nomad[i],
+      duration: duration_nomad[i],
+      experience_title1: experience_title1_nomad[i],
+      experience_title2: experience_title2_nomad[i],
+      experience_title3: experience_title3_nomad[i],
+      experience_detail1: experience_detail1_nomad[i],
+      experience_detail2: experience_detail2_nomad[i],
+      experience_detail3: experience_detail3_nomad[i],
+      experience_img1: experience_img1_nomad[i],
+      experience_img2: experience_img2_nomad[i],
+      experience_img3: experience_img3_nomad[i],
+      jour_par_jour_img: banner_img_nomad[i], # Remplacer par la banner car on n'utilise plus jpj_img
+      jour_par_jour_text: jour_par_jour_text_nomad[i],
+      impact_local_img: impact_local_img_nomad[i],
+      impact_local_text: impact_local_text_nomad[i],
+      infos_voyage_title1: infos_voyage_title1_nomad[i],
+      infos_voyage_title2: infos_voyage_title2_nomad[i],
+      infos_voyage_title3: infos_voyage_title3_nomad[i],
+      infos_voyage_title4: infos_voyage_title4_nomad[i],
+      infos_voyage_text1: infos_voyage_text1_nomad[i],
+      infos_voyage_text2: infos_voyage_text2_nomad[i],
+      infos_voyage_text3: infos_voyage_text3_nomad[i],
+      infos_voyage_text4: infos_voyage_text4_nomad[i]
+    )
+    mission.save!
+    missions << mission
+    puts "one more mission"
+  end
+  i += 1
+end
+
+puts missions.size
 
 # Creating users
 
