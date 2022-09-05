@@ -22,6 +22,9 @@
   <li class="nav-item" role="presentation">
     <button class="nav-link <%= 'active' if params[:booking] %>" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking-tab-pane" type="button" role="tab" aria-controls="booking-tab-pane" aria-selected="true">Mes réservations</button>
   </li>
+   <li class="nav-item" role="presentation">
+    <button class="nav-link" id="booking-tab" data-bs-toggle="tab" data-bs-target="#favori-tab-pane" type="button" role="tab" aria-controls="favori-tab-pane" aria-selected="true">Mes favoris</button>
+  </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="commu-tab" data-bs-toggle="tab" data-bs-target="#commu-tab-pane" type="button" role="tab" aria-controls="commu-tab-pane" aria-selected="false">Communauté</button>
   </li>
@@ -82,34 +85,36 @@
         <% end %>
       </div>
     </div>
+  </div>
 
-  <div><h1>Vos favoris</h1></div>
-  <div class="container-index" data-controller="favorites">
-    <% current_user.favorite_missions.each do |mission|%>
-      <div class="card-index my-2 mx-2">
-          <div class= "card-index-image">
-          <i class="fa-solid fa-heart fav-red coeur_favoris" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
-            <img src="<%= mission.img%>" alt="mission_img" class="">
+  <div class="tab-pane fade" id="favori-tab-pane"role="tabpanel" aria-labelledby="favori-tab" tabindex="0">
+      <div class="container-index" data-controller="favorites">
+        <% current_user.favorite_missions.each do |mission|%>
+          <div class="card-index my-2 mx-2">
+              <div class= "card-index-image">
+              <i class="fa-solid fa-heart fav-red coeur_favoris" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+                <img src="<%= mission.img%>" alt="mission_img" class="">
+              </div>
+              <div class="card-index-bot mx-2">
+                <div class="card-index-text">
+                  <h3 class="text-center"><%= link_to mission.title, mission_path(mission) %></h3>
+                </div>
+                <div class="card-index-price">
+                  <p><%= mission.duration%></p>
+                  <h4><%= mission.price%>€ hors aérien</h4>
+                </div>
+                <% mission.tags.each do |tag| %>
+                  <div class="badge bg-secondary"><%= tag.name %></div>
+                <% end %>
+                <% mission.categories.each do |category| %>
+                  <div class="badge bg-primary"><%= category.name %></div>
+                <% end %>
+            </div>
           </div>
-          <div class="card-index-bot mx-2">
-            <div class="card-index-text">
-              <h3 class="text-center"><%= link_to mission.title, mission_path(mission) %></h3>
-            </div>
-            <div class="card-index-price">
-              <p><%= mission.duration%></p>
-              <h4><%= mission.price%>€ hors aérien</h4>
-            </div>
-            <% mission.tags.each do |tag| %>
-              <div class="badge bg-secondary"><%= tag.name %></div>
-            <% end %>
-            <% mission.categories.each do |category| %>
-              <div class="badge bg-primary"><%= category.name %></div>
-            <% end %>
-        </div>
+        <% end %>
       </div>
-    <% end %>
   </div>
 
+  <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">...</div>
   </div>
-<div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">...</div>
 </div>
