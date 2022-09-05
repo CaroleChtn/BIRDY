@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:show, :create, :update, :edit]
   end
 
+  patch 'change_category', to: 'pages#change_category'
+
   resources :missions, only: [:index, :show] do
     resources :favorites, only: [:create]
   end
