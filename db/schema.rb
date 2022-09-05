@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_080633) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_101503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -129,8 +129,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_080633) do
     t.string "phone_number"
     t.string "address"
     t.integer "max_budget"
-    t.boolean "single_traveler", default: false
     t.bigint "category_id"
+    t.integer "continent", default: 0
+    t.integer "traveler_style", default: 0
     t.index ["category_id"], name: "index_users_on_category_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
