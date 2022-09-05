@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: url('<%= image_path "couple_jungle.jpg" %>')">
   <div class="container w-50">
-    <h2 class="text-center">Des expériences mémorables, <em>des actions qui ont du sens</em></h2>
+    <h2 class="text-center">Des expériences mémorables, <br><em>des actions qui ont du sens</em></h2>
     <%= form_with url: missions_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query, params[:query], class: "form-control me-3 w-75", placeholder: "Je veux aller à..." %>
       <%= submit_tag "C'est parti !", class: "btn btn-primary btn-search" %>
@@ -29,7 +29,7 @@
                   <div class="d-flex flex-column align-items-end">
                     <div class="mt-auto">
                       <p><%= mission.duration%></p>
-                      <h4><%= mission.price%>€ hors aérien</h4>
+                      <h4><%= mission.price%>€</h4>
                     </div>
                   </div>
                 </div>
