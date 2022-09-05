@@ -29,8 +29,10 @@
     border: none;
     border-radius: 45px;
     margin-top: 20px;
+    padding-left: 30px;
   }
 }
+
 
 .banner .btn {
   border-radius: 45px;
@@ -52,4 +54,36 @@
   :hover {
     color: white;
   }
+}
+
+#capsule-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  // object-fit: cover;
+  // height: 100%;
+  // width: 100%;
+}
+
+.video-wrapper {
+  /* Telling our absolute positioned video to
+  be relative to this element */
+  position: relative;
+
+  width: 100%;
+
+  /* Will not allow the video to overflow the
+  container */
+  overflow: hidden;
+
+  /* Centering the container's content vertically
+  and horizontally */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#banner-text {
+  position: relative;
 }

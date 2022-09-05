@@ -15,6 +15,20 @@ class PagesController < ApplicationController
     @future_bookings = @user.bookings.select {|booking| booking.start_date > Date.today}
   end
 
+  def update_profile
+    current_user.continent = params[:user][:continent]
+    current_user.traveler_style = params[:user][:traveler_style]
+    current_user.category = Category.find(params[:user][:category])
+    current_user.save!
+    # redirect vers les missions filtrées
+    redirect_to missions_path(
+                                continent: current_user.continent,
+                                traveler_style: current_user.traveler_style,
+                                category: current_user.category.name
+                            )
+    flash.notice = "Profil mis à jour !"
+  end
+
   def myprofile
     @user = current_user
   end

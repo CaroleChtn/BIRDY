@@ -27,7 +27,7 @@
 }
 
 .card-index-image i {
-  font-family: 'Font Awesome 6 Free';
+  // font-family: 'Font Awesome 6 Free';
   font-weight: 900;
   position: absolute;
   right: 10px;
@@ -59,32 +59,43 @@
 // }
 
 .card-index-text a{
-  font-family: "quicksand bold";
-  color:$dark-green;
+  // font-family: "quicksand bold";
+  color:black;
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
   text-align: left;
+  line-height: 18px;
 }
 .card-index-text{
+  padding: 0 10px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 13px;
+  line-height: 18px;;
+  p {
+    color:black;
+    font-size: 16px;
+  }
+  h4 {
+    color:black;
+    font-size: 20px;
+    font-weight: bold;
+  }
 }
 
 .card-index-price{
   text-align: end;
 }
 
-h4 {
-  font-size: 12px;
-}
-
-p {
-  font-size: 12px;
-}
 .card-index-bot{
   display: flex;
+  align-items: stretch;
   flex-direction: column;
   justify-content: space-between;
-  height: 150px;
+  height: 171px;
+  padding-bottom: 8px;
 }
 .text-ellipsis--2{
   text-overflow:ellipsis;
@@ -149,4 +160,11 @@ p {
 }
 .fav-black{
   color: black;
+}
+
+.title-birdy {
+  margin-bottom: 47px;
+  h2 {
+    margin-left: 140px;
+}
 }
