@@ -2,13 +2,21 @@ require "open-uri"
 require "nokogiri"
 require "faker"
 
+
+
+
+MissionTag.destroy_all
+Tag.destroy_all
+
 Message.destroy_all
 Chatroom.destroy_all
+
 Booking.destroy_all
 Favorite.destroy_all
 Mission.destroy_all
-Message.destroy_all
+
 User.destroy_all
+Category.destroy_all
 
 
 # Creating users
@@ -744,7 +752,36 @@ end
 
 puts missions.size
 
+# Creating categories
+
+poussin = Category.create(name: "Poussin Baroudeur", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+hibou = Category.create(name: "Hibou Curieux", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+toucan = Category.create(name: "Toucan Nomade", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+aigle = Category.create(name: "Super Aigle", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+
 # Creating users
+
+10.times do
+  name = Faker::Name.first_name
+  email = Faker::Internet.email
+  password = "123456"
+  phone_number = "0607080919"
+  user = User.create!(name: name, email: email, password: password, phone_number: phone_number, category: poussin)
+end
+
+carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789", category: toucan)
+nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789", category: toucan)
+clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789", category: toucan)
+ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789", category: hibou)
+kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789", category: aigle)
 
 
 puts "finished !!"
+
+Tag.create(name: 'Animal lover', category: toucan)
+Tag.create(name: 'Confort', category: toucan)
+Tag.create(name: 'Courte durée', category: toucan)
+
+MissionTag.create(mission: Mission.first, tag: Tag.first)
+MissionTag.create(mission: Mission.first, tag: Tag.second)
+MissionTag.create(mission: Mission.first, tag: Tag.third)

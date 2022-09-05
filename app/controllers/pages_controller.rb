@@ -6,6 +6,13 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def change_category
+    current_user.category = Category.find_by(name: params[:change][:contactmethod])
+    current_user.save
+
+    redirect_to dashboards_path
+  end
+
   def dashboard
     @user = current_user
     @missions = @user.missions
