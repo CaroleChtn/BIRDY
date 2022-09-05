@@ -5,6 +5,8 @@ class MissionsController < ApplicationController
         if params[:query].present?
           sql_query = "title ILIKE :query OR address ILIKE :query"
           @missions = Mission.where(sql_query, query: "%#{params[:query]}%")
+        elsif params[:continent]
+          
         else
           @missions = Mission.all
         end
