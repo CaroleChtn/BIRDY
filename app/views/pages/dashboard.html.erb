@@ -49,10 +49,44 @@
       <p class="text-center mb-5"><em>Plus que 7 plumes</em> pour devenir Aigle et profiter de réductions sur votre prochain voyage !</p>
     </div>
     <div class="container text-center mb-5">
-      <button id="bouton-profil">
-        <%= link_to "Compléter mon profil", missions_path %>
+    <!-- Button trigger modal -->
+      <button id="bouton-profil" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Compléter mon profil
       </button>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center" id="exampleModalLabel">
+              <strong>Compléter votre profil voyageur pour découvrir nos suggestions d’aventures sur-mesure !</strong>
+            </h5>
+            <%# <button type="button" class="button" data-bs-dismiss="modal" aria-label="Close"></button> %>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for current_user, url: edit_user_registration_path(current_user) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :continent, as: :radio_buttons %>
+              <%= f.input :traveler_style, as: :radio_buttons %>
+              <%= f.input :category, as: :radio_buttons, collection: Category.all %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Create", class: "btn btn-dark w-100 rounded"%>
+            </div>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="button" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
 
     <div class="container mb-5">
       <div class="row align-items-center justify-content-around">
@@ -118,6 +152,7 @@
 
   <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">
     <div class="container">
+      <div class="text-center mt-5">Ces birdies ont les mêmes centres d’intérêts que vous. Discutez avec eux !</div>
       NIDAL <br> KEVIN <br> CAROLE <br> RUZ <br> DIANE
     </div>
   </div>
