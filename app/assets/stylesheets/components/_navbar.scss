@@ -19,6 +19,14 @@
   a {
   color: white;
   }
+
+  .nav-link {
+    font-size: 20px;
+  }
+
+  .nav-item a:hover {
+    color: black !important;
+  }
 }
 
 .navbar-lewagon-white {
@@ -67,4 +75,8 @@
   .navbar-lewagon a {
     color: black;
   }
+}
+
+.heart-size {
+  font-size: 26px;
 }
