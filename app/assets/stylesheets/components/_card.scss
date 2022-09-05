@@ -65,9 +65,15 @@
   font-weight: bold;
   text-decoration: none;
   text-align: left;
+  line-height: 18px;
 }
 .card-index-text{
   padding: 0 10px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 13px;
+  line-height: 18px;;
   p {
     color:black;
     font-size: 16px;
@@ -88,7 +94,8 @@
   align-items: stretch;
   flex-direction: column;
   justify-content: space-between;
-  height: 150px;
+  height: 171px;
+  padding-bottom: 8px;
 }
 .text-ellipsis--2{
   text-overflow:ellipsis;
