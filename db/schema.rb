@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_101503) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_125455) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_101503) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "booking_id", null: false
+    t.index ["booking_id"], name: "index_chatrooms_on_booking_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -73,6 +77,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_101503) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.string "img"
     t.string "departure_date"
     t.string "duration"
@@ -99,6 +105,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_101503) do
     t.text "infos_voyage_text4"
     t.float "latitude"
     t.float "longitude"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_missions_on_user_id"
+
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -139,12 +148,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_101503) do
 
   add_foreign_key "bookings", "missions"
   add_foreign_key "bookings", "users"
+  add_foreign_key "chatrooms", "bookings"
   add_foreign_key "favorites", "missions"
   add_foreign_key "favorites", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "mission_tags", "missions"
   add_foreign_key "mission_tags", "tags"
+  add_foreign_key "missions", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "tags", "categories"
   add_foreign_key "users", "categories"

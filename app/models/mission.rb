@@ -4,6 +4,9 @@ class Mission < ApplicationRecord
   has_many :mission_tags
   has_many :mission_tags, dependent: :destroy
 
+  has_many :bookings
+  has_many :chatrooms, through: :bookings
+
   has_many :tags, through: :mission_tags
   has_many :categories, through: :tags
 

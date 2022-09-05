@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'dashboards', to: 'pages#dashboard'
   get 'myprofile', to: 'pages#myprofile'
+  post 'update_profile', to: 'pages#update_profile', as: 'update_profile'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :favorites, only: :destroy
 
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: [:show, :new, :create] do
     resources :messages, only: :create
   end
 end
