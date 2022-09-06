@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2022_09_05_125455) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,8 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_125455) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
     t.string "img"
     t.string "departure_date"
     t.string "duration"
@@ -107,7 +103,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_125455) do
     t.float "longitude"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_missions_on_user_id"
-
   end
 
   create_table "reviews", force: :cascade do |t|

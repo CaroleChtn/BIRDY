@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   end
 
   def change_category
-    current_user.category = Category.find_by(name: params[:change][:contactmethod])
+    current_user.category = Category.find(params[:change][:category])
     current_user.save
 
     redirect_to dashboards_path
