@@ -17,20 +17,28 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <%#= image_tag "logo.png", width: "100px", class: 'logo' %>
+    <div>
+      <%= image_tag "logo.png", width: "50px", class: 'logo' %>
+    </div>
     <button class="nav-link <%= 'active' unless params[:booking] || params[:favori] %>" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Mon profil</button>
   </li>
   <li class="nav-item" role="presentation">
-    <%#= image_tag "appointement.png", width: "100px", class: 'logo' %>
-    <button class="nav-link <%= 'active' if params[:booking] %>" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking-tab-pane" type="button" role="tab" aria-controls="booking-tab-pane" aria-selected="true">Mes réservations</button>
-  </li>
-   <li class="nav-item" role="presentation">
-    <%#= image_tag "logo.png", width: "100px", class: 'logo' %>
-    <button class="nav-link <%= 'active' if params[:favori] %>" id="favori-tab" data-bs-toggle="tab" data-bs-target="#favori-tab-pane" type="button" role="tab" aria-controls="favori-tab-pane" aria-selected="true">Mes favoris</button>
+    <div>
+      <%= image_tag "appointment.png", width: "50px", class: 'logo' %>
+      <button class="nav-link <%= 'active' if params[:booking] %>" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking-tab-pane" type="button" role="tab" aria-controls="booking-tab-pane" aria-selected="true">Mes réservations</button>
+    </div>
   </li>
   <li class="nav-item" role="presentation">
-    <%#= image_tag "community.png", width: "100px", class: 'logo' %>
-    <button class="nav-link" id="commu-tab" data-bs-toggle="tab" data-bs-target="#commu-tab-pane" type="button" role="tab" aria-controls="commu-tab-pane" aria-selected="false">Communauté</button>
+    <div>
+      <%= image_tag "heart.png", width: "50px", class: 'logo' %>
+      <button class="nav-link <%= 'active' if params[:favori] %>" id="favori-tab" data-bs-toggle="tab" data-bs-target="#favori-tab-pane" type="button" role="tab" aria-controls="favori-tab-pane" aria-selected="true">Mes favoris</button>
+    </div>
+  </li>
+  <li class="nav-item" role="presentation">
+    <div>
+      <%= image_tag "community.png", width: "50px", class: 'logo' %>
+      <button class="nav-link" id="commu-tab" data-bs-toggle="tab" data-bs-target="#commu-tab-pane" type="button" role="tab" aria-controls="commu-tab-pane" aria-selected="false">Communauté</button>
+    </div>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="mes-missions-tab" data-bs-toggle="tab" data-bs-target="#mes-missions-tab-pane" type="button" role="tab" aria-controls="mes-missions-tab-pane" aria-selected="false">Mes missions</button>
