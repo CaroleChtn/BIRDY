@@ -1,2 +1,4 @@
-<h2><%= mission.title %></h2>
-<p><%= mission.address %></p>
+<div>
+  <h2><%= link_to mission.title, mission_path(mission) %></h2>
+  <p><%= mission.address %></p>
+</div>

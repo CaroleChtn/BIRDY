@@ -23,6 +23,7 @@ class MissionsController < ApplicationController
   end
 
   def show
+    @missions = Mission.all
     @mission = Mission.find(params[:id])
     if params[:booking]
       @booking = Booking.find(params[:booking])
