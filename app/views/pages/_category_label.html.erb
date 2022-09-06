@@ -7,7 +7,7 @@
     <h1><%= category.display_name %></h1>
     <p><%= category.description %></p>
   </div>
-  <div class="col-3">
+  <div class="col-3  d-flex flex-column align-items-center">
     <% category.tags.each do |t| %>
     <p class="badge rounded-pill text-bg-secondary p-3"><%= t.name %></p>
     <% end %>
