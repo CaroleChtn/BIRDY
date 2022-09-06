@@ -47,7 +47,7 @@
 
             <%= image_tag "bird-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%#= link_to "Mon profil", myprofile_path, class: "dropdown-item" %>
+              <p class="text-center" style= "color: black;margin-bottom: 0,5em;border-bottom: 1px solid black;padding-bottom: inherit;">Bonjour <%= current_user.name %> !</p>
               <%= link_to "Tableau de bord", dashboards_path, class: "dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
