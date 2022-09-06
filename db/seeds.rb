@@ -78,6 +78,15 @@ doc.search(".nbjours").each_with_index do |element, index|
   duration << element.text.strip if exception_departure_date.include?(index) == false
 end
 
+# modif price (espace)
+price_with_space = []
+price.each do |ele|
+  temp = ele.split("")
+  temp2 = temp[0]
+  temp.slice!(0)
+  price_with_space << (temp2 + ' ' + temp[0] + temp[1] + temp[2])
+end
+
 description = []
 experience_title1 = []
 experience_title2 = []
@@ -252,7 +261,7 @@ missions = []
       title: title[i],
       description: description[i],
       address: city[i],
-      price: price[i],
+      price: price_with_space[i],
       img: img[i],
       departure_date: departure_date[i],
       duration: duration[i],
@@ -323,6 +332,16 @@ end
 doc.search("#products_full .price").each do |ele|
   price_trek << ele.text.strip
 end
+
+# modif price (espace)
+price_with_space_trek = []
+price_trek.each do |ele|
+  temp = ele.split("")
+  temp2 = temp[0]
+  temp.slice!(0)
+  price_with_space_trek << (temp2 + ' ' + temp[0] + temp[1] + temp[2])
+end
+
 
 description_trek = []
 experience_title1_trek = []
@@ -410,7 +429,7 @@ i = 0
       title: title_trek[i],
       description: description_trek[i],
       address: city_trek[i],
-      price: price_trek[i],
+      price: price_with_space_trek[i],
       img: img_trek[i],
       departure_date: departure_date_trek[i],
       duration: duration_trek[i],
@@ -567,6 +586,14 @@ doc.search(".nbjours").each_with_index do |element, index|
   duration_nomad << element.text.strip if exception_departure_nomad.include?(index) == false
 end
 
+# modif price (espace)
+price_with_space_nomad = []
+price_nomad.each do |ele|
+  temp = ele.split("")
+  temp2 = temp[0]
+  temp.slice!(0)
+  price_with_space_nomad << (temp[0] + temp[1] + temp[2])
+end
 
 
 description_nomad = []
@@ -721,7 +748,7 @@ i = 0
       title: title_nomad[i],
       description: description_nomad[i],
       address: city_nomad[i],
-      price: price_nomad[i],
+      price: price_with_space_nomad[i],
       img: img_nomad[i],
       departure_date: departure_date_nomad[i],
       duration: duration_nomad[i],
