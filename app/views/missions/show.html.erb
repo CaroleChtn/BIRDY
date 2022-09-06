@@ -7,7 +7,14 @@
 <div class="container" id='show'>
   <div class="row mt-5" id="top-description">
     <div class="col-sm-8">
-      <h1 class="tabs text-left mt-2"><%= @mission.title%> <u><%= @mission.duration %></u> </h1>
+      <div class="d-flex align-items-center">
+        <div>
+          <h1 class="tabs text-left mt-2 me-3"><%= @mission.title%></h1>
+        </div>
+        <div>
+          <h2 class="size-duration mb-0 mt-1"><%= @mission.duration %></h2>
+        </div>
+      </div>
       <p id="top-description-p"><%= @mission.description %></p>
     </div>
 
@@ -16,7 +23,7 @@
         <h2>Réserver votre voyage</h2>
       </div>
       <div data-controller="flatpickr">
-        <%= simple_form_for [@mission, @booking], html: { data: { controller: 'flatpickr' } } do |f| %>
+        <%= simple_form_for [@mission, @booking] do |f| %>
           <div class="d-flex flex-column">
             <div class="d-flex align-items-center justify-content-center">
               <div class="date-trip-left">
@@ -58,10 +65,15 @@
     <button class="nav-link tab-underlined" id="infos-voyage-tab" data-bs-toggle="tab" data-bs-target="#infos-voyage" type="button" role="tab" aria-controls="infos-voyage" aria-selected="false">Infos Voyage</button>
   </li>
 </ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active jour_par_jour_text" id="itineraire" role="tabpanel" aria-labelledby="itineraire-tab">
-    <p><%= @mission.jour_par_jour_text.html_safe %></p>
+<div  class="tab-content" id="myTabContent" data-controller="toggle-days" >
+  <div   class="tab-pane fade show active jour_par_jour_text" id="itineraire" role="tabpanel" aria-labelledby="itineraire-tab">
+    <div data-toggle-days-target="item" class="d-none mt-4"><%= @mission.jour_par_jour_text.html_safe %></div>
+    <div data-toggle-days-target="short"><%= @mission.jour_par_jour_text.split('JOURS 4').first.split('JOUR 4').first.html_safe %></b></h3></div></div>
+    <div class="d-flex justify-content-center">
+      <button data-action="click->toggle-days#toggle" type="button" class="button-index">Voir plus !</button>
+    </div>
   </div>
+<%# d-none = display none %>
 
   <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
     <div class="d-flex flex-column py-3 px-5">
@@ -146,5 +158,36 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="col justify-content-center align-items-center text-center birdy-experiences">
+  <h2>Vous aimerez aussi</h2>
+</div>
+
+<div class="cards container-index mt-5 mb-5">
+    <% @missions.sample(3).each do |mission|%>
+      <div class="card-index my-2 mx-2">
+        <div class="card-index-image">
+          <img src="<%= mission.img%>" alt="mission_img" class="card-img-top">
+            <div class="card-index-bot mx-2">
+              <div class="card-index-text">
+                <div>
+                  <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
+                </div>
+                <div class="card-index-price d-flex justify-content-between">
+                <div></div>
+                  <div class="d-flex flex-column align-items-end">
+                    <div class="mt-auto">
+                      <p><%= mission.duration%></p>
+                      <h4><%= mission.price%>€</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    <% end%>
   </div>
 </div>
