@@ -171,7 +171,11 @@
     <% current_user.owned_missions.each do |mission|%>
       <% if mission.chatrooms.first %>
         <%= link_to(mission.title, mission_path(mission)) %>
-        <%#= link_to(mission.title, chatroom_path(mission.chatrooms.first)) %>
+
+
+        <%= link_to(mission.title, chatroom_path(mission.chatrooms.first)) %>
+
+        <%# = link_to(mission.title, chatroom_path(mission.chatrooms.first)) %>
       <% end %>
     <% end%>
     </div>
