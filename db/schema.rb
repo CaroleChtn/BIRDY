@@ -75,6 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_092736) do
     t.string "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.string "img"
     t.string "departure_date"
     t.string "duration"
@@ -99,8 +101,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_092736) do
     t.text "infos_voyage_text2"
     t.text "infos_voyage_text3"
     t.text "infos_voyage_text4"
-    t.float "latitude"
-    t.float "longitude"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_missions_on_user_id"
   end
