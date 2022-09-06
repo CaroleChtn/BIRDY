@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:show, :create, :update, :edit]
   end
 
+  resources :bookings, only: [:destroy]
+
   resources :missions, only: [:index, :show] do
     resources :favorites, only: [:create]
   end

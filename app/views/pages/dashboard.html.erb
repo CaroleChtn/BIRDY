@@ -163,8 +163,11 @@
 
   <div class="tab-pane fade" id="mes-missions-tab-pane" role="tabpanel" aria-labelledby="mes-missions-tab" tabindex="0">
     <div class="container">
-    <% @current_user.missions.each do |mission|%>
-      <%= link_to(mission.title, chatroom_path(mission.chatrooms.first)) %>
+    <% current_user.owned_missions.each do |mission|%>
+      <% if mission.chatrooms.first %>
+        <%= link_to(mission.title, mission_path(mission)) %>
+        <%#= link_to(mission.title, chatroom_path(mission.chatrooms.first)) %>
+      <% end %>
     <% end%>
     </div>
   </div>

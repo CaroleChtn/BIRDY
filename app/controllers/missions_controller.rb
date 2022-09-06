@@ -8,7 +8,7 @@ class MissionsController < ApplicationController
           sql_query = "title ILIKE :query OR address ILIKE :query"
           @missions = Mission.where(sql_query, query: "%#{params[:query]}%")
         elsif params[:continent]
-          
+
         else
           @missions = Mission.all
         end
@@ -29,7 +29,7 @@ class MissionsController < ApplicationController
     else
       @booking = Booking.new
     end
-    @user = current_useré
+    @user = current_user
   end
 
 
