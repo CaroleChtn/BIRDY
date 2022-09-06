@@ -12,7 +12,7 @@
         <div class="card-index-text">
           <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
           <%# mission.categories.uniq.each do |cat| %>
-          <%#= cat.name %>
+          <%#= cat.display_name %>
           <%# end %>
         </div>
         <div class="card-index-price d-flex justify-content-between card-index-price-index">
@@ -28,7 +28,7 @@
           <div class="badge bg-secondary"><%= tag.name %></div>
         <% end %>
         <% mission.categories.each do |category| %>
-          <div class="badge bg-primary"><%= category.name %></div>
+          <div class="badge bg-primary"><%= category.display_name %></div>
         <% end %>
       </div>
     </div>
@@ -60,7 +60,7 @@
             <div class="badge bg-secondary"><%= tag.name %></div>
           <% end %>
           <% mission.categories.each do |category| %>
-            <div class="badge bg-primary"><%= category.name %></div>
+            <div class="badge bg-primary"><%= category.display_name %></div>
           <% end %>
         </div>
       </div>
