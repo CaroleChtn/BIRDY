@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :favorites
   has_many :bookings
+  has_many :owned_missions, class_name: 'Mission', foreign_key: :user_id
   has_many :missions, through: :bookings
   has_many :favorite_missions, through: :favorites, source: :mission
 

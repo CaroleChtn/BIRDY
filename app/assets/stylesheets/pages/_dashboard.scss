@@ -76,42 +76,101 @@
 .category-selector + label {
   display: block;
   cursor: pointer;
-  width: 100%;
+  // width: 100%;
   text-align: left;
   background-color: white;
-  border: 1px solid white;
+  // border: 1px solid white;
   border-radius: 10px;
+  margin: 0 4rem;
+  border: 2px solid lightgray;
+  border-radius: 16px;
+  padding: 1rem;
 }
 
 .category-selector:checked + label {
-  border: 1px solid yellow !important;
+  border: 2px solid pink !important;
 }
 
 .change legend {
   display: none;
 }
 
-.bg-HibouCurieux {
+.change .form-check {
+  margin-left: 0 !important;
+  padding-left: 0;
+}
+
+.bg-hibou {
   background-image: url("hibou.jpg");
-  background-size: contain;
-  border-radius: 50%;
 }
-.bg-ToucanNomade {
+
+.bg-toucan {
   background-image: url("toucan.jpg");
-  background-size: contain;
-  border-radius: 50%;
 }
 
-.bg-PoussinBaroudeur {
+.bg-poussin {
   background-image: url("poussin.jpg");
-  background-size: contain;
-  border-radius: 50%;
 }
 
-.bg-SuperAigle {
+.bg-aigle {
   background-image: url("aigle.jpg");
-  background-size: contain;
+}
+
+.modal-title {
+  margin: 10px 45px 10px 45px;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 750px !important;
+  }
+}
+
+.bg-category {
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  padding: 2rem;
+}
+
+.button {
+  border-radius: 45px;
+  background-color: $light-yellow;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  :hover {
+    color: white;
+  }
+}
+
+form.simple_form.change {
+  display: flex;
+  flex-direction: column;
+  .button {
+    margin: 0 auto;
+  }
+}
+
+li.nav-item {
+  text-align: center;
+}
+
+ul#myTab {
+  margin-top: 60px;
+  align-items: flex-end;
+  justify-content: space-evenly;
 }
 .card-bird{
   border: 1px solid gray;

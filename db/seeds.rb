@@ -20,10 +20,10 @@ Category.destroy_all
 
 
 # Creating users
-poussin = Category.create(name: "Poussin Baroudeur", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-hibou = Category.create(name: "Hibou Curieux", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-toucan = Category.create(name: "Toucan Nomade", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-aigle = Category.create(name: "Super Aigle", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+poussin = Category.create(name: "poussin", description: "Novice dans l'art de la baroude, le poussin voyageur est impatient de voler de ses propres ailes.")
+hibou = Category.create(name: "hibou", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+toucan = Category.create(name: "toucan", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+aigle = Category.create(name: "aigle", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
 
 # Creating users
 
@@ -76,6 +76,15 @@ end
 
 doc.search(".nbjours").each_with_index do |element, index|
   duration << element.text.strip if exception_departure_date.include?(index) == false
+end
+
+# modif price (espace)
+price_with_space = []
+price.each do |ele|
+  temp = ele.split("")
+  temp2 = temp[0]
+  temp.slice!(0)
+  price_with_space << (temp2 + ' ' + temp[0] + temp[1] + temp[2])
 end
 
 description = []
@@ -252,7 +261,7 @@ missions = []
       title: title[i],
       description: description[i],
       address: city[i],
-      price: price[i],
+      price: price_with_space[i],
       img: img[i],
       departure_date: departure_date[i],
       duration: duration[i],
@@ -323,6 +332,16 @@ end
 doc.search("#products_full .price").each do |ele|
   price_trek << ele.text.strip
 end
+
+# modif price (espace)
+price_with_space_trek = []
+price_trek.each do |ele|
+  temp = ele.split("")
+  temp2 = temp[0]
+  temp.slice!(0)
+  price_with_space_trek << (temp2 + ' ' + temp[0] + temp[1] + temp[2])
+end
+
 
 description_trek = []
 experience_title1_trek = []
@@ -410,7 +429,7 @@ i = 0
       title: title_trek[i],
       description: description_trek[i],
       address: city_trek[i],
-      price: price_trek[i],
+      price: price_with_space_trek[i],
       img: img_trek[i],
       departure_date: departure_date_trek[i],
       duration: duration_trek[i],
@@ -567,6 +586,14 @@ doc.search(".nbjours").each_with_index do |element, index|
   duration_nomad << element.text.strip if exception_departure_nomad.include?(index) == false
 end
 
+# modif price (espace)
+price_with_space_nomad = []
+price_nomad.each do |ele|
+  temp = ele.split("")
+  temp2 = temp[0]
+  temp.slice!(0)
+  price_with_space_nomad << (temp2 + ' ' +temp[0] + temp[1] + temp[2])
+end
 
 
 description_nomad = []
@@ -721,7 +748,7 @@ i = 0
       title: title_nomad[i],
       description: description_nomad[i],
       address: city_nomad[i],
-      price: price_nomad[i],
+      price: price_with_space_nomad[i],
       img: img_nomad[i],
       departure_date: departure_date_nomad[i],
       duration: duration_nomad[i],
@@ -745,7 +772,8 @@ i = 0
       infos_voyage_text1: infos_voyage_text1_nomad[i],
       infos_voyage_text2: infos_voyage_text2_nomad[i],
       infos_voyage_text3: infos_voyage_text3_nomad[i],
-      infos_voyage_text4: infos_voyage_text4_nomad[i]
+      infos_voyage_text4: infos_voyage_text4_nomad[i],
+      user_id: nidal.id
     )
     mission.save!
     missions << mission
@@ -760,9 +788,18 @@ puts missions.size
 
 puts "finished !!"
 
-Tag.create(name: 'Animal lover', category: toucan)
-Tag.create(name: 'Confort', category: toucan)
-Tag.create(name: 'Courte durée', category: toucan)
+Tag.create!(name: 'Communauté', category: poussin)
+Tag.create!(name: 'Traditions locales', category: poussin)
+Tag.create!(name: 'Diversité culturelle', category: poussin)
+Tag.create!(name: 'Vie sauvage', category: hibou)
+Tag.create!(name: 'Biodiversité', category: hibou)
+Tag.create!(name: 'Lève-tôt', category: hibou)
+Tag.create!(name: 'Délices tropicaux', category: toucan)
+Tag.create!(name: "D'île en île", category: toucan)
+Tag.create!(name: 'Fin gourmet', category: toucan)
+Tag.create!(name: 'Déconnexion', category: aigle)
+Tag.create!(name: 'Pleine nature', category: aigle)
+Tag.create!(name: 'Rando', category: aigle)
 
 MissionTag.create(mission: Mission.first, tag: Tag.first)
 MissionTag.create(mission: Mission.first, tag: Tag.second)
