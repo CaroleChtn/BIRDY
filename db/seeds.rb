@@ -745,7 +745,8 @@ i = 0
       infos_voyage_text1: infos_voyage_text1_nomad[i],
       infos_voyage_text2: infos_voyage_text2_nomad[i],
       infos_voyage_text3: infos_voyage_text3_nomad[i],
-      infos_voyage_text4: infos_voyage_text4_nomad[i]
+      infos_voyage_text4: infos_voyage_text4_nomad[i],
+      user_id: nidal.id
     )
     mission.save!
     missions << mission
