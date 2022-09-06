@@ -34,7 +34,6 @@
     </div>
   <%end%>
 </div>
-
 <% if @missions.length > 6 %>
   <div class="collapse container-index" id="collapseExample">
     <% @missions.last(@missions.length - 6).each do |mission| %>
@@ -52,7 +51,7 @@
             <div class="d-flex flex-column align-items-end">
               <div class="mt-auto">
                 <p class="card-index-p"><%= mission.duration%></p>
-                <h4 class="card-index-h4"><%= mission.price%>€</h4>
+                <h4 class="card-index-h4"><%= mission.price %>€</h4>
               </div>
             </div>
           </div>
