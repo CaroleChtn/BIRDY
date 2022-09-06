@@ -20,10 +20,10 @@ Category.destroy_all
 
 
 # Creating users
-poussin = Category.create(name: "poussin", description: "Novice dans l'art de la baroude, le poussin voyageur est impatient de voler de ses propres ailes.")
-hibou = Category.create(name: "hibou", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-toucan = Category.create(name: "toucan", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-aigle = Category.create(name: "aigle", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+poussin = Category.create(name: "poussin", description: "Novice dans l'art de la baroude et soucieux de son confort, le poussin est néanmoins impatient de voler de ses propres ailes et de découvrir de nouvelles sensations.")
+hibou = Category.create(name: "hibou", description: "Curieux et à la recherche de nouveautés, le hibou aime explorer plus loin que son bec et repousser ses limites. Affamé de rencontres, il est un vrai voyageur fédérateur.")
+toucan = Category.create(name: "toucan", description: "Avec son bec surdimensionné et coloré, le Toucan a soif d'aventure. S'imprégner de la culture locale est son seconde plumage.")
+aigle = Category.create(name: "aigle", description: "Volontaire et indépendant, l'Aigle aimera prendre son envol vers de nouvelles expériences toujours plus hors des sentiers battus.")
 
 # Creating users
 
@@ -36,7 +36,7 @@ aigle = Category.create(name: "aigle", description: "Lorem Ipsum has been the in
 # end
 
 carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789", category: toucan)
-nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789", category: toucan)
+nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789", category: poussin)
 clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789", category: toucan)
 ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789", category: hibou)
 kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789", category: aigle)

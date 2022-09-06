@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_092736) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_06_145114) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_092736) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "booking_id", null: false
+    t.bigint "booking_id"
     t.index ["booking_id"], name: "index_chatrooms_on_booking_id"
   end
 
@@ -75,6 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_092736) do
     t.string "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.string "img"
     t.string "departure_date"
     t.string "duration"
@@ -99,10 +101,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_092736) do
     t.text "infos_voyage_text2"
     t.text "infos_voyage_text3"
     t.text "infos_voyage_text4"
-    t.float "latitude"
-    t.float "longitude"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_missions_on_user_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_participations_on_chatroom_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -151,6 +160,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_092736) do
   add_foreign_key "mission_tags", "missions"
   add_foreign_key "mission_tags", "tags"
   add_foreign_key "missions", "users"
+  add_foreign_key "participations", "chatrooms"
+  add_foreign_key "participations", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "tags", "categories"
   add_foreign_key "users", "categories"

@@ -165,6 +165,14 @@
   }
 }
 
+.button:hover {
+  color: white;
+}
+
+.button-modal:hover {
+    color: white;
+  }
+
 form.simple_form.change {
   display: flex;
   flex-direction: column;
@@ -181,4 +189,16 @@ ul#myTab {
   margin-top: 60px;
   align-items: flex-end;
   justify-content: space-evenly;
+}
+.card-bird{
+  border: 1px gray;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: gray;
+  background-color: #fceed7;
+  width: 200px;
+  height: 280px;
+  line-height: 13px;
+  margin: 0px auto;
+  box-shadow: 0px 5px 20px rgb(135, 133, 133);
 }

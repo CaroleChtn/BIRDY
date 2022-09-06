@@ -17,10 +17,12 @@
   opacity: 1;
   border-bottom: 3px solid #555555;
 }
-
-.jour_par_jour > p{
+.mission-content-container > div {
+  padding: 0 8rem !important;
+}
+.jour_par_jour > p {
   color:black ;
-  margin-left: 50px;
+  // margin-left: 50px;
 }
 
 .jour_par_jour_text h3 {
