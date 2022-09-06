@@ -101,11 +101,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_092736) do
     t.text "infos_voyage_text4"
     t.float "latitude"
     t.float "longitude"
-<<<<<<< HEAD
-=======
     t.bigint "user_id"
     t.index ["user_id"], name: "index_missions_on_user_id"
->>>>>>> 49d0995673d3c327c9b152ca536b787949f0f252
   end
 
   create_table "reviews", force: :cascade do |t|
