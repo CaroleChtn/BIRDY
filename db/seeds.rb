@@ -592,7 +592,7 @@ price_nomad.each do |ele|
   temp = ele.split("")
   temp2 = temp[0]
   temp.slice!(0)
-  price_with_space_nomad << (temp[0] + temp[1] + temp[2])
+  price_with_space_nomad << (temp2 + ' ' +temp[0] + temp[1] + temp[2])
 end
 
 
