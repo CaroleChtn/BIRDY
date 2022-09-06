@@ -788,19 +788,18 @@ puts missions.size
 
 puts "finished !!"
 
-Tag.create(name: 'Communauté', category: poussin)
-Tag.create(name: 'Traditions locales', category: poussin)
-Tag.create(name: 'Diversité culturelle', category: poussin)
-Tag.create(name: 'Vie sauvage', category: hibou)
-Tag.create(name: 'Biodiversité', category: hibou)
-Tag.create(name: 'Lève-tôt', category: hibou)
-Tag.create(name: 'Délices tropicaux', category: toucan)
-Tag.create(name: "D'île en île", category: toucan)
-Tag.create(name: 'Fin gourmet', category: toucan)
-Tag.create(name: 'Déconnexion', category: aigle)
-Tag.create(name: 'Pleine nature', category: aigle)
-Tag.create(name: 'Rando', category: aigle)
-
+Tag.create!(name: 'Communauté', category: poussin)
+Tag.create!(name: 'Traditions locales', category: poussin)
+Tag.create!(name: 'Diversité culturelle', category: poussin)
+Tag.create!(name: 'Vie sauvage', category: hibou)
+Tag.create!(name: 'Biodiversité', category: hibou)
+Tag.create!(name: 'Lève-tôt', category: hibou)
+Tag.create!(name: 'Délices tropicaux', category: toucan)
+Tag.create!(name: "D'île en île", category: toucan)
+Tag.create!(name: 'Fin gourmet', category: toucan)
+Tag.create!(name: 'Déconnexion', category: aigle)
+Tag.create!(name: 'Pleine nature', category: aigle)
+Tag.create!(name: 'Rando', category: aigle)
 
 MissionTag.create(mission: Mission.first, tag: Tag.first)
 MissionTag.create(mission: Mission.first, tag: Tag.second)
