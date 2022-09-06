@@ -161,6 +161,17 @@ button {
   }
 }
 
+.accordion-body {
+  a {
+  text-decoration: none;
+  color: rgb(18, 17, 17);
+  list-style: none;
+  }
+  a:hover {
+    color: $light-yellow;
+  }
+}
+
 .why-choose-us {
   h1 {
     font-size: 44px;
