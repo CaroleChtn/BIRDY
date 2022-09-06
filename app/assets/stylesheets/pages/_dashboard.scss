@@ -76,25 +76,40 @@
 .category-selector + label {
   display: block;
   cursor: pointer;
-  box-sizing: border-box;
   width: 100%;
-  font-size: 12px;
   text-align: left;
-  padding: 10px 10px 30px 10px;
-  border: 1px solid #EAEAEA;
-  border-radius: 4px;
   background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 
 .category-selector:checked + label {
-  color: white !important;
+  border: 1px solid yellow !important;
 }
 
-.edit_user legend {
+.change legend {
   display: none;
 }
 
-
 .bg-HibouCurieux {
-  // background
+  background-image: url("hibou.jpg");
+  background-size: contain;
+  border-radius: 50%;
+}
+.bg-ToucanNomade {
+  background-image: url("toucan.jpg");
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.bg-PoussinBaroudeur {
+  background-image: url("poussin.jpg");
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.bg-SuperAigle {
+  background-image: url("aigle.jpg");
+  background-size: contain;
+  border-radius: 50%;
 }
