@@ -1,8 +1,15 @@
-<div class="bg-primary p-5">
-  <div class="bg-<%= category.name.delete(' ') %>" style="width: 100px; height: 100px; border-radius: 50%;"></div>
-  <%= category.name %>
-  <%= category.description %>
-  <% category.tags.each do |t| %>
-  <p><%= t.name %></p>
-  <% end %>
+
+<div class="row align-items-center">
+  <div class="col-3">
+    <div class="bg-category bg-<%= category.name %>"></div>
+  </div>
+  <div class="col-6">
+    <h1><%= category.display_name %></h1>
+    <p><%= category.description %></p>
+  </div>
+  <div class="col-3">
+    <% category.tags.each do |t| %>
+    <p class="badge rounded-pill text-bg-secondary p-3"><%= t.name %></p>
+    <% end %>
+  </div>
 </div>

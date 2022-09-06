@@ -12,15 +12,15 @@
         <div class="card-index-text">
           <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
           <%# mission.categories.uniq.each do |cat| %>
-          <%#= cat.name %>
+          <%#= cat.display_name %>
           <%# end %>
         </div>
-        <div class="card-index-price d-flex justify-content-between">
+        <div class="card-index-price d-flex justify-content-between card-index-price-index">
           <div></div>
           <div class="d-flex flex-column align-items-end">
             <div class="mt-auto">
-              <p><%= mission.duration%></p>
-              <h4><%= mission.price%>€ hors aérien</h4>
+              <p class="card-index-p"><%= mission.duration%></p>
+              <h4 class="card-index-h4"><%= mission.price%>€</h4>
             </div>
           </div>
         </div>
@@ -28,7 +28,7 @@
           <div class="badge bg-secondary"><%= tag.name %></div>
         <% end %>
         <% mission.categories.each do |category| %>
-          <div class="badge bg-primary"><%= category.name %></div>
+          <div class="badge bg-primary"><%= category.display_name %></div>
         <% end %>
       </div>
     </div>
@@ -47,12 +47,12 @@
           <div class="card-index-text">
             <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
           </div>
-          <div class="card-index-price d-flex justify-content-between">
+          <div class="card-index-price d-flex justify-content-between card-index-price-index">
             <div></div>
             <div class="d-flex flex-column align-items-end">
               <div class="mt-auto">
-                <p><%= mission.duration%></p>
-                <h4><%= mission.price%>€ hors aérien</h4>
+                <p class="card-index-p"><%= mission.duration%></p>
+                <h4 class="card-index-h4"><%= mission.price%>€</h4>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
             <div class="badge bg-secondary"><%= tag.name %></div>
           <% end %>
           <% mission.categories.each do |category| %>
-            <div class="badge bg-primary"><%= category.name %></div>
+            <div class="badge bg-primary"><%= category.display_name %></div>
           <% end %>
         </div>
       </div>
@@ -80,13 +80,26 @@
 <div class='main-container-emprunte-carbone'>
   <div class="card-emprunte-carbon text-center">
     <h4>Je voyage responsable!</h4>
-    <h2>👣Calculer mon empreinte carbone</h2>
-    <h5>Découvez la quantité de CO2 que vous émettez par personne pour ce trajet</h5>
+    <div class="d-flex justify-content-center flex-row">
+      <div>
+        <%= image_tag "carbon-footprint.png", width: "50px", class: 'logo' %>
+      </div>
+      <div>
+        <h2>Calculer mon empreinte carbone</h2>
+      </div>
+    </div>
+    <h5>Découvez la quantité de CO2 que vous émettez par personne pour ce trajet.</h5>
+    <h6>Nous nous engageons à planter l’équivalent des émissions de C02 en arbres, pour une planète préservée.</h6>
   </div>
 </div>
 
-<div class="mt-2">
-  <script id="mon-impact-transport" src="https://monimpacttransport.fr/iframe.js" data-search="?theme=default"></script>
+<div class="d-flex justify-content-between align-items-center flex-row">
+  <div class="mt-5 col-6">
+    <script id="mon-impact-transport" src="https://monimpacttransport.fr/iframe.js" data-search="?theme=default"></script>
+  </div>
+  <div class="col-6">
+    <%= image_tag "arbres-plantés.png", width: "700px" %>
+  </div>
 </div>
 
 <div id="xyz" class="container d-flex justify-content">

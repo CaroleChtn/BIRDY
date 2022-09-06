@@ -10,6 +10,8 @@ class Mission < ApplicationRecord
   has_many :tags, through: :mission_tags
   has_many :categories, through: :tags
 
+  belongs_to :user
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end

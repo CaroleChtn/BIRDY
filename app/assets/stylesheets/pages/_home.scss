@@ -125,6 +125,10 @@ button {
   padding: 50px 20px 20px 20px;
 }
 
+.birdy-carousel .carousel {
+  margin-bottom: -70px;
+}
+
 .carousel-photo .carousel-inner {
   height: 50vh;
 
@@ -147,6 +151,9 @@ button {
   h2 {
     margin-bottom: 32px;
     margin-top: 9px;
+    font-weight: bold;
+    font-size: 27px;
+    color: $dark-green
   }
   p {
     color: black;
@@ -163,4 +170,19 @@ button {
   a:hover {
     color: $light-yellow;
   }
+}
+
+.why-choose-us {
+  h1 {
+    font-size: 44px;
+    color: black;
+  }
+  h2 {
+    font-weight: bold;
+    font-size: 27px;
+  }
+}
+
+.trip-ex-left-btn {
+  margin-top: 26px;
 }

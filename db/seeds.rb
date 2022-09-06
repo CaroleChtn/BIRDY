@@ -20,22 +20,26 @@ Category.destroy_all
 
 
 # Creating users
+poussin = Category.create(name: "poussin", description: "Novice dans l'art de la baroude, le poussin voyageur est impatient de voler de ses propres ailes.")
+hibou = Category.create(name: "hibou", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+toucan = Category.create(name: "toucan", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+aigle = Category.create(name: "aigle", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
 
-10.times do
-  name = Faker::Name.first_name
-  email = Faker::Internet.email
-  password = "123456"
-  phone_number = "0607080919"
-  user = User.create!(name: name, email: email, password: password, phone_number: phone_number)
-end
+# Creating users
 
-carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789")
-nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789")
-clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789")
-ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789")
-kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789")
+# 10.times do
+#   name = Faker::Name.first_name
+#   email = Faker::Internet.email
+#   password = "123456"
+#   phone_number = "0607080919"
+#   user = User.create!(name: name, email: email, password: password, phone_number: phone_number, category: poussin)
+# end
 
-
+carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789", category: toucan)
+nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789", category: toucan)
+clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789", category: toucan)
+ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789", category: hibou)
+kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789", category: aigle)
 
 
 img = []
@@ -741,7 +745,8 @@ i = 0
       infos_voyage_text1: infos_voyage_text1_nomad[i],
       infos_voyage_text2: infos_voyage_text2_nomad[i],
       infos_voyage_text3: infos_voyage_text3_nomad[i],
-      infos_voyage_text4: infos_voyage_text4_nomad[i]
+      infos_voyage_text4: infos_voyage_text4_nomad[i],
+      user_id: nidal.id
     )
     mission.save!
     missions << mission
@@ -753,28 +758,6 @@ end
 puts missions.size
 
 # Creating categories
-
-poussin = Category.create(name: "Poussin Baroudeur", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-hibou = Category.create(name: "Hibou Curieux", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-toucan = Category.create(name: "Toucan Nomade", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-aigle = Category.create(name: "Super Aigle", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-
-# Creating users
-
-10.times do
-  name = Faker::Name.first_name
-  email = Faker::Internet.email
-  password = "123456"
-  phone_number = "0607080919"
-  user = User.create!(name: name, email: email, password: password, phone_number: phone_number, category: poussin)
-end
-
-carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789", category: toucan)
-nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789", category: toucan)
-clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789", category: toucan)
-ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789", category: hibou)
-kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789", category: aigle)
-
 
 puts "finished !!"
 
