@@ -2,8 +2,7 @@
 </div>
 
 <div class="container-index" data-controller="favorites">
- <%# <div class="row my-5">  %>
-  <% @missions.each do |mission|  %>
+  <% @missions.first(6).each do |mission|  %>
     <div class="card-index my-2 mx-2">
       <div class= "card-index-image">
           <i class="fa-solid fa-heart coeur_favoris d-flex<%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
@@ -12,14 +11,16 @@
       <div class="card-index-bot mx-2">
         <div class="card-index-text">
           <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
-          <%# <p class= "text-align-justify text-ellipsis--2 pt-2"><%=mission.description</p> %>
+          <%# mission.categories.uniq.each do |cat| %>
+          <%#= cat.name %>
+          <%# end %>
         </div>
-        <div class="card-index-price d-flex justify-content-between">
+        <div class="card-index-price d-flex justify-content-between card-index-price-index">
           <div></div>
           <div class="d-flex flex-column align-items-end">
             <div class="mt-auto">
-              <p><%= mission.duration%></p>
-              <h4><%= mission.price%>€ hors aérien</h4>
+              <p class="card-index-p"><%= mission.duration%></p>
+              <h4 class="card-index-h4"><%= mission.price%>€</h4>
             </div>
           </div>
         </div>
@@ -32,24 +33,102 @@
       </div>
     </div>
   <%end%>
-  <%# </div> %>
 </div>
+
+<% if @missions.length > 6 %>
+  <div class="collapse container-index" id="collapseExample">
+    <% @missions.last(@missions.length - 6).each do |mission| %>
+      <div class="card-index my-2 mx-2">
+        <div class= "card-index-image">
+          <i class="fa-solid fa-heart coeur_favoris d-flex<%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+          <img src="<%= mission.img%>" alt="mission_img" class="card-img-top">
+        </div>
+        <div class="card-index-bot mx-2">
+          <div class="card-index-text">
+            <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
+          </div>
+          <div class="card-index-price d-flex justify-content-between card-index-price-index">
+            <div></div>
+            <div class="d-flex flex-column align-items-end">
+              <div class="mt-auto">
+                <p class="card-index-p"><%= mission.duration%></p>
+                <h4 class="card-index-h4"><%= mission.price%>€</h4>
+              </div>
+            </div>
+          </div>
+          <% mission.tags.each do |tag| %>
+            <div class="badge bg-secondary"><%= tag.name %></div>
+          <% end %>
+          <% mission.categories.each do |category| %>
+            <div class="badge bg-primary"><%= category.name %></div>
+          <% end %>
+        </div>
+      </div>
+    <%end%>
+  </div>
+
+
+  <div class="container text-center mt-5 mb-5">
+    <p>
+      <button class="button-index" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Voir plus
+      </button>
+    </p>
+  </div>
+<% end %>
 
 <div class='main-container-emprunte-carbone'>
   <div class="card-emprunte-carbon text-center">
     <h4>Je voyage responsable!</h4>
-    <h2>👣Calculer mon empreinte carbone</h2>
-    <h5>Découvez la quantité de CO2 que vous émettez par personne pour ce trajet</h5>
+    <div class="d-flex justify-content-center flex-row">
+      <div>
+        <%= image_tag "carbon-footprint.png", width: "50px", class: 'logo' %>
+      </div>
+      <div>
+        <h2>Calculer mon empreinte carbone</h2>
+      </div>
+    </div>
+    <h5>Découvez la quantité de CO2 que vous émettez par personne pour ce trajet.</h5>
+    <h6>Nous nous engageons à planter l’équivalent des émissions de C02 en arbres, pour une planète préservée.</h6>
   </div>
 </div>
 
-<div class="mt-2">
-  <script id="mon-impact-transport" src="https://monimpacttransport.fr/iframe.js" data-search="?theme=default"></script>
+<div class="d-flex justify-content-between align-items-center flex-row">
+  <div class="mt-5 col-6">
+    <script id="mon-impact-transport" src="https://monimpacttransport.fr/iframe.js" data-search="?theme=default"></script>
+  </div>
+  <div class="col-6">
+    <%= image_tag "arbres-plantés.png", width: "700px" %>
+  </div>
 </div>
-<div class="d-flex justify-content-center">
-  <div class="left-flex-missions"></div>
+
+<div class="container d-flex justify-content">
+  <div class="left-flex-missions w-50 my-5">
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+  <% i = 1 %>
+  <% @countries.sort.each do |country| %>
+      <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-heading<%="#{i}"%>">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse<%="#{i}"%>" aria-expanded="true" aria-controls="#panelsStayOpen-collapse<%="#{i}"%>">
+        <%= country %>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapse<%="#{i}"%>" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading<%="#{i}"%>">
+      <div class="accordion-body">
+      <ul>
+        <% Mission.where(address: country).each do |mission| %>
+          <li><%= mission.title %></li>
+        <% end %>
+      </ul>
+      </div>
+    </div>
+  </div>
+    <% i += 1 %>
+    <% end %>
+    </div>
+  </div>
   <div class="right-flex-missions w-50 my-5">
-    <div style="width: 100%; height: 300px;"
+    <div style="width: 100%; height: 1060px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

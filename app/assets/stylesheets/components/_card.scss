@@ -27,7 +27,7 @@
 }
 
 .card-index-image i {
-  font-family: 'Font Awesome 6 Free';
+  // font-family: 'Font Awesome 6 Free';
   font-weight: 900;
   position: absolute;
   right: 10px;
@@ -59,32 +59,59 @@
 // }
 
 .card-index-text a{
-  font-family: "quicksand bold";
-  color:$dark-green;
+  // font-family: "quicksand bold";
+  color:black;
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
   text-align: left;
+  line-height: 18px;
 }
 .card-index-text{
+  padding: 0 10px;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 13px;
+  line-height: 18px;;
+  p {
+    color:black;
+    font-size: 16px;
+  }
+  h4 {
+    color:black;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.card-index-p {
+  color:black;
+  font-size: 16px;
+}
+
+.card-index-h4 {
+  color:black;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .card-index-price{
   text-align: end;
 }
 
-h4 {
-  font-size: 12px;
+.card-index-price-index {
+  margin-right: 12px;
+  margin-bottom: 5px;
 }
 
-p {
-  font-size: 12px;
-}
 .card-index-bot{
   display: flex;
+  align-items: stretch;
   flex-direction: column;
   justify-content: space-between;
-  height: 150px;
+  height: 171px;
+  padding-bottom: 8px;
 }
 .text-ellipsis--2{
   text-overflow:ellipsis;
@@ -100,12 +127,34 @@ p {
 .main-container-emprunte-carbone{
   background-color: $pale-yellow;
   width: 100%;
-  height: 140px;
+  height: 407px;
   padding-top: 25px;
 }
 
-.card-emprunte-carbon h2{
+.card-emprunte-carbon {
+  margin-top: 46px;
+  h2 {
   color: $dark-green;
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 55px;
+  }
+
+  h4 {
+    margin-bottom: 34px;
+    font-family: 'Inspiration', cursive;
+    font-size: 43px;
+  }
+  h5 {
+    font-size: 19px;
+    margin-bottom: 18px;
+  }
+
+  h6 {
+    font-size: 19px;
+    font-weight: bold;
+  }
+
 }
 .card-product {
   overflow: hidden;
@@ -149,4 +198,11 @@ p {
 }
 .fav-black{
   color: black;
+}
+
+.title-birdy {
+  margin-bottom: 47px;
+  h2 {
+    margin-left: 140px;
+}
 }

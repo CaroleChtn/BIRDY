@@ -1,34 +1,49 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid">
-  <div>
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo_blanc.png", width: "200px", class: 'logo' %>
-    <% end %>
-      <%= image_tag "birdy_blanc.png", width: "100px", class: 'logo' %>
-  </div>
+    <div class="row col-4">
+      <div>
+        <% if action_name == "home" %>
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <%= image_tag "logo_blanc.png", width: "200px", class: 'logo-birdy' %>
+          <% end %>
+          <%= image_tag "birdy_blanc.png", width: "100px", class: 'logo' %>
+        <% else %>
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <%= image_tag "logo.png", width: "200px", class: 'logo-birdy' %>
+          <% end %>
+          <%= image_tag "name.png", width: "100px", class: 'logo' %>
+        <% end %>
+      </div>
+    </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Expériences", missions_path , class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Communauté", "#", class: "nav-link" %>
-          </li>
+    <div class="row col-4">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto d-flex justify-content-center text-center w-100">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Expériences", missions_path , class: "nav-link px-3" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Communauté", "#", class: "nav-link px-3" %>
+            </li>
         </ul>
+      </div>
     </div>
-    <div>
+
+  <div class="row col-4">
+    <div class="d-flex justify-content-end align-items-center">
       <%# <ul>
           <li class="nav-item dropdown"> %>
           <%# <i class="fa-solid fa-magnifying-glass"></i> %>
-          <i class="fa-regular fa-heart"></i>
+
           <%# MENE A LA WISHLIST %>
-          <i class="fa-solid fa-bars"></i>
+          <%= link_to  dashboards_path(favori: true), class: "pe-2 me-2", style: "text-decoration: none;" do %>
+            <i class="fa-regular fa-heart heart-size"></i>
+          <% end %>
 
             <%= image_tag "bird-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -44,5 +59,7 @@
         <% end %>
       </ul>
     </div>
+  </div>
+
   </div>
 </div>

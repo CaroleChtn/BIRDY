@@ -3,6 +3,7 @@
   <head>
     <title>BIRDY</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag 'logo.png', type: 'image/png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +15,7 @@
 
   </head>
 
-  <body>
+  <body <% unless action_name == "home" %> id="not_transparent" <% end %> >
     <%= render "shared/navbar" %>
     <div class="wrapper">
       <%= render "shared/flashes" %>

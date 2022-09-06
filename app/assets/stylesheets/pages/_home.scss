@@ -24,6 +24,15 @@ button {
   }
 }
 
+.button-index:hover {
+  color: white;
+}
+
+.btn.btn-primary.btn-search:hover {
+  color: white;
+}
+
+
 .text-justify {
   display: flex;
   justify-content: center;
@@ -37,15 +46,19 @@ button {
 
 
 .arguements {
+  margin-bottom: 109px !important;
+  margin-top: 109px !important;
+
   h1 {
     font-family: 'Inspiration', cursive;
+    font-size: 32px;
     margin-top: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 33px;
   }
 
   h2 {
     color: $light-yellow;
-    margin-bottom: 45px;
+    margin-bottom: 67px;
   }
 
   ul {
@@ -79,20 +92,25 @@ button {
   }
 }
 
-.carousel {
-  height: 250px;
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-}
 
-.carousel-item.active {
-  display: flex;
-  justify-content: center;
-}
+.birdy-carousel {
 
-.carousel-item p {
-  width: 60%;
+  .carousel {
+    height: 250px;
+    padding: 44px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel-item.active {
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel-item p {
+    width: 60%;
+    font-size: 16px;
+  }
 }
 
 .card-trip {
@@ -107,6 +125,53 @@ button {
   padding: 50px 20px 20px 20px;
 }
 
-.carousel-photo {
+.birdy-carousel .carousel {
+  margin-bottom: -70px;
+}
 
+.carousel-photo .carousel-inner {
+  height: 50vh;
+
+  img {
+    object-fit: cover;
+    height: 50vh;
+    width: 100%;
+  }
+
+  .carousel-item {
+    height: 50vh;
+  }
+}
+
+.rating-stars ul {
+  list-style: none;
+}
+
+.birdy-experiences {
+  h2 {
+    margin-bottom: 32px;
+    margin-top: 9px;
+    font-weight: bold;
+    font-size: 27px;
+    color: $dark-green
+  }
+  p {
+    color: black;
+    margin-bottom: 41px;
+  }
+}
+
+.why-choose-us {
+  h1 {
+    font-size: 44px;
+    color: black;
+  }
+  h2 {
+    font-weight: bold;
+    font-size: 27px;
+  }
+}
+
+.trip-ex-left-btn {
+  margin-top: 26px;
 }

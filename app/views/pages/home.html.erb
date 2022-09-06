@@ -1,16 +1,20 @@
-<div class="banner" style="background-image: url('<%= image_path "couple_jungle.jpg" %>')">
-  <div class="container w-50">
-    <h2 class="text-center">Des expériences mémorables, <em>des actions qui ont du sens</em></h2>
+<!--<div class="banner" style="background-image: url('<%= image_path "couple_jungle.jpg" %>')">-->
+<div class="banner video-wrapper">
+  <video src="https://www.doublesens.fr//img/video/capsule-video.mp4" id="capsule-video" muted playsinline autoplay loop width="100%"></video>
+  <div class="container w-50" id="banner-text">
+    <h2 class="text-center">Des expériences mémorables, <br><em>des actions qui ont du sens</em></h2>
     <%= form_with url: missions_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query, params[:query], class: "form-control me-3 w-75", placeholder: "I want to go" %>
-      <%= submit_tag "Start your journey", class: "btn btn-primary btn-search" %>
+      <%= text_field_tag :query, params[:query], class: "form-control me-3 w-75", placeholder: "Je veux aller à..." %>
+      <%= submit_tag "C'est parti !", class: "btn btn-primary btn-search" %>
     <% end %>
   </div>
 </div>
 
-<div class="container" style="margin-top: 60px;margin-bottom: 50px;font-size: 26px;">
-  <p><strong>Les voyages approuvés par les Birdies</strong></p>
 
+<div class="container" style="margin-top: 60px;margin-bottom: 50px;font-size: 26px;">
+  <div class="title-birdy">
+    <h2><strong>Les voyages approuvés par les Birdies</strong></h2>
+  </div>
 
   <div class="cards container-index">
     <% @missions.sample(3).each do |mission|%>
@@ -27,7 +31,7 @@
                   <div class="d-flex flex-column align-items-end">
                     <div class="mt-auto">
                       <p><%= mission.duration%></p>
-                      <h4><%= mission.price%>€ hors aérien</h4>
+                      <h4><%= mission.price%>€</h4>
                     </div>
                   </div>
                 </div>
@@ -38,11 +42,6 @@
     <% end%>
   </div>
 </div>
-            <%# <div class="justify-content-end">
-              <ul>
-                <li><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i><i class="fa-solid fa-star mt-3"></i></li>
-              </ul>
-            </div> %>
 
 <div class="d-flex justify-content-center mt-5 mb-5">
   <button>
@@ -52,35 +51,42 @@
 
 <div class="birdy-carousel text-center mt-5 mb-5">
   <div class="row">
-    <div class="col align-self-center">
-      <h2>Nos birdies ont adoré leur expériences</h2>
+    <div class="col align-self-center birdy-experiences">
+      <h2>Nos birdies ont adoré leurs expériences</h2>
       <%= image_tag "logo.png", width: "40px", class: 'logo' %>
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+              <div>
+                <p class="text-center w-100">Mes amis et moi avons eu l'occasion de vivre les voyages les plus incroyables et les plus marquants de notre vie. <br>Je recommande vivement ce site, merci Birdy !!</p>
+                <div class="rating-stars">
+                  <ul>
+                    <li><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></li>
+                  </ul>
+                </div>
+              </div>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <p>It is so easy to find amazing and authentic experiences shared by locals while having an impact.
-                Me and my friends have had the opportunity to live the most incredible and life-changing travel of our lives.
-                Totally recommend this website, thank you Birdy !!
+          <div class="carousel-item">
+            <div>
+              <p class="text-center w-100"> Une expérience unique et mémorable, des souvenirs pleins la tête. Merci Birdy ☺️
               </p>
-            </div>
-            <div class="carousel-item">
-              <p> Une expérience unique et mémorable, des souvenirs pleins la tête. Merci Birdy ☺️
-              </p>
+              <div class="rating-stars">
+                <ul>
+                  <li><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></li>
+                </ul>
+              </div>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <div class="carousel-item">
+            <div>
+              <p class="text-center w-100">Il est si facile de trouver des expériences incroyables et authentiques partagées par des locaux tout en ayant un impact. <br>Validé par toute la famille !</p>
+              <div class="rating-stars">
+                <ul>
+                  <li><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -88,7 +94,7 @@
 </div>
 
 <div class="arguements text-center mt-5 mb-5">
-  <div class="container">
+  <div class="container why-choose-us">
     <h1>Pourquoi nous choisir?</h1>
     <h2>Voyagez en toute confiance</h2>
     <ul>
@@ -120,8 +126,6 @@
   </div>
 </div>
 
-<%# Carousel d'exemples de voyages? %>
-
 <div class="trip_exemples">
   <div class="container">
     <div class="row">
@@ -132,7 +136,7 @@
           <p>Chaque voyage nourrit de vraies rencontres. On ne visite pas seulement un pays, on le vit !
           Les échanges sont au cœur de l’expérience pour que chacun participe à la vie locale.
           On quitte ses repères pour se contenter de l’essentiel, renouer avec la nature et partager le quotidien d’une communauté.</p>
-          <button>
+          <button class=trip-ex-left-btn>
             <%= link_to "Trouver mon voyage", missions_path %>
           </button>
         </div>
@@ -153,14 +157,6 @@
                 <%= image_tag "smiling_boy.jpg"%>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
             </div>
           </div>
         </div>

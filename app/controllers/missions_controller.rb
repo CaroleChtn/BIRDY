@@ -1,10 +1,14 @@
 class MissionsController < ApplicationController
   def index
+    %w[One Two Three Four Five Six Seven Eight Nine Ten Eleven Twelve Thirteen Fourteen Fiveteen Sixtenn Seven]
     @missions = Mission.all
+    @countries = Mission.pluck(:address).uniq
     @user = current_user
         if params[:query].present?
           sql_query = "title ILIKE :query OR address ILIKE :query"
           @missions = Mission.where(sql_query, query: "%#{params[:query]}%")
+        elsif params[:continent]
+
         else
           @missions = Mission.all
         end
@@ -27,6 +31,7 @@ class MissionsController < ApplicationController
     end
     @user = current_user
   end
+
 
   # private
 

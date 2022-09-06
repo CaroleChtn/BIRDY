@@ -5,7 +5,7 @@
 <%# balise <u> pour souligner %>
 
 <div class="container" id='show'>
-  <div class="row mt-4" id="top-description">
+  <div class="row mt-5" id="top-description">
     <div class="col-sm-8">
       <h1 class="tabs text-left mt-2"><%= @mission.title%> <u><%= @mission.duration %></u> </h1>
       <p id="top-description-p"><%= @mission.description %></p>
@@ -37,7 +37,7 @@
                 <h5 id="show-price"><%= @mission.price%>€</h5>
               </div>
             </div>
-            <%= f.submit 'Book now!', class: 'btn btn-primary align-self-center my-3' %>
+            <%= f.submit 'Réserver!', class: 'btn btn-primary align-self-center my-3' %>
           </div>
         <% end %>
       </div>
@@ -93,7 +93,7 @@
     <p><%= @mission.impact_local_text.html_safe %></p>
   </div>
 
-    <div class="tab-pane fade py-3" id="infos-voyage" role="tabpanel" aria-labelledby="infos-voyage-tab">
+  <div class="tab-pane fade py-3" id="infos-voyage" role="tabpanel" aria-labelledby="infos-voyage-tab">
     <h3><%= @mission.infos_voyage_title1 %></h3>
     <p><%= @mission.infos_voyage_text1 %></p>
     <h3><%= @mission.infos_voyage_title2 %></h3>
@@ -102,6 +102,49 @@
     <p><%= @mission.infos_voyage_text3 %></p>
     <h3><%= @mission.infos_voyage_title4 %></h3>
     <p><%= @mission.infos_voyage_text4 %></p>
+  </div>
+</div>
 
+<div class="birdy-carousel text-center mt-5 mb-5">
+  <div class="row">
+    <div class="col align-self-center birdy-experiences">
+      <h2>Nos birdies ont adoré leurs expériences</h2>
+      <%= image_tag "logo.png", width: "40px", class: 'logo' %>
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+              <div>
+                <p class="text-center w-100">Mes amis et moi avons eu l'occasion de vivre les voyages les plus incroyables et les plus marquants de notre vie. <br>Je recommande vivement ce site, merci Birdy !!</p>
+                <div class="rating-stars">
+                  <ul>
+                    <li><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <div>
+              <p class="text-center w-100"> Une expérience unique et mémorable, des souvenirs pleins la tête. Merci Birdy ☺️
+              </p>
+              <div class="rating-stars">
+                <ul>
+                  <li><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div>
+              <p class="text-center w-100">Il est si facile de trouver des expériences incroyables et authentiques partagées par des locaux tout en ayant un impact. <br>Validé par toute la famille !</p>
+              <div class="rating-stars">
+                <ul>
+                  <li><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
