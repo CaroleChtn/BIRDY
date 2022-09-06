@@ -9,22 +9,18 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new(chatroom_params)
-    @chatroom.mission = Mission.find(params[:mission_id])
-    @chatroom.user = current_user
-    @chatroom.chatroom = Chatroom.new(chatroom_params)
-    if @chatroom.save
-      # flash.alert = "Réservation validé!"
-      # redirect_to dashboards_path(chatroom: true)
+    user = User.find(params[:user_id])
+    @chatroom = current_user.chatroom_with(user)
+
+    if @chatroom.present?
+      redirect_to chatroom_path(@chatroom)
     else
-      # flash.alert = "Erreur!"
-      # redirect_to mission_path(@chatroom.mission)
+      @chatroom = Chatroom.create(name: "Chatroom of #{current_user.name} & #{user.name}")
+
+      Participation.create(chatroom: @chatroom, user: current_user)
+      Participation.create(chatroom: @chatroom, user: user)
+
+      redirect_to chatroom_path(@chatroom)
     end
-  end
-
-  private
-
-  def chatroom_params
-    params.require(:chatroom).permit(:name, :booking_id)
   end
 end
