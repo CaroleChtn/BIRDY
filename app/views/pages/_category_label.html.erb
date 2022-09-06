@@ -1,0 +1,8 @@
+<div class="p-5">
+  <div class="bg-<%= category.name.delete(' ') %>" style="width: 100px; height: 100px; border-radius: 50%;"></div>
+  <%= category.name %>
+  <%= category.description %>
+  <% category.tags.each do |t| %>
+  <p class="badge rounded-pill text-bg-secondary p-3"><%= t.name %></p>
+  <% end %>
+</div>

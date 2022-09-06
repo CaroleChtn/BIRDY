@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:destroy]
+  patch 'change_category', to: 'pages#change_category'
 
   resources :missions, only: [:index, :show] do
     resources :favorites, only: [:create]

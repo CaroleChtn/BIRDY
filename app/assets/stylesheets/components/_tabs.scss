@@ -105,6 +105,9 @@ h1 > u {
 #top-description{
   top: 60px;
   background-color: white;
+  h1 > u {
+    margin-left: 14px;
+  }
 }
 
 .nav-link {
@@ -125,7 +128,7 @@ h1 > u {
 #top-description-p {
   color: black;
   margin-top: 26px;
-  margin-right: 20px;
+  margin-right: 79px;
   text-align: justify;
 }
 

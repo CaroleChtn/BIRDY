@@ -40,7 +40,7 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade <%= 'show active' unless params[:booking] || params[:favori] %>" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
     <div class="container">
-      <h2 class="text-center mt-5"><strong>Mon statut :</strong> Toucan nomade</h2>
+      <h2 class="text-center mt-5"><strong>Mon statut :</strong> <%= current_user.category.name %></h2>
     </div>
     <div>
       <h2 class="text-center mt-4">Mes voyages</h2>
@@ -69,15 +69,15 @@
             <%# <button type="button" class="button" data-bs-dismiss="modal" aria-label="Close"></button> %>
           </div>
           <div class="modal-body">
-            <%= simple_form_for :user, url: update_profile_path do |f| %>
-              <div class="form-inputs">
-                <%= f.input :continent, as: :radio_buttons, collection: [['Monde', 'tout'], ['Afrique', 'afrique'], ['Amérique', 'amérique'], ['Asie', 'asie'], ['Europe', 'europe'], ['Océanie', 'océanie']] %>
-                <%= f.input :traveler_style, as: :radio_buttons, collection: [['Indifférent', 'indef'], ['Solo','solo'], ['Duo', 'duo'], ['Famille', 'famille']] %>
-                <%= f.input :category, as: :radio_buttons, collection: Category.all %>
-              </div>
-              <div class="form-actions">
-                <%= f.button :submit, "Create", class: "btn btn-dark w-100 rounded" %>
-              </div>
+
+            <%= simple_form_for :change, url: change_category_path, method: :patch do |f|  %>
+              <%= f.input :category,
+              collection: Category.all,
+              as: :radio_buttons,
+              input_html: {class: 'category-selector'},
+              label_method: lambda { |category| render 'pages/category_label', category: category } %>
+              <%= f.submit %>
+
             <% end %>
           </div>
           <div class="modal-footer">
@@ -86,9 +86,6 @@
         </div>
       </div>
     </div>
-
-
-
 
 
     <div class="container mb-5">

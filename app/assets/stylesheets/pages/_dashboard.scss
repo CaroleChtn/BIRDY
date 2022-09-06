@@ -67,3 +67,49 @@
 .nav-link:hover {
   color: $dark-green;
 }
+
+.category-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.category-selector + label {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.category-selector:checked + label {
+  border: 1px solid yellow !important;
+}
+
+.change legend {
+  display: none;
+}
+
+.bg-HibouCurieux {
+  background-image: url("hibou.jpg");
+  background-size: contain;
+  border-radius: 50%;
+}
+.bg-ToucanNomade {
+  background-image: url("toucan.jpg");
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.bg-PoussinBaroudeur {
+  background-image: url("poussin.jpg");
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.bg-SuperAigle {
+  background-image: url("aigle.jpg");
+  background-size: contain;
+  border-radius: 50%;
+}

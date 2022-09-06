@@ -14,6 +14,10 @@
                 hint: "leave it blank if you don't want to change it",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.association :category, as: :radio_buttons,
+                collection: Category.all,
+                input_html: {class: 'category-selector'},
+                label_method: lambda { |category| render "pages/category_label", category: category } %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
