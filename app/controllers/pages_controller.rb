@@ -14,6 +14,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @users = User.all
     @user = current_user
     @missions = @user.missions
     @mission = Mission.new

@@ -36,7 +36,7 @@ aigle = Category.create(name: "aigle", description: "Volontaire et indépendant,
 # end
 
 carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789", category: toucan)
-nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789", category: toucan)
+nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789", category: poussin)
 clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789", category: toucan)
 ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789", category: hibou)
 kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789", category: aigle)

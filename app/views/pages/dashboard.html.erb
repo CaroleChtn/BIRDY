@@ -160,10 +160,22 @@
   </div>
 
   <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">
-    <div class="container">
-      <div class="text-center mt-5">Ces birdies ont les mêmes centres d’intérêts que vous. Discutez avec eux !</div>
-      NIDAL <br> KEVIN <br> CAROLE <br> RUZ <br> DIANE
+    <div class="text-center mt-5">Ces birdies ont les mêmes centres d’intérêts que vous. Discutez avec eux !</div>
+  <div class="container-index">
+    <% @users.each do |user|%>
+    <div class="card-bird my-2 mx-2">
+       
+        <%=user.name%>
+        <%=user.category.name%>
     </div>
+    <% end %>
+      <div>
+        <%=image_tag("toucan.jpg", :size => "150x150")%>
+        <%=image_tag("hibou.jpg", :size => "150x150")%>
+        <%=image_tag("aigle.jpg", :size => "150x150")%>
+
+      </div>
+  </div>
   </div>
 
   <div class="tab-pane fade" id="mes-missions-tab-pane" role="tabpanel" aria-labelledby="mes-missions-tab" tabindex="0">
