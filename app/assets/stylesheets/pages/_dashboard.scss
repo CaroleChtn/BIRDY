@@ -162,3 +162,13 @@ form.simple_form.change {
     margin: 0 auto;
   }
 }
+
+li.nav-item {
+  text-align: center;
+}
+
+ul#myTab {
+  margin-top: 60px;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
