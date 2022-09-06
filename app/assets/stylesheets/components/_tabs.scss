@@ -155,3 +155,12 @@ h1 {
     color:black
   }
 }
+
+#show p.tag-name {
+  background: bisque;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}

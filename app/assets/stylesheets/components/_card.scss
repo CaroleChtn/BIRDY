@@ -8,7 +8,6 @@
   width: 70vw;
   margin: 0 auto;
   margin-top: 29px;
-
 }
 
 .card-index {
@@ -210,4 +209,9 @@
 
 .text-left {
   line-height: 26px;
+}
+
+#pencil a > img{
+  width: 25px;
+  object-fit: none;
 }

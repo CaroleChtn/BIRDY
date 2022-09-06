@@ -800,7 +800,10 @@ Tag.create!(name: 'Fin gourmet', category: toucan)
 Tag.create!(name: 'Déconnexion', category: aigle)
 Tag.create!(name: 'Pleine nature', category: aigle)
 Tag.create!(name: 'Rando', category: aigle)
-
-MissionTag.create(mission: Mission.first, tag: Tag.first)
-MissionTag.create(mission: Mission.first, tag: Tag.second)
-MissionTag.create(mission: Mission.first, tag: Tag.third)
+# On crée 1 à 3 mission_tag par tag
+Tag.all.each do |tag|
+  [*4..10].sample.times do
+    mission = Mission.all.sample
+    MissionTag.create!(tag: tag, mission: mission) if MissionTag.where(tag: tag, mission: mission).empty?
+  end
+end
