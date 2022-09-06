@@ -68,14 +68,14 @@
 <div  class="tab-content" id="myTabContent" data-controller="toggle-days" >
   <div   class="tab-pane fade show active jour_par_jour_text" id="itineraire" role="tabpanel" aria-labelledby="itineraire-tab">
     <div data-toggle-days-target="item" class="d-none mt-4"><%= @mission.jour_par_jour_text.html_safe %></div>
-    <div data-toggle-days-target="short"><%= @mission.jour_par_jour_text.split('JOURS 4').first.split('JOUR 4').first.html_safe %></b></h3></div></div>
+    <div data-toggle-days-target="short" class="mission-content-container"><%= @mission.jour_par_jour_text.split('JOURS 4').first.split('JOUR 4').first.html_safe %></b></h3></div></div> <%#= HARDCORE!!! %>
     <div class="d-flex justify-content-center">
       <button data-action="click->toggle-days#toggle" type="button" class="button-index">Voir plus !</button>
     </div>
   </div>
 <%# d-none = display none %>
 
-  <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
+  <div class="tab-pane fade mission-content-container" id="experience" role="tabpanel" aria-labelledby="experience-tab">
     <div class="d-flex flex-column py-3 px-5">
       <div class="d-flex py-3">
         <%= image_tag @mission.experience_img1, width: "300px" %>
@@ -101,19 +101,21 @@
     </div>
   </div>
 
-  <div class="tab-pane fade" id="impact" role="tabpanel" aria-labelledby="impact-tab">
+  <div class="tab-pane fade mission-content-container" id="impact" role="tabpanel" aria-labelledby="impact-tab">
     <p><%= @mission.impact_local_text.html_safe %></p>
   </div>
 
-  <div class="tab-pane fade py-3" id="infos-voyage" role="tabpanel" aria-labelledby="infos-voyage-tab">
-    <h3><%= @mission.infos_voyage_title1 %></h3>
-    <p><%= @mission.infos_voyage_text1 %></p>
-    <h3><%= @mission.infos_voyage_title2 %></h3>
-    <p><%= @mission.infos_voyage_text2 %></p>
-    <h3><%= @mission.infos_voyage_title3 %></h3>
-    <p><%= @mission.infos_voyage_text3 %></p>
-    <h3><%= @mission.infos_voyage_title4 %></h3>
-    <p><%= @mission.infos_voyage_text4 %></p>
+  <div class="tab-pane fade py-3 mission-content-container" id="infos-voyage" role="tabpanel" aria-labelledby="infos-voyage-tab">
+    <div>
+      <h3><%= @mission.infos_voyage_title1 %></h3>
+      <p><%= @mission.infos_voyage_text1 %></p>
+      <h3><%= @mission.infos_voyage_title2 %></h3>
+      <p><%= @mission.infos_voyage_text2 %></p>
+      <h3><%= @mission.infos_voyage_title3 %></h3>
+      <p><%= @mission.infos_voyage_text3 %></p>
+      <h3><%= @mission.infos_voyage_title4 %></h3>
+      <p><%= @mission.infos_voyage_text4 %></p>
+    </div>
   </div>
 </div>
 
