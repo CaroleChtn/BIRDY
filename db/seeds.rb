@@ -20,10 +20,10 @@ Category.destroy_all
 
 
 # Creating users
-poussin = Category.create(name: "Poussin Baroudeur", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-hibou = Category.create(name: "Hibou Curieux", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-toucan = Category.create(name: "Toucan Nomade", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
-aigle = Category.create(name: "Super Aigle", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+poussin = Category.create(name: "poussin", description: "Novice dans l'art de la baroude, le poussin voyageur est impatient de voler de ses propres ailes.")
+hibou = Category.create(name: "hibou", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+toucan = Category.create(name: "toucan", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
+aigle = Category.create(name: "aigle", description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.")
 
 # Creating users
 

@@ -36,22 +36,16 @@
 
   <div class="row col-4">
     <div class="d-flex justify-content-end align-items-center">
-      <%# <ul>
-          <li class="nav-item dropdown"> %>
-          <%# <i class="fa-solid fa-magnifying-glass"></i> %>
+        <%= link_to  dashboards_path(favori: true), class: "pe-2 me-2", style: "text-decoration: none;" do %>
+          <i class="fa-regular fa-heart heart-size"></i>
+        <% end %>
 
-          <%# MENE A LA WISHLIST %>
-          <%= link_to  dashboards_path(favori: true), class: "pe-2 me-2", style: "text-decoration: none;" do %>
-            <i class="fa-regular fa-heart heart-size"></i>
-          <% end %>
-
-            <%= image_tag "bird-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <p class="text-center" style= "color: black;margin-bottom: 0,5em;border-bottom: 1px solid black;padding-bottom: inherit;">Bonjour <%= current_user.name %> !</p>
-              <%= link_to "Tableau de bord", dashboards_path, class: "dropdown-item" %>
-              <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          <%# </li> %>
+          <%= image_tag "#{current_user&.category&.name || 'poussin'}.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <p class="text-center" style= "color: black;margin-bottom: 0,5em;border-bottom: 1px solid black;padding-bottom: inherit;">Bonjour <%= current_user.name %> !</p>
+            <%= link_to "Tableau de bord", dashboards_path, class: "dropdown-item" %>
+            <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+          </div>
         <% else %>
           <li class="nav-item">
             <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
