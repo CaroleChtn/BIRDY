@@ -18,3 +18,6 @@ application.register("map", MapController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+import ToggleDaysController from "./toggle_days_controller"
+application.register("toggle-days", ToggleDaysController)

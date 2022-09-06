@@ -36,7 +36,7 @@
 </div>
 
 <% if @missions.length > 6 %>
-  <div class="collapse container-index" id="collapseExample">
+  <div class="collapse container-index" data-controller="favorites" id="collapseExample">
     <% @missions.last(@missions.length - 6).each do |mission| %>
       <div class="card-index my-2 mx-2">
         <div class= "card-index-image">
