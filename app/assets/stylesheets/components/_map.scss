@@ -2,14 +2,35 @@
   max-width: 100px;
   border-radius: 10px;
   display: flex;
+
 }
 
-.mapboxgl-popup-content {
+.mapboxgl-popup-content  {
   text-align: center;
+  border-radius: 33px;
   font-family: "Open Sans", sans-serif;
-}
-
+  a {
+    color: $light-yellow;
+    font-size: 13px;
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    color: rgb(18, 17, 17);
+  }
+  a:hover {
+    color: $light-yellow;
+  }
+  h2 {
+    padding-top: 20px;
+  }
+  }
 
 .mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right {
   display: none;
+}
+
+#map {
+  position:-webkit-sticky;
+  position:sticky;
+  top:100px;
+  height: 450px;
 }
