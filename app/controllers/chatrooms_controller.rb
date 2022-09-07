@@ -15,7 +15,7 @@ class ChatroomsController < ApplicationController
     if @chatroom.present?
       redirect_to chatroom_path(@chatroom)
     else
-      @chatroom = Chatroom.create(name: "Chatroom of #{current_user.name} & #{user.name}")
+      @chatroom = Chatroom.create(name: "#{current_user.name} & #{user.name}")
 
       Participation.create(chatroom: @chatroom, user: current_user)
       Participation.create(chatroom: @chatroom, user: user)
