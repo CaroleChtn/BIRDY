@@ -36,8 +36,7 @@ class MissionsController < ApplicationController
     end
     @user = current_user
   end
-
-
+  
   # private
 
   # def mission_params
