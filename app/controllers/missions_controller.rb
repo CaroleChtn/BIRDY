@@ -1,17 +1,20 @@
 class MissionsController < ApplicationController
   def index
-    %w[One Two Three Four Five Six Seven Eight Nine Ten Eleven Twelve Thirteen Fourteen Fiveteen Sixtenn Seven]
-    @missions = Mission.all
-    @countries = Mission.pluck(:address).uniq
-    @user = current_user
-        if params[:query].present?
-          sql_query = "title ILIKE :query OR address ILIKE :query"
-          @missions = Mission.where(sql_query, query: "%#{params[:query]}%")
-        elsif params[:continent]
+    # if params[:filter_category]
+    #   @missions = Mission.where { |mission| mission.categories.include?(current_user.category) }
+    # else
+      %w[One Two Three Four Five Six Seven Eight Nine Ten Eleven Twelve Thirteen Fourteen Fiveteen Sixtenn Seven]
+      @missions = Mission.all
+      @user = current_user
+      if params[:query].present?
+        sql_query = "title ILIKE :query OR address ILIKE :query"
+        @missions = Mission.where(sql_query, query: "%#{params[:query]}%")
+      elsif params[:continent]
 
-        else
-          @missions = Mission.all
-        end
+      else
+        @missions = Mission.all
+      end
+    # end
     @markers = @missions.geocoded.map do |mission|
       {
         lat: mission.latitude,
@@ -20,6 +23,7 @@ class MissionsController < ApplicationController
         image_url: helpers.asset_url("markermap.png")
       }
     end
+    @countries = Mission.pluck(:address).uniq
   end
 
   def show
