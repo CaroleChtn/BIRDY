@@ -170,17 +170,18 @@
     <div class="container-index">
       <% @users.each do |user| %>
         <% unless user == current_user %>
-          <%= link_to chatrooms_path(params: { user_id: user.id }), data: { turbo_method: :post } do %>
-            <div class="card-bird my-2 mx-2">
-              <div>
-                <%= image_tag("#{user.category.name}.jpg",:size => "150x150", :style => "margin-bottom:25px" )%>
+            <%= link_to chatrooms_path(params: { user_id: user.id }), data: { turbo_method: :post } do %>
+              <div class="card-bird my-2 mx-2">
+                <div>
+                  <%= image_tag("#{user.category.name}.jpg",:size => "150x150", :style => "margin-bottom:25px" )%>
+                </div>
+                <div style= "text-align: center">
+                  <p><strong><%=user.name.capitalize%></strong></p>
+                  <p><%= user.category.name.capitalize %></p>
+                </div>
               </div>
-              <div style= "text-align: center">
-                <p><strong><%=user.name.capitalize%></strong></p>
-                <p><%= user.category.name.capitalize %></p>
-              </div>
-            </div>
-          <% end %>
+            <% end %>
+
         <% end %>
       <% end %>
     </div>
