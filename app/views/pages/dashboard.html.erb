@@ -17,7 +17,7 @@
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link <%= 'active' unless params[:booking] || params[:favori] %>" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style= "margin-bottom: 0px;">  <div> <%= image_tag "logo.png", height: "40px", width: "50px", class: 'logo' %> </div> Mon profil</button>
+    <button class="nav-link <%= 'active' unless params[:booking] || params[:favori] || params[:chat] %>" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style= "margin-bottom: 0px;">  <div> <%= image_tag "logo.png", height: "40px", width: "50px", class: 'logo' %> </div> Mon profil</button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link <%= 'active' if params[:booking] %>" id="booking-tab" data-bs-toggle="tab" data-bs-target="#booking-tab-pane" type="button" role="tab" aria-controls="booking-tab-pane" aria-selected="true" style= "margin-bottom: 0px;"> <div><%= image_tag "appointment.png", width: "40px", class: 'logo' %></div>Mes réservations</button>
@@ -26,7 +26,7 @@
     <button class="nav-link <%= 'active' if params[:favori] %>" id="favori-tab" data-bs-toggle="tab" data-bs-target="#favori-tab-pane" type="button" role="tab" aria-controls="favori-tab-pane" aria-selected="true" style= "margin-bottom: 0px;"> <div><%= image_tag "heart.png", width: "40px", class: 'logo' %></div>Mes favoris</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="commu-tab" data-bs-toggle="tab" data-bs-target="#commu-tab-pane" type="button" role="tab" aria-controls="commu-tab-pane" aria-selected="false"> <div><%= image_tag "community.png", width: "40px", class: 'logo' %></div>Communauté</button>
+    <button class="nav-link <%= 'active' if params[:chat] %>" id="commu-tab" data-bs-toggle="tab" data-bs-target="#commu-tab-pane" type="button" role="tab" aria-controls="commu-tab-pane" aria-selected="false"> <div><%= image_tag "community.png", width: "40px", class: 'logo' %></div>Communauté</button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="mes-missions-tab" data-bs-toggle="tab" data-bs-target="#mes-missions-tab-pane" type="button" role="tab" aria-controls="mes-missions-tab-pane" aria-selected="false"><div><%= image_tag "chat.png", width: "40px", class: 'logo' %></div>Mes discussions</button>
@@ -34,7 +34,7 @@
 </ul>
 
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade <%= 'show active' unless params[:booking] || params[:favori] %>" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+  <div class="tab-pane fade <%= 'show active' unless params[:booking] || params[:favori] || params[:chat] %>" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
     <div class="container">
       <h2 class="text-center mt-5"><strong>Mon statut :</strong> <%= current_user.category.display_name %></h2>
     </div>
@@ -116,67 +116,55 @@
   </div>
 
   <div class="tab-pane fade <%= 'show active' if params[:favori] %>" id="favori-tab-pane"role="tabpanel" aria-labelledby="favori-tab" tabindex="0">
-    <div class="container-index mb-5" data-controller="favorites">
+      <div class="container-index mb-5" data-controller="favorites">
         <% current_user.favorite_missions.each do |mission|%>
-        <div class="card-index my-2 mx-2">
-          <div class= "card-index-image">
-              <i class="fa-solid fa-heart coeur_favoris d-flex<%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
-              <img src="<%= mission.img%>" alt="mission_img" class="card-img-top">
-          </div>
-          <div class="card-index-bot mx-2">
-            <div class="card-index-text">
-              <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
-              <%# mission.categories.uniq.each do |cat| %>
-              <%#= cat.display_name %>
-              <%# end %>
-            </div>
-            <div class="card-index-price d-flex card-index-price-index justify-content-between">
-              <div class="d-flex justify-content-center align-items-flex-start">
-                <div class="d-flex align-items-start flex-column">
-                  <div>
-                    <% mission.tags.first(1).each do |tag| %>
-                    <div class="badge bg-secondary tag-name-card-index"><%= tag.name %></div>
-                    <% end %>
-                  </div>
-                  <div>
-                    <% mission.tags.last(1).each do |tag| %>
-                    <div class="badge bg-secondary tag-name-card-index"><%= tag.name %></div>
-                    <% end %>
-                  </div>
-                </div>
-                  </div>
-                  <div class="d-flex flex-column align-items-end">
-                    <div class="mt-auto">
-                      <p class="card-index-p"><%= mission.duration%></p>
-                      <h4 class="card-index-h4"><%= mission.price%>€</h4>
-                    </div>
+          <div class="card-index my-2 mx-2">
+              <div class= "card-index-image">
+              <i class="fa-solid fa-heart fav-red coeur_favoris" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+                <img src="<%= mission.img%>" alt="mission_img" class="">
               </div>
+              <div class="card-index-bot mx-2">
+                <div class="card-index-text">
+                  <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
+              </div>
+              <div class="card-index-price d-flex justify-content-end card-index-price-index">
+                <div class="mt-auto" style="width: 66px">
+                  <p class="card-index-p"><%= mission.duration%></p>
+                  <h4 class="card-index-h4"><%= mission.price%>€</h4>
+                </div>
+              </div>
+              <% mission.tags.each do |tag| %>
+                <div class="badge bg-secondary"><%= tag.name %></div>
+              <% end %>
+
+              <% mission.categories.each do |category| %>
+                <div class="badge bg-primary"><%= category.display_name %></div>
+              <% end %>
             </div>
-            <!--<% mission.categories.each do |category| %>
-              <div class="badge bg-primary"><%= category.display_name %></div>
-            <% end %> -->
           </div>
         </div>
       <% end %>
     </div>
   </div>
 
-  <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">
+  <div class="tab-pane fade <%= 'show active' if params[:chat] %>" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">
     <div class="text-center mt-5">
       Ces birdies ont les mêmes centres d’intérêts que vous. Discutez avec eux !
     </div>
     <div class="container-index">
       <% @users.each do |user| %>
-        <%= link_to chatrooms_path(params: { user_id: user.id }), data: { turbo_method: :post } do %>
-          <div class="card-bird my-2 mx-2">
-            <div>
-              <%= image_tag("#{user.category.name}.jpg",:size => "150x150", :style => "margin-bottom:25px" )%>
+        <% unless user == current_user %>
+          <%= link_to chatrooms_path(params: { user_id: user.id }), data: { turbo_method: :post } do %>
+            <div class="card-bird my-2 mx-2">
+              <div>
+                <%= image_tag("#{user.category.name}.jpg",:size => "150x150", :style => "margin-bottom:25px" )%>
+              </div>
+              <div style= "text-align: center">
+                <p><strong><%=user.name.capitalize%></strong></p>
+                <p><%= user.category.name.capitalize %></p>
+              </div>
             </div>
-            <div style= "text-align: center">
-              <p><strong><%=user.name.capitalize%></strong></p>
-              <p><%= user.category.name.capitalize %></p>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
