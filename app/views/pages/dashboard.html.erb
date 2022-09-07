@@ -44,7 +44,7 @@
     </div>
 
     <div>
-      <p class="text-center mt-4 mb-5"><em>Plus que 7 plumes</em> pour devenir Aigle et profiter de réductions sur votre prochain voyage !</p>
+      <p class="text-center mt-4 mb-5"><em>Plus que 7 plumes</em> pour profiter de réductions sur votre prochain voyage !</p>
     </div>
 
     <div class="container text-center mb-5">
@@ -71,7 +71,7 @@
               as: :radio_buttons,
               input_html: {class: 'category-selector'},
               label_method: lambda { |category| render 'pages/category_label', category: category } %>
-              <%= f.submit "Sauvegarder mon profil", class:"button"%>
+              <%= f.submit "Découvrir mes aventures !", class:"button"%>
             <% end %>
           </div>
         </div>
@@ -148,6 +148,7 @@
   </div>
 
   <div class="tab-pane fade <%= 'show active' if params[:chat] %>" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">
+  <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">
     <div class="text-center mt-5">
       Ces birdies ont les mêmes centres d’intérêts que vous. Discutez avec eux !
     </div>

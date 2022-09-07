@@ -1,6 +1,8 @@
 <div class="background_dash">
 </div>
 
+<% @missions = Mission.select { |mission| mission.categories.include?(current_user.category) } if params[:filter_category] %>
+
 <div class="container-index" data-controller="favorites">
   <% @missions.first(6).each do |mission|  %>
     <div class="card-index my-2 mx-2">
