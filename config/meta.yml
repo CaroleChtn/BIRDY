@@ -1,0 +1,5 @@
+meta_product_name: "Birdy"
+meta_title: "Birdy - des missions uniques et authentiques !"
+meta_description: "Des expériences mémorables, des actions qui ont du sens"
+meta_image: "voyage.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
