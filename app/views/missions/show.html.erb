@@ -15,6 +15,13 @@
           <h2 class="size-duration mb-0 mt-1"><%= @mission.duration %></h2>
         </div>
       </div>
+      <div class="d-flex">
+        <% @mission.tags.each do |tag| %>
+          <p class="tag-name">
+            <%= tag.name %>
+          </p>
+        <% end %>
+      </div>
       <p id="top-description-p"><%= @mission.description %></p>
     </div>
 
@@ -167,27 +174,43 @@
   <h2>Vous aimerez aussi</h2>
 </div>
 
-<div class="cards container-index mt-5 mb-5">
+<div class="cards container-index mt-5 mb-5" data-controller="favorites">
     <% @missions.sample(3).each do |mission|%>
       <div class="card-index my-2 mx-2">
-        <div class="card-index-image">
-          <img src="<%= mission.img%>" alt="mission_img" class="card-img-top">
-            <div class="card-index-bot mx-2">
-              <div class="card-index-text">
-                <div>
-                  <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
-                </div>
-                <div class="card-index-price d-flex justify-content-between">
-                <div></div>
-                  <div class="d-flex flex-column align-items-end">
-                    <div class="mt-auto" style="width: 66px">
-                      <p><%= mission.duration%></p>
-                      <h4><%= mission.price%>€</h4>
-                    </div>
-                  </div>
-                </div>
+        <div class= "card-index-image">
+            <i class="fa-solid fa-heart coeur_favoris d-flex <%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+            <img src="<%= mission.img%>" alt="mission_img" class="card-img-top">
+        </div>
+        <div class="card-index-bot mx-2">
+          <div class="card-index-text">
+            <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
+            <%# mission.categories.uniq.each do |cat| %>
+            <%#= cat.display_name %>
+            <%# end %>
+          </div>
+          <div class="card-index-price d-flex justify-content-between card-index-price-index">
+            <div class="d-flex justify-content-center align-items-flex-start">
+            <div class="d-flex align-items-start flex-column">
+              <div>
+                <% mission.tags.first(1).each do |tag| %>
+                  <div class="badge bg-secondary tag-name-card-index"><%= tag.name %></div>
+                <% end %>
+              </div>
+              <div>
+                <% mission.tags.last(1).each do |tag| %>
+                  <div class="badge bg-secondary tag-name-card-index"><%= tag.name %></div>
+                <% end %>
               </div>
             </div>
+            </div>
+            <div></div>
+            <div class="d-flex flex-column align-items-end">
+              <div class="mt-auto">
+                <p class="card-index-p"><%= mission.duration%></p>
+                <h4 class="card-index-h4"><%= mission.price%>€</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     <% end%>
