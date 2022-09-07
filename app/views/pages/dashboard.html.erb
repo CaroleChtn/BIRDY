@@ -28,9 +28,11 @@
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="commu-tab" data-bs-toggle="tab" data-bs-target="#commu-tab-pane" type="button" role="tab" aria-controls="commu-tab-pane" aria-selected="false"> <div><%= image_tag "community.png", width: "50px", class: 'logo' %></div>Communauté</button>
   </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="mes-missions-tab" data-bs-toggle="tab" data-bs-target="#mes-missions-tab-pane" type="button" role="tab" aria-controls="mes-missions-tab-pane" aria-selected="false"><div><%= image_tag "chat.png", width: "50px", class: 'logo' %></div>Mes discussions</button>
-  </li>
+  <% if @current_user.name == "Nidal" %>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="mes-missions-tab" data-bs-toggle="tab" data-bs-target="#mes-missions-tab-pane" type="button" role="tab" aria-controls="mes-missions-tab-pane" aria-selected="false"><div><%= image_tag "chat.png", width: "50px", class: 'logo' %></div>Mes discussions</button>
+    </li>
+    <% end %>
 </ul>
 
 <div class="tab-content" id="myTabContent">
@@ -148,7 +150,7 @@
   </div>
 
   <div class="tab-pane fade" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">
-    <div class="text-center mt-5"> 
+    <div class="text-center mt-5">
       Ces birdies ont les mêmes centres d’intérêts que vous. Discutez avec eux !
     </div>
     <div class="container-index">
