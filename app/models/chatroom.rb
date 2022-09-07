@@ -1,5 +1,7 @@
 class Chatroom < ApplicationRecord
-  has_many :messages
+  has_many :messages, dependent: :destroy
+  # belongs_to :booking
+
   has_many :participations, dependent: :destroy
   has_many :participants, through: :participations, source: :user
 
