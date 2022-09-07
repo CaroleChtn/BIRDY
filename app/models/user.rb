@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def chatroom_with(user)
     chatrooms.joins(:participations).where(participations: { user_id: user.id })
   end
+
+  def has_favorites?
+    favorites.any?
+  end
 end
