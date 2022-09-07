@@ -216,3 +216,7 @@
   width: 25px;
   object-fit: none;
 }
+
+#result {
+  grid-template-columns: 1fr;
+}
