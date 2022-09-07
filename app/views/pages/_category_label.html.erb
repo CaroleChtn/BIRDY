@@ -1,15 +1,14 @@
-
 <div class="row align-items-center">
   <div class="col-3">
     <div class="bg-category bg-<%= category.name %>"></div>
   </div>
   <div class="col-6">
-    <h1><%= category.display_name %></h1>
-    <p><%= category.description %></p>
+    <h1 style="color: black;"><%= category.display_name %></h1>
+    <p style="color: black; font-size: 13px; padding-right: 22px; text-align: justify;"><%= category.description %></p>
   </div>
-  <div class="col-3  d-flex flex-column align-items-center">
-    <% category.tags.each do |t| %>
-    <p class="badge rounded-pill text-bg-secondary p-3"><%= t.name %></p>
+  <div class="col-3  d-flex flex-column align-items-center align-content-center justify-content-center">
+    <% category.tags.to_a.sort_by { |tag| tag.name.length}.each do |t| %>
+    <p class="badge rounded-pill p-3 mb-2" ><%= t.name %></p>
     <% end %>
   </div>
 </div>
