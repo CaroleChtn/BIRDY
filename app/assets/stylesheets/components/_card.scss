@@ -11,7 +11,7 @@
 }
 
 .card-index {
-  height: 408px;
+  height: 427px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
@@ -32,6 +32,8 @@
   position: absolute;
   right: 10px;
   top:10px;
+  font-size: 16px !important;
+
 }
 
 .card-index-image img{

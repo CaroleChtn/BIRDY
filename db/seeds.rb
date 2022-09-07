@@ -802,7 +802,7 @@ Tag.create!(name: 'Pleine nature', category: aigle)
 Tag.create!(name: 'Rando', category: aigle)
 # On crée 1 à 3 mission_tag par tag
 Tag.all.each do |tag|
-  [*4..10].sample.times do
+  [*6..20].sample.times do
     mission = Mission.all.sample
     MissionTag.create!(tag: tag, mission: mission) if MissionTag.where(tag: tag, mission: mission).empty?
   end
