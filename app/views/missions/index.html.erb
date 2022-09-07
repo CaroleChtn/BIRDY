@@ -1,12 +1,11 @@
 <div class="background_dash" style="margin-bottom: 43px;">
+  <div class= 'container-index' id="result">
+    <h1 style="margin-top: 135px;" class="px-2"> <%= @missions.count%> missions trouvées !</h1>
+  </div>
 </div>
 
 <% @missions = Mission.select { |mission| mission.categories.include?(current_user.category) } if params[:filter_category] %>
 <div class='d-flex flex-column'>
-  <div class= 'container-index' style="margin-top: 0;">
-    <h1 class="px-2"> <%= @missions.count%> missions trouvées !</h1>
-  </div>
-
   <div class="container-index" data-controller="favorites">
     <% @missions.first(6).each do |mission|  %>
       <div class="card-index my-2 mx-2">
@@ -91,7 +90,6 @@
       </div>
     <%end%>
   </div>
-
 
   <div class="container text-center mt-5 mb-5">
     <p>
