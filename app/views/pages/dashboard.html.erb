@@ -40,16 +40,16 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade <%= 'show active' unless params[:booking] || params[:favori] || params[:chat] %>" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
     <div class="container">
-      <h2 class="text-center mt-5"><strong>Mon statut :</strong> <%= current_user.category.display_name %></h2>
+      <h2 class="text-center mt-5" style="margin-bottom: 50px;"><strong>Mon statut :</strong> <%= current_user.category.display_name %></h2>
     </div>
 
-    <div>
+    <%# <div>
       <h2 class="text-center mt-4"><strong>Mes plumes :</strong> 33 </h2>
     </div>
 
     <div>
       <p class="text-center mt-4 mb-5"><em>Plus que 7 plumes</em> pour profiter de réductions sur votre prochain voyage !</p>
-    </div>
+    </div> %>
 
     <div class="container text-center mb-5">
     <!-- Button trigger modal -->
@@ -66,7 +66,9 @@
             <h5 class="modal-title text-center" id="exampleModalLabel">
               <strong>Compléter votre profil voyageur pour découvrir nos suggestions d’aventures sur-mesure !</strong>
             </h5>
-            <button type="button" class="button" data-bs-dismiss="modal" aria-label="Close"> x </button>
+            <div class="modal-close">
+              <button type="button" class="button" data-bs-dismiss="modal" aria-label="Close"> x </button>
+            </div>
           </div>
           <div class="modal-body">
             <%= simple_form_for :change, url: change_category_path, method: :patch do |f|  %>
@@ -75,7 +77,7 @@
               as: :radio_buttons,
               input_html: {class: 'category-selector'},
               label_method: lambda { |category| render 'pages/category_label', category: category } %>
-              <%= f.submit "Découvrir mes aventures !", class:"button"%>
+              <%= f.submit "Découvrir mes aventures !", class:"button mb-3"%>
             <% end %>
           </div>
         </div>
