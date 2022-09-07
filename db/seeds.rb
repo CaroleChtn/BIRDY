@@ -20,9 +20,9 @@ Category.destroy_all
 
 
 # Creating users
-poussin = Category.create(name: "poussin", description: "Novice dans l'art de la baroude et soucieux de son confort, le poussin est néanmoins impatient de voler de ses propres ailes et de découvrir de nouvelles sensations.")
+poussin = Category.create(name: "poussin", description: "Novice dans l'art de la baroude et soucieux de son confort, le poussin est néanmoins impatient de voler de ses propres ailes et de découvrir de nouvelles expériences.")
 hibou = Category.create(name: "hibou", description: "Curieux et à la recherche de nouveautés, le hibou aime explorer plus loin que son bec et repousser ses limites. Affamé de rencontres, il est un vrai voyageur fédérateur.")
-toucan = Category.create(name: "toucan", description: "Avec son bec surdimensionné et coloré, le Toucan a soif d'aventure. S'imprégner de la culture locale est son seconde plumage.")
+toucan = Category.create(name: "toucan", description: "Avec son bec surdimensionné et coloré, le Toucan a soif d'aventure. S'imprégner de la culture locale est son second plumage.")
 aigle = Category.create(name: "aigle", description: "Volontaire et indépendant, l'Aigle aimera prendre son envol vers de nouvelles expériences toujours plus hors des sentiers battus.")
 
 # Creating users
@@ -57,8 +57,8 @@ exception_departure_date = (6..11).to_a # exception pour price et duration aussi
 html = URI.open("https://www.doublesens.fr/26-action-solidaire").read
 doc = Nokogiri::HTML(html, nil, "utf-8")
 doc.search(".product-min-container img").each_with_index do |element, index|
-  img << element.attr("src") if index.even? && index <= 28 && exception.include?(index) == false
-  img << element.attr("src") if index.odd? && index >= 28 && exception.include?(index) == false
+  img << element.attr("src") if index.even? && index <= 27 && exception.include?(index) == false
+  img << element.attr("src") if index.odd? && index >= 27 && exception.include?(index) == false
 end
 
 doc.search(".product-link").each_with_index do |element, index|
@@ -800,7 +800,10 @@ Tag.create!(name: 'Fin gourmet', category: toucan)
 Tag.create!(name: 'Déconnexion', category: aigle)
 Tag.create!(name: 'Pleine nature', category: aigle)
 Tag.create!(name: 'Rando', category: aigle)
-
-MissionTag.create(mission: Mission.first, tag: Tag.first)
-MissionTag.create(mission: Mission.first, tag: Tag.second)
-MissionTag.create(mission: Mission.first, tag: Tag.third)
+# On crée 1 à 3 mission_tag par tag
+Tag.all.each do |tag|
+  [*6..20].sample.times do
+    mission = Mission.all.sample
+    MissionTag.create!(tag: tag, mission: mission) if MissionTag.where(tag: tag, mission: mission).empty?
+  end
+end

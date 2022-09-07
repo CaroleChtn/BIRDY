@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     current_user.category = Category.find(params[:change][:category])
     current_user.save
 
-    redirect_to dashboards_path
+    redirect_to missions_path(filter_category: true)
   end
 
   def dashboard
