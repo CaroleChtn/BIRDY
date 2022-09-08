@@ -37,7 +37,9 @@
   <div class="row col-4">
     <div class="d-flex justify-content-end align-items-center">
         <%= link_to  dashboards_path(favori: true), class: "pe-2 me-2", style: "text-decoration: none;" do %>
-          <i id="top-heart" class="fa-regular fa-heart heart-size" style="color: <%= current_user.has_favorites? ? 'red' : 'black' %>"></i>
+          <i id="top-heart" class="fa-regular fa-heart heart-size">
+              <span class="<%= current_user.favorites.count == 0 ? 'd-none' : '' %>" id="fav-counter"><%= current_user.favorites.count %></span>
+          </i>
         <% end %>
 
           <%= image_tag "#{current_user&.category&.name || 'poussin'}.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
