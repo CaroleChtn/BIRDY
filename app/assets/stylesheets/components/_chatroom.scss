@@ -15,12 +15,13 @@
 
   .messages {
     height: 100%;
-    overflow: scroll;
+    // overflow: scroll;
+    overflow: auto;
     padding: 1rem;
   }
 
   #new_message {
-    border-top: 1px solid $gray-200;
+    // border-top: 1px solid $gray-200;
     padding: 1rem;
 
     .form-group {
@@ -66,11 +67,21 @@
   .message-content {
     display: flex;
     p {
-      width: 80%;
+      width: auto;
+      max-width: 33%;
       margin: 0;
       border: 1px rgb(200, 200, 200) solid;
-      padding: 8px 16px;
+      padding: 3px 16px;
       border-radius: 5px;
       }
     }
+  }
+
+  #message-send-area {
+    border: 1px solid black;
+    flex-grow: 1;
+  }
+
+  #message-send-area-button {
+    margin-left: 10px;
   }
