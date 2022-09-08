@@ -110,10 +110,10 @@
 
         <% @future_bookings.each do |booking| %>
           <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
-          <%= link_to(booking.mission.title, chatroom_path(booking.chatrooms.first)) %>
+         <!-- <%= link_to(booking.mission.title, chatroom_path(booking.chatrooms.first)) %>-->
         <% end %>
 
-        <h6 class="title2 mt-4"><strong>Expériences passées</strong></h6>
+         <!--<h6 class="title2 mt-4"><strong>Expériences passées</strong></h6> -->
         <% @past_bookings.each do |booking| %>
           <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
         <% end %>
