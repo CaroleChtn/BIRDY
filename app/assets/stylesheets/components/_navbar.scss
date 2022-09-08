@@ -55,6 +55,56 @@
 #not_transparent {
   .navbar-lewagon {
     background-color: transparent;
+    color: white;
+  }
+  .navbar-lewagon-white {
+    background-color: white;
+    color: black;
+
+    .navbar-brand {
+      filter: invert(0);
+    }
+
+    .logo {
+      filter: invert(0);
+    }
+  }
+  .navbar-lewagon-white a {
+    color: black;
+  }
+  .navbar-lewagon a {
+    color: white;
+  }
+}
+
+#transparent-navbar-black-font-index {
+  .navbar-lewagon {
+    background-color: transparent;
+    color: black;
+  }
+  .navbar-lewagon-white {
+    background-color: white;
+    color: black;
+
+    .navbar-brand {
+      filter: invert(0);
+    }
+
+    .logo {
+      filter: invert(0);
+    }
+  }
+  .navbar-lewagon-white a {
+    color: black;
+  }
+  .navbar-lewagon a {
+    color: black;
+  }
+}
+
+#white-navbar-show {
+  .navbar-lewagon {
+    background-color: white;
     color: black;
   }
   .navbar-lewagon-white {

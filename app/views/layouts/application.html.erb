@@ -32,7 +32,9 @@
 
   </head>
 
-  <body <% unless action_name == "home" %> id="not_transparent" <% end %> >
+  <body <% if action_name == "show" && controller_name == "missions" %> id="white-navbar-show"
+        <% elsif action_name == "index" && controller_name == "missions" %> id="transparent-navbar-black-font-index"
+        <% else %> id="not_transparent"<% end %>>
     <%= render "shared/navbar" %>
     <div class="wrapper">
       <%= render "shared/flashes" %>
