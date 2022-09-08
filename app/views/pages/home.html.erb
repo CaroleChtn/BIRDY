@@ -25,26 +25,18 @@
         <div class="card-index-bot mx-2">
           <div class="card-index-text">
             <h3 class="text-left"><%= link_to mission.title, mission_path(mission) %></h3>
-            <%# mission.categories.uniq.each do |cat| %>
-            <%#= cat.display_name %>
-            <%# end %>
           </div>
           <div class="card-index-price d-flex justify-content-between card-index-price-index">
             <div class="d-flex justify-content-center align-items-flex-start">
-            <div class="d-flex align-items-start flex-column">
-              <div>
+              <div class="d-flex align-items-start flex-column">
                 <% mission.tags.first(1).each do |tag| %>
                   <div class="badge bg-secondary tag-name-card-index"><%= tag.name %></div>
                 <% end %>
-              </div>
-              <div>
                 <% mission.tags.last(1).each do |tag| %>
                   <div class="badge bg-secondary tag-name-card-index"><%= tag.name %></div>
                 <% end %>
               </div>
             </div>
-            </div>
-            <div></div>
             <div class="d-flex flex-column align-items-end">
               <div class="mt-auto">
                 <p class="card-index-p"><%= mission.duration%></p>
