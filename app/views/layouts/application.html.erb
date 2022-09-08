@@ -32,7 +32,12 @@
 
   </head>
 
-  <body <% unless action_name == "home" %> id="not_transparent" <% end %> >
+  <body <% if action_name == "show" && controller_name == "missions" %> id="white-navbar-show"
+        <% elsif action_name == "index" && controller_name == "missions" %> id="transparent-navbar-black-font-index"
+        <% elsif action_name == "dashboard" && controller_name == "pages" %> id="transparent-navbar-black-font-index"
+        <% elsif action_name == "show" && controller_name == "chatrooms" %> id="transparent-navbar-black-font-index"
+        <% else action_name == "home" && controller_name == "pages"%> id="not_transparent"<% end %>>
+
     <%= render "shared/navbar" %>
     <div class="wrapper">
       <%= render "shared/flashes" %>

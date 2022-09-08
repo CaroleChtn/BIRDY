@@ -3,11 +3,17 @@
 <div class="message <%= 'sender' if sender %>">
   <div id="message-<%= message.id %>">
     <div class="message-content">
+      <div class= "mx-3" style="align-self: center;">
+
+      <%= image_tag("#{message.user.category.name}.jpg", :size => "35x35")%>
+
       <strong><%= message.user.name %></strong>
+      </div>
       <p><%= message.content %></p>
     </div>
+    <!--
     <div class="message-infos">
       <p><span class="user-name"><%= sender ? 'You' : message.user.name %></span> at <%= message.created_at.strftime("%H:%M") %></p>
-    </div>
+    </div> -->
   </div>
 </div>

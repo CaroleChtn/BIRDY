@@ -55,6 +55,59 @@
 #not_transparent {
   .navbar-lewagon {
     background-color: transparent;
+    color: white;
+    a {
+      color: white;
+      &.dropdown-item {
+        color:black;
+      }
+    }
+  }
+  .navbar-lewagon.navbar-lewagon-white {
+    background-color: white;
+    color: black;
+    a {
+      color: black;
+    }
+
+    .navbar-brand {
+      filter: invert(1);
+    }
+
+    .logo {
+      filter: invert(1);
+    }
+  }
+}
+
+#transparent-navbar-black-font-index {
+  .navbar-lewagon {
+    background-color: transparent;
+    color: black;
+  }
+  .navbar-lewagon-white {
+    background-color: white;
+    color: black;
+
+    .navbar-brand {
+      filter: invert(0);
+    }
+
+    .logo {
+      filter: invert(0);
+    }
+  }
+  .navbar-lewagon-white a {
+    color: black;
+  }
+  .navbar-lewagon a {
+    color: black;
+  }
+}
+
+#white-navbar-show {
+  .navbar-lewagon {
+    background-color: white;
     color: black;
   }
   .navbar-lewagon-white {
@@ -91,6 +144,7 @@
 .offcanvas-body {
   overflow-y:initial;
 }
+
 .offcanvas-title {
   font-size: 27px;
   color:black;
@@ -137,4 +191,17 @@
   top: 85vh;
   right: 2rem;
   border: 2px solid white !important;
+}
+
+#fav-counter {
+  color: black;
+  font-weight: 900;
+  position: absolute;
+  right: 59px;
+  top: 10px;
+  font-size: 10px !important;
+  /* border: 7px solid white; */
+  border-radius: 50%;
+  background-color: #ffcb0f;
+  padding: 5px 6px;
 }
