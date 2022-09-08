@@ -164,20 +164,19 @@
   </div>
 
   <div class="tab-pane fade <%= 'show active' if params[:chat] %>" id="commu-tab-pane" role="tabpanel" aria-labelledby="commu-tab" tabindex="0">
-    <div class="text-center mt-5">
-      Ces birdies ont les mêmes centres d’intérêts que vous. Discutez avec eux !
-    </div>
+    <div class="text-center mt-5"> Rencontre la communauté Birdy ! </div>
     <div class="container-index">
       <% @users.each do |user| %>
         <% unless user == current_user %>
           <%= link_to chatrooms_path(params: { user_id: user.id }), data: { turbo_method: :post } do %>
-            <div class="card-bird my-2 mx-2">
+            <div class="card-bird">
               <div>
-                <%= image_tag("#{user.category.name}.jpg",:size => "150x150", :style => "margin-bottom:25px" )%>
+                <%= image_tag("#{user.category.name}.jpg",:size => "100x100", :style => "margin-bottom:25px" )%>
               </div>
               <div style= "text-align: center">
                 <p><strong><%=user.name.capitalize%></strong></p>
                 <p><%= user.category.name.capitalize %></p>
+                <i class="fa-regular fa-comment-dots"></i>
               </div>
             </div>
           <% end %>

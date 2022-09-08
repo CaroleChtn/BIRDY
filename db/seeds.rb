@@ -40,6 +40,8 @@ nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal",
 clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789", category: toucan)
 ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789", category: hibou)
 kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789", category: aigle)
+paul = User.create!(email: "paul@mail.com", password: "123456", name: "Paul", phone_number: "0123456789", category: aigle)
+diane = User.create!(email: "diane@mail.com", password: "dianebeauté", name: "Diane", phone_number: "0123456789", category: poussin)
 
 
 img = []
