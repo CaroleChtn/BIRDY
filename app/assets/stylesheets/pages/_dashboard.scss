@@ -156,7 +156,7 @@
   background-color: #FFCB10;
   border: none;
   color: black;
-  padding: 7px 20px;
+  padding: 7px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -192,20 +192,20 @@ ul#myTab {
   align-items: flex-end;
   justify-content: space-evenly;
 }
+
 .card-bird{
   border: 1px gray;
-  padding: 30px;
+  padding: 20px;
   border-radius: 5px;
   box-shadow: gray;
   background-color: #fceed7;
-  width: 200px;
-  height: 280px;
-  line-height: 13px;
+  width: 300px;
+  height: 135px;
+  line-height: 10px;
   margin: 0px auto;
-  box-shadow: 0px 5px 20px rgb(135, 133, 133);
+  box-shadow: 0px 2px 10px rgb(135, 133, 133);
   text-decoration: none;
 }
-
 
 .simple_form.change {
   p.badge.rounded-pill.p-3 {
