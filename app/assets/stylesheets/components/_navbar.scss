@@ -146,11 +146,14 @@
 }
 
 .offcanvas-title {
-  color:$dark-green;
-  font-size: 26px;
+  font-size: 27px;
+  color:black;
+  font-weight: bold;
+  margin-left: 32px;
 }
 .btn_empreinte {
-  background:$light-yellow;
+  background:$light-yellow !important;
+  border: none !important;
   border-radius: 50px;
   font-size: 14px;
   margin: 0.5rem 0.5rem 0.5rem 0;
@@ -162,20 +165,32 @@
 
 @-webkit-keyframes bounce {
   0% {
-transform: scale(1,1) translate(0px, 0px);
+    transform: scale(1,1) translate(0px, 0px);
+  }
+
+  30%{
+    transform: scale(1,0.8) translate(0px, 10px);
+  }
+
+  75%{
+    transform: scale(1,1.1) translate(0px, -25px);
+  }
+
+  100% {
+    transform: scale(1,1) translate(0px, 0px);
+  }
 }
 
-30%{
-transform: scale(1,0.8) translate(0px, 10px);
-}
+// #not_transparent .wrapper {
+//   position: relative;
+// }
 
-75%{
-transform: scale(1,1.1) translate(0px, -25px);
-}
-
-100% {
-transform: scale(1,1) translate(0px, 0px);
-}
+#footprint .btn_empreinte {
+  // transform: translate(-50%, -50%);
+  position: fixed;
+  top: 85vh;
+  right: 2rem;
+  border: 2px solid white !important;
 }
 
 #fav-counter {
