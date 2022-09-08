@@ -35,7 +35,7 @@ aigle = Category.create(name: "aigle", description: "Aventurier indépendant, l'
 #   user = User.create!(name: name, email: email, password: password, phone_number: phone_number, category: poussin)
 # end
 
-carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789", category: poussin)
+carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789", category: toucan)
 nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789", category: toucan)
 clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789", category: hibou)
 ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789", category: toucan)
@@ -60,8 +60,8 @@ exception_departure_date = (6..11).to_a # exception pour price et duration aussi
 html = URI.open("https://www.doublesens.fr/26-action-solidaire").read
 doc = Nokogiri::HTML(html, nil, "utf-8")
 doc.search(".product-min-container img").each_with_index do |element, index|
-  img << element.attr("src") if index.even? && index <= 28 && exception.include?(index) == false
-  img << element.attr("src") if index.odd? && index >= 28 && exception.include?(index) == false
+  img << element.attr("src") if index.even? && index <= 27 && exception.include?(index) == false
+  img << element.attr("src") if index.odd? && index >= 27 && exception.include?(index) == false
 end
 
 doc.search(".product-link").each_with_index do |element, index|
