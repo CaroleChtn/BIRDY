@@ -205,7 +205,25 @@ ul#myTab {
   margin: 0px auto;
   box-shadow: 0px 2px 10px rgb(135, 133, 133);
   text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+
+  .fa-regular {
+    position: absolute;
+    font-size: 25px;
+    color: black;
+  }
 }
+
+.card-bird-text {
+  width: 40%;
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 10%;
+}
+
+
 
 .simple_form.change {
   p.badge.rounded-pill.p-3 {
