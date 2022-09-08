@@ -140,3 +140,14 @@
 .offcanvas-body {
   overflow-y:initial;
 }
+
+#fav-counter {
+  color: #F91100;
+  font-weight: 900;
+  position: absolute;
+  right: 59px;
+  top: 10px;
+  font-size: 7px !important;
+  border: 7px solid white;
+  border-radius: 50%;
+}
