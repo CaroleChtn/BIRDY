@@ -41,6 +41,7 @@
     p {
       background-color: bisque;
       border-radius: 20px;
+      color: black;
     }
   }
 }
@@ -55,6 +56,7 @@
   color: rgb(200, 200, 200);
    p {
     margin: 0;
+    color: black;
     }
   }
 
@@ -72,12 +74,13 @@
     display: flex;
     p {
       width: auto;
-      max-width: 33%;
+      max-width: 45%;
       margin: 0;
       border: 1px rgb(200, 200, 200) solid;
       padding: 3px 16px;
       border-radius: 20px;
       background-color: #FFF8DC;
+      color: black;
       }
     }
   }
@@ -91,6 +94,7 @@
     margin-left: 10px;
   }
 
+
   .form-control:focus {
       color: #0E0000;
       background-color: #FFFFFF;
@@ -98,3 +102,9 @@
       outline: 0 !important;
       box-shadow: none !important;
   }
+
+#message_content{
+  // border: 1px solid black;
+  background-color: #F5F5F5;
+}
+

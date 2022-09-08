@@ -42,6 +42,7 @@ ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan",
 kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789", category: aigle)
 paul = User.create!(email: "paul@mail.com", password: "123456", name: "Paul", phone_number: "0123456789", category: aigle)
 diane = User.create!(email: "diane@mail.com", password: "dianebeauté", name: "Diane", phone_number: "0123456789", category: poussin)
+ursula = User.create!(email: "ursula@mail.com", password: "ursulabella", name: "Ursula", phone_number: "0123456789", category: hibou)
 
 
 img = []
