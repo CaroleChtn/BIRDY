@@ -1,17 +1,13 @@
-<% if (message.user.name == current_user.name) %>
-  <div id="message-<%= message.id %>" style="text-align: end;">
-    <small>
-      <strong><%= message.user.name %></strong>
-      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-    </small>
-    <p><%= message.content %></p>
-  </div>
-<% else %>
+<% sender = message.user == current_user %>
+
+<div class="message <%= 'sender' if sender %>">
   <div id="message-<%= message.id %>">
-    <small>
+    <div class="message-content">
       <strong><%= message.user.name %></strong>
-      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-    </small>
-    <p><%= message.content %></p>
+      <p><%= message.content %></p>
+    </div>
+    <div class="message-infos">
+      <p><span class="user-name"><%= sender ? 'You' : message.user.name %></span> at <%= message.created_at.strftime("%H:%M") %></p>
+    </div>
   </div>
-<% end %>
+</div>

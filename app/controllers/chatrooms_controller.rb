@@ -10,17 +10,16 @@ class ChatroomsController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
-    @chatroom = current_user.chatroom_with(user)
-
-    if @chatroom.present?
-      redirect_to chatroom_path(@chatroom)
+    chatroom = Chatroom.where(name: "#{current_user.name} & #{user.name}").first || Chatroom.where(name: "#{user.name} & #{current_user.name}").first
+    if chatroom
+      redirect_to chatroom_path(chatroom)
     else
-      @chatroom = Chatroom.create(name: "#{current_user.name} & #{user.name}")
+      chatroom = Chatroom.create(name: "#{current_user.name} & #{user.name}")
 
-      Participation.create(chatroom: @chatroom, user: current_user)
-      Participation.create(chatroom: @chatroom, user: user)
+      Participation.create(chatroom: chatroom, user: current_user)
+      Participation.create(chatroom: chatroom, user: user)
 
-      redirect_to chatroom_path(@chatroom)
+      redirect_to chatroom_path(chatroom)
     end
   end
 end

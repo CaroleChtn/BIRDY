@@ -20,10 +20,10 @@ Category.destroy_all
 
 
 # Creating users
-poussin = Category.create(name: "poussin", description: "Novice dans l'art de la baroude et soucieux de son confort, le poussin est néanmoins impatient de voler de ses propres ailes et de découvrir de nouvelles expériences.")
-hibou = Category.create(name: "hibou", description: "Curieux et à la recherche de nouveautés, le hibou aime explorer plus loin que son bec et repousser ses limites. Affamé de rencontres, il est un vrai voyageur fédérateur.")
-toucan = Category.create(name: "toucan", description: "Avec son bec surdimensionné et coloré, le Toucan a soif d'aventure. S'imprégner de la culture locale est son second plumage.")
-aigle = Category.create(name: "aigle", description: "Volontaire et indépendant, l'Aigle aimera prendre son envol vers de nouvelles expériences toujours plus hors des sentiers battus.")
+poussin = Category.create(name: "poussin", description: "Généreux et sociable, le Poussin aime vivre au plus proche des habitants locaux.")
+hibou = Category.create(name: "hibou", description: "Proche des animaux et de la nature, le Hibou s'épanouit dans la vie sauvage.")
+toucan = Category.create(name: "toucan", description: "Epicurien dans l'âme, découvrir les cultures locales et ses mets culinaires est son second plumage.")
+aigle = Category.create(name: "aigle", description: "Aventurier indépendant, l'Aigle adore les expériences à sensations en pleine nature, hors des sentiers battus.")
 
 # Creating users
 
