@@ -55,6 +55,56 @@
 #not_transparent {
   .navbar-lewagon {
     background-color: transparent;
+    color: white;
+  }
+  .navbar-lewagon-white {
+    background-color: white;
+    color: black;
+
+    .navbar-brand {
+      filter: invert(0);
+    }
+
+    .logo {
+      filter: invert(0);
+    }
+  }
+  .navbar-lewagon-white a {
+    color: black;
+  }
+  .navbar-lewagon a {
+    color: white;
+  }
+}
+
+#transparent-navbar-black-font-index {
+  .navbar-lewagon {
+    background-color: transparent;
+    color: black;
+  }
+  .navbar-lewagon-white {
+    background-color: white;
+    color: black;
+
+    .navbar-brand {
+      filter: invert(0);
+    }
+
+    .logo {
+      filter: invert(0);
+    }
+  }
+  .navbar-lewagon-white a {
+    color: black;
+  }
+  .navbar-lewagon a {
+    color: black;
+  }
+}
+
+#white-navbar-show {
+  .navbar-lewagon {
+    background-color: white;
     color: black;
   }
   .navbar-lewagon-white {
@@ -91,6 +141,7 @@
 .offcanvas-body {
   overflow-y:initial;
 }
+
 .offcanvas-title {
   color:$dark-green;
   font-size: 26px;
@@ -122,4 +173,14 @@ transform: scale(1,1.1) translate(0px, -25px);
 100% {
 transform: scale(1,1) translate(0px, 0px);
 }
+
+#fav-counter {
+  color: #F91100;
+  font-weight: 900;
+  position: absolute;
+  right: 59px;
+  top: 10px;
+  font-size: 7px !important;
+  border: 7px solid white;
+  border-radius: 50%;
 }
