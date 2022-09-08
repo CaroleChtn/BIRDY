@@ -90,3 +90,11 @@
   #message-send-area-button {
     margin-left: 10px;
   }
+
+  .form-control:focus {
+      color: #0E0000;
+      background-color: #FFFFFF;
+      border-color: transparent !important;
+      outline: 0 !important;
+      box-shadow: none !important;
+  }
