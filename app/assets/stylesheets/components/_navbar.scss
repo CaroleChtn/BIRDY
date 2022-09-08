@@ -56,24 +56,27 @@
   .navbar-lewagon {
     background-color: transparent;
     color: white;
+    a {
+      color: white;
+      &.dropdown-item {
+        color:black;
+      }
+    }
   }
-  .navbar-lewagon-white {
+  .navbar-lewagon.navbar-lewagon-white {
     background-color: white;
     color: black;
+    a {
+      color: black;
+    }
 
     .navbar-brand {
-      filter: invert(0);
+      filter: invert(1);
     }
 
     .logo {
-      filter: invert(0);
+      filter: invert(1);
     }
-  }
-  .navbar-lewagon-white a {
-    color: black;
-  }
-  .navbar-lewagon a {
-    color: white;
   }
 }
 
@@ -176,12 +179,14 @@ transform: scale(1,1) translate(0px, 0px);
 }
 
 #fav-counter {
-  color: #F91100;
+  color: black;
   font-weight: 900;
   position: absolute;
   right: 59px;
   top: 10px;
-  font-size: 7px !important;
-  border: 7px solid white;
+  font-size: 10px !important;
+  /* border: 7px solid white; */
   border-radius: 50%;
+  background-color: #ffcb0f;
+  padding: 5px 6px;
 }
