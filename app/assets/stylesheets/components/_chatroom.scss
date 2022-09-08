@@ -38,6 +38,10 @@
   }
   .message-content {
   flex-direction: row-reverse;
+    p {
+      background-color: bisque;
+      border-radius: 20px;
+    }
   }
 }
 
@@ -72,7 +76,8 @@
       margin: 0;
       border: 1px rgb(200, 200, 200) solid;
       padding: 3px 16px;
-      border-radius: 5px;
+      border-radius: 20px;
+      background-color: #FFF8DC;
       }
     }
   }
