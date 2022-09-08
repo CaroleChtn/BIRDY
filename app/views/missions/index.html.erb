@@ -1,25 +1,25 @@
 <div class="background_dash" style="margin-bottom: 43px;">
-  <div class= 'container-index mt-0' id="result">
+  <div class=' d-flex justify-content-between container-index mt-0' id="result">
     <h1 style="margin-top: 135px;" class="px-2"> <%= @missions.count%> missions trouvées !</h1>
-  </div>
-</div>
-<div>
-  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">mon empreinte carbone</button>
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Calculer mon empreinte carbone
-      <%= image_tag "carbon-footprint.png", width: "50px", class: 'logo' %>
-      </h5>
+    <div  style= "margin-top: 135px;">
+      <button class="btn btn_empreinte" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><%= image_tag "carbon-footprint.png", width: "50px", class: 'logo' %></button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Calculer mon empreinte carbone
+          <%= image_tag "carbon-footprint.png", width: "50px", class: 'logo' %>
+          </h5>
 
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="d-flex justify-content-between flex-row">
-        <div class="mt-5 col-6">
-          <script id="mon-impact-transport" src="https://monimpacttransport.fr/iframe.js" data-search="?theme=default"></script>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class= "mt-5 col-6">
-          <%= image_tag "arbres-plantés.png", class: "image_arbre" %>
+        <div class="offcanvas-body">
+          <div class="d-flex justify-content-between flex-row">
+            <div class="ps-4 col-6">
+              <script id="mon-impact-transport" src="https://monimpacttransport.fr/iframe.js" data-search="?theme=default"></script>
+            </div>
+            <div class= "col-6">
+              <%= image_tag "arbres-plantés.png", class: "image_arbre" %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

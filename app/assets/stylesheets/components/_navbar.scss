@@ -133,12 +133,45 @@
 
 .offcanvas {
   --bs-offcanvas-width: 900px;
+  overflow: scroll;
 }
 .image_arbre {
   width: 100%;
 }
 .offcanvas-body {
   overflow-y:initial;
+}
+
+.offcanvas-title {
+  color:$dark-green;
+  font-size: 26px;
+}
+.btn_empreinte {
+  background:$light-yellow;
+  border-radius: 50px;
+  font-size: 14px;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  -webkit-animation: bounce 1.0s infinite;
+  &:hover {
+    -webkit-animation: none;
+  }
+}
+
+@-webkit-keyframes bounce {
+  0% {
+transform: scale(1,1) translate(0px, 0px);
+}
+
+30%{
+transform: scale(1,0.8) translate(0px, 10px);
+}
+
+75%{
+transform: scale(1,1.1) translate(0px, -25px);
+}
+
+100% {
+transform: scale(1,1) translate(0px, 0px);
 }
 
 #fav-counter {
