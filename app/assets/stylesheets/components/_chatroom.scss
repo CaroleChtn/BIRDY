@@ -41,6 +41,7 @@
     p {
       background-color: bisque;
       border-radius: 20px;
+      color: black;
     }
   }
 }
@@ -55,6 +56,7 @@
   color: rgb(200, 200, 200);
    p {
     margin: 0;
+    color: black;
     }
   }
 
@@ -78,6 +80,7 @@
       padding: 3px 16px;
       border-radius: 20px;
       background-color: #FFF8DC;
+      color: black;
       }
     }
   }
@@ -90,3 +93,8 @@
   #message-send-area-button {
     margin-left: 10px;
   }
+
+#message_content{
+  // border: 1px solid black;
+  background-color: #F5F5F5;
+}
