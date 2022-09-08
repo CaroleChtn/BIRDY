@@ -1,7 +1,7 @@
 <div class="background_dash" style="margin-bottom: 43px;">
   <div class=' d-flex justify-content-between container-index mt-0' id="result">
     <h1 style="margin-top: 135px;" class="px-2"> <%= @missions.count%> missions trouvées !</h1>
-    <div  style= "margin-top: 135px;">
+    <div id="footprint">
       <button class="btn btn_empreinte" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><%= image_tag "carbon-footprint.png", width: "50px", class: 'logo' %></button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
