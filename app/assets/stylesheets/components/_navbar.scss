@@ -92,8 +92,10 @@
   overflow-y:initial;
 }
 .offcanvas-title {
-  color:$dark-green;
-  font-size: 26px;
+  font-size: 27px;
+  color:black;
+  font-weight: bold;
+  margin-left: 32px;
 }
 .btn_empreinte {
   background:$light-yellow !important;
@@ -132,6 +134,7 @@
 #footprint .btn_empreinte {
   // transform: translate(-50%, -50%);
   position: fixed;
-  top: 80vh;
+  top: 85vh;
   right: 2rem;
+  border: 2px solid white !important;
 }
