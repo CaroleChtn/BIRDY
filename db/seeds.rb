@@ -37,11 +37,11 @@ aigle = Category.create(name: "aigle", description: "Aventurier indépendant, l'
 
 carole = User.create!(email: "carole@mail.com", password: "123456", name: "Carole", phone_number: "0123456789", category: toucan)
 nidal = User.create!(email: "nidal@mail.com", password: "123456", name: "Nidal", phone_number: "0123456789", category: poussin)
-clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789", category: toucan)
-ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789", category: hibou)
+clara = User.create!(email: "clara@mail.com", password: "123456", name: "Clara", phone_number: "0123456789", category: hibou)
+ruzan = User.create!(email: "ruzan@mail.com", password: "123456", name: "Ruzan", phone_number: "0123456789", category: toucan)
 kevin = User.create!(email: "kevin@mail.com", password: "kevlebest", name: "Kevin", phone_number: "0123456789", category: aigle)
-paul = User.create!(email: "paul@mail.com", password: "123456", name: "Paul", phone_number: "0123456789", category: aigle)
-diane = User.create!(email: "diane@mail.com", password: "dianebeauté", name: "Diane", phone_number: "0123456789", category: poussin)
+paul = User.create!(email: "paul@mail.com", password: "123456", name: "Paul", phone_number: "0123456789", category: toucan)
+diane = User.create!(email: "diane@mail.com", password: "dianebeauté", name: "Diane", phone_number: "0123456789", category: hibou)
 ursula = User.create!(email: "ursula@mail.com", password: "ursulabella", name: "Ursula", phone_number: "0123456789", category: hibou)
 
 
