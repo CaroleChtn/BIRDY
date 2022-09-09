@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @booking.mission = Mission.find(params[:mission_id])
     @booking.user = current_user
     if @booking.save
-      flash.alert = "Réservation validé!"
+      flash.notice = "Réservation validée!"
       @chatroom = Chatroom.create(name: @booking.mission.title, booking: @booking)
       redirect_to dashboards_path(booking: true)
     else
@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
-      flash.alert = "Réservation mise à jour!!"
+      flash.notice = "Réservation mise à jour!!"
       redirect_to dashboards_path
     else
       render "missions#show", status: :unprocessable_entity
