@@ -110,7 +110,6 @@
 
         <% @future_bookings.each do |booking| %>
           <%= render 'missions/mission_card', mission: booking.mission, booking: booking %>
-         <!-- <%= link_to(booking.mission.title, chatroom_path(booking.chatrooms.first)) %>-->
         <% end %>
 
          <!--<h6 class="title2 mt-4"><strong>Expériences passées</strong></h6> -->
@@ -126,7 +125,7 @@
         <% current_user.favorite_missions.each do |mission|%>
           <div class="card-index my-2 mx-2">
         <div class= "card-index-image">
-            <i class="fa-solid fa-heart coeur_favoris d-flex <%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
+            <i class="fa-solid fa-heart coeur_favoris d-flex <%= Favorite.find_by(user: current_user, mission: mission) ? 'fav-red' : 'fav-black' %> " style="cursor: pointer;" data-action="click->favorites#fav" data-favorites-mission-id-param="<%= mission.id %>"></i>
             <img src="<%= mission.img%>" alt="mission_img" class="card-img-top">
         </div>
         <div class="card-index-bot mx-2">
