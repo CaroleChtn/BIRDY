@@ -1,7 +1,9 @@
 <div class="row">
   <div class="background_dash">
     <div class="d-flex justify-content-center mt-5" >
-      <%= image_tag("#{current_user.category.name}.jpg", :size => "200x200", class:"image_poussin")  %>
+      <% if current_user.category != nil %>
+        <%= image_tag("#{current_user.category.name}.jpg", :size => "200x200", class:"image_poussin")  %>
+      <% end %>
     </div>
   </div>
   <div class=" presentation text-center">
@@ -40,7 +42,11 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade <%= 'show active' unless params[:booking] || params[:favori] || params[:chat] %>" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
     <div class="container">
-      <h2 class="text-center mt-5" style="margin-bottom: 50px;"><strong>Mon statut :</strong> <%= current_user.category.display_name %></h2>
+      <% if current_user.category != nil %>
+        <h2 class="text-center mt-5" style="margin-bottom: 50px;"><strong>Mon statut :</strong> <%= current_user.category.display_name %></h2>
+      <% else %>
+        <h2 class="text-center mt-5" style="margin-bottom: 50px;">Complétez votre profil 😀 </h2>
+      <% end %>
     </div>
 
     <%# <div>
@@ -174,14 +180,23 @@
           <%= link_to chatrooms_path(params: { user_id: user.id }), data: { turbo_method: :post } do %>
             <div class="card-bird">
               <div>
-                <%= image_tag("#{user.category.name}.jpg",size:"90x90")%>
-                <i class="fa-regular fa-comment-dots"></i>
+                <% if user.category != nil%>
+                  <%= image_tag("#{user.category.name}.jpg",size:"90x90")%>
+                  <i class="fa-regular fa-comment-dots"></i>
+                <% else %>
+                  <img src="" alt="This user has no picture">
+                <% end %>
               </div>
-              <div class="card-bird-text">
-                <p><strong><%=user.name.capitalize%></strong></p>
-                <p><%= user.category.name.capitalize %></p>
-
-              </div>
+              <% if user.category != nil %>
+                <div class="card-bird-text">
+                  <p><strong><%=user.name.capitalize%></strong></p>
+                  <p><%= user.category.name.capitalize %></p>
+                </div>
+              <% else %>
+                <div class="card-bird-text">
+                  <p><strong><%=user.name.capitalize%></strong></p>
+                </div>
+              <% end %>
             </div>
           <% end %>
         <% end %>
